@@ -19,7 +19,7 @@
                <children>
                   <AnchorPane id="coinTossPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css">
                      <children>
-                        <Button fx:id="playCoinToss" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button fx:id="coinTossButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playCoinToss" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
@@ -27,7 +27,7 @@
                      </children></AnchorPane>
                   <AnchorPane id="diceRollPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" GridPane.columnIndex="1">
                      <children>
-                        <Button fx:id="playDiceRoll" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button fx:id="diceRollButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playDiceRoll" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
@@ -35,7 +35,7 @@
                      </children></AnchorPane>
                   <AnchorPane id="handGuessPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" GridPane.columnIndex="2">
                      <children>
-                        <Button fx:id="playHandGuess" focusTraversable="false" layoutX="29.0" layoutY="233.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button fx:id="handGuessButton" focusTraversable="false" layoutX="29.0" layoutY="233.0" mnemonicParsing="false" onAction="#playHandGuess" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
