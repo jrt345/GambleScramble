@@ -29,4 +29,14 @@ public class Controller {
     void playHandGuess(ActionEvent event) {
 
     }
+
+    @FXML
+    void openOptions(ActionEvent event) {
+
+    }
+
+    @FXML
+    void quitGame(ActionEvent event) {
+
+    }
 }

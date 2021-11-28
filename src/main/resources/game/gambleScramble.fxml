@@ -102,7 +102,7 @@
                            <children>
                               <AnchorPane>
                                  <children>
-                                    <Button focusTraversable="false" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Options" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                                    <Button focusTraversable="false" mnemonicParsing="false" onAction="#openOptions" prefHeight="50.0" prefWidth="250.0" text="Options" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
                                        <font>
                                           <Font name="Trebuchet MS Bold" size="27.0" />
                                        </font>
@@ -111,7 +111,7 @@
                               </AnchorPane>
                               <AnchorPane GridPane.columnIndex="1">
                                  <children>
-                                    <Button focusTraversable="false" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Quit Game" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="10.0">
+                                    <Button focusTraversable="false" mnemonicParsing="false" onAction="#quitGame" prefHeight="50.0" prefWidth="250.0" text="Quit Game" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="10.0">
                                        <font>
                                           <Font name="Trebuchet MS Bold" size="27.0" />
                                        </font>
