@@ -1,0 +1,27 @@
+#titlePane {
+    -fx-background-color: #DEE2E6;
+}
+
+#navBarPane {
+    -fx-background-color: #F8F9FA;
+}
+
+#coinTossPane {
+    -fx-background-color: #EF476F;
+}
+
+#diceRollPane {
+    -fx-background-color: #F78C6B;
+}
+
+#handGuessPane {
+    -fx-background-color: #FFD166;
+}
+
+#stopPane {
+    -fx-background-color: #F8F9FA;
+}
+
+#versionPane {
+    -fx-background-color: #DEE2E6;
+}

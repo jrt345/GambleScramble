@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
@@ -18,9 +17,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                  <AnchorPane id="coinTossPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" />
+                  <AnchorPane id="diceRollPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" GridPane.columnIndex="1" />
+                  <AnchorPane id="handGuessPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles.css" GridPane.columnIndex="2" />
                </children>
             </GridPane>
          </center>
@@ -36,7 +35,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane>
+                        <AnchorPane id="titlePane" stylesheets="@styles.css">
                            <children>
                               <Label alignment="CENTER" prefHeight="100.0" prefWidth="900.0" text="GambleScramble" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
@@ -45,7 +44,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="50.0" prefWidth="900.0" GridPane.rowIndex="1">
+                        <AnchorPane id="navBarPane" prefHeight="50.0" prefWidth="900.0" stylesheets="@styles.css" GridPane.rowIndex="1">
                            <children>
                               <Label layoutX="34.0" layoutY="7.0" prefHeight="50.0" prefWidth="900.0" text="Current balance: $" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
@@ -69,7 +68,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="50.0" prefWidth="900.0" GridPane.rowIndex="1">
+                  <AnchorPane id="stopPane" prefHeight="50.0" prefWidth="900.0" stylesheets="@styles.css" />
+                  <AnchorPane id="versionPane" prefHeight="50.0" prefWidth="900.0" stylesheets="@styles.css" GridPane.rowIndex="1">
                      <children>
                         <Label layoutY="7.0" prefHeight="50.0" prefWidth="890.0" text="GambleScramble 1.0 " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
