@@ -6,6 +6,17 @@ public class Player {
     Theme theme;
     Currency currency;
 
+    Player() {
+        this(100, 0, Theme.LIGHT, Currency.USD);
+    }
+
+    Player(int balance, int streak, Theme theme, Currency currency){
+        this.balance = balance;
+        this.streak = streak;
+        this.theme = theme;
+        this.currency = currency;
+    }
+
     public int getBalance() {
         return balance;
     }
