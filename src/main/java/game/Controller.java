@@ -3,8 +3,12 @@ package game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class Controller {
+
+    @FXML
+    private Label navBarLabel;
 
     @FXML
     private Button coinTossButton;
