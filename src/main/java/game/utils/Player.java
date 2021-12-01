@@ -4,4 +4,5 @@ public class Player {
     int balance;
     int streak;
     Theme theme;
+    Currency currency;
 }
