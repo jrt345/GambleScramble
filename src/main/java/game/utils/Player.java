@@ -1,6 +1,8 @@
 package game.utils;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
     int balance;
     int streak;
     Theme theme;

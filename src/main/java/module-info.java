@@ -5,4 +5,6 @@ module com.company.gamblescramble {
 
     opens game to javafx.fxml;
     exports game;
+    opens game.utils to javafx.fxml;
+    exports game.utils;
 }
