@@ -61,6 +61,6 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        navBarLabel.setText("Current balance: $");
+        navBarLabel.setText("Current balance: $" + getPlayer().getBalance());
     }
 }
