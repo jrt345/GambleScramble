@@ -31,7 +31,7 @@ public class Main extends Application {
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gambleScramble.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 900, 550);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 570);
         stage.setTitle("GambleScramble");
         stage.setScene(scene);
         stage.show();
