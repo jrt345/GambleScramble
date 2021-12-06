@@ -15,8 +15,8 @@
                         <Font name="Trebuchet MS Bold" size="49.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="367.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="385.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="385.0" AnchorPane.topAnchor="5.0" />
+                  <ImageView fx:id="gameImage2" fitHeight="60.0" fitWidth="60.0" layoutX="367.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="385.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                  <ImageView fx:id="gameImage1" fitHeight="60.0" fitWidth="60.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="385.0" AnchorPane.topAnchor="5.0" />
                </children>
             </AnchorPane>
          </top>
