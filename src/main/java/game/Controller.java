@@ -1,13 +1,16 @@
 package game;
 
 import game.games.CoinToss;
+import game.utils.GameData;
 import game.utils.Player;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -56,8 +59,9 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void quitGame(ActionEvent event) {
-
+    void quitGame(ActionEvent event) throws IOException {
+        GameData.serialize();
+        Platform.exit();
     }
 
     @Override

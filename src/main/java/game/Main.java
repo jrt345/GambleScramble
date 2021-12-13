@@ -36,6 +36,14 @@ public class Main extends Application {
         stage.setTitle("GambleScramble");
         stage.setScene(scene);
         stage.show();
+
+        stage.setOnCloseRequest(e -> {
+            try {
+                GameData.serialize();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
     }
 
     public static void main(String[] args) {
