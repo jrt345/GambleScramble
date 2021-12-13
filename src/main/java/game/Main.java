@@ -17,7 +17,7 @@ public class Main extends Application {
 
         boolean isUserDataCreated = new File(GameData.userDataDir).exists();
 
-        if (!isUserDataCreated){
+        if (!isUserDataCreated || !(new File(GameData.userDataDir.concat("player.dat")).exists())){
             isUserDataCreated = new File(GameData.userDataDir).mkdirs();
             Controller.setPlayer(new Player());
             GameData.serialize();
