@@ -1,5 +1,6 @@
 package game;
 
+import game.games.CoinToss;
 import game.utils.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,12 +15,12 @@ public class Controller implements Initializable {
 
     private static Player player;
 
-    public static void setPlayer(Player player){
-        Controller.player = player;
-    }
-
     public static Player getPlayer(){
         return player;
+    }
+
+    public static void setPlayer(Player player){
+        Controller.player = player;
     }
 
     @FXML
@@ -36,7 +37,7 @@ public class Controller implements Initializable {
 
     @FXML
     void playCoinToss(ActionEvent event) {
-
+        new CoinToss();
     }
 
     @FXML
@@ -61,6 +62,10 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Button[] buttons = {coinTossButton, diceRollButton, handGuessButton};
+
         navBarLabel.setText("Current balance: $" + getPlayer().getBalance());
+        GameController.setNavBarLabel(navBarLabel);
+        GameController.setButtons(buttons);
     }
 }

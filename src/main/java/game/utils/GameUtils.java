@@ -53,6 +53,52 @@ public class GameUtils {
         Controller.getPlayer().setBalance(Controller.getPlayer().getBalance() + outcome);
     }
 
+    public static Image imageSetter(String[] options, String computerOption, Image[] images){
+        Image image = null;
+        for (int i = 0;i < options.length;i++){
+            if (computerOption.equals(options[i])){
+                image = images[i];
+            }
+        }
+        return image;
+    }
+
+    private static String computerOptionIntroSetter(Game game, String computerOption){
+        String computerOptionIntro = null;
+        switch (game){
+            case COINTOSS -> computerOptionIntro = "Just got " + computerOption + ". ";
+            case DICEROLL -> computerOptionIntro = "Just rolled a " + computerOption + ". ";
+            case HANDGUESS -> {
+                if (computerOption.equals("0")){
+                    computerOptionIntro = "I have no fingers up. ";
+                } else if (computerOption.equals("1")){
+                    computerOptionIntro = "I have " + computerOption + " finger up. ";
+                } else {
+                    computerOptionIntro = "I have " + computerOption + " fingers up. ";
+                }
+            }
+        }
+        return computerOptionIntro;
+    }
+
+    private static String statusSetter(boolean win, int outcome){
+        String status;
+        if (!win){
+            status = "You lose! You lost: -"
+                    + Controller.getPlayer().getCurrency().getSymbol()
+                    + outcome*-1;
+        } else {
+            status = "You win! You won: +"
+                    + Controller.getPlayer().getCurrency().getSymbol()
+                    + outcome;
+        }
+        return status;
+    }
+
+    public static String outcomeSetter(Game game, String computerOption, boolean win, int outcome){
+        return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
+    }
+
     public static void gameOutcome(String game, String result, Image image) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, result);
         alert.setTitle("Results");
@@ -61,5 +107,9 @@ public class GameUtils {
         alert.setGraphic(new ImageView(image));
 
         alert.showAndWait();
+    }
+
+    public static boolean isPlayerBankrupt(){
+        return Controller.getPlayer().getBalance() <= 0;
     }
 }
