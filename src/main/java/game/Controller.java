@@ -1,6 +1,8 @@
 package game;
 
 import game.games.CoinToss;
+import game.games.DiceRoll;
+import game.games.HandGuess;
 import game.utils.GameData;
 import game.utils.Player;
 import javafx.application.Platform;
@@ -45,12 +47,12 @@ public class Controller implements Initializable {
 
     @FXML
     void playDiceRoll(ActionEvent event) {
-
+        new DiceRoll();
     }
 
     @FXML
     void playHandGuess(ActionEvent event) {
-
+        new HandGuess();
     }
 
     @FXML
