@@ -64,8 +64,8 @@ public class GameController {
     private void runGame(Game game, int bet){
         switch (game) {
             case COINTOSS -> new CoinToss(bet, gameChoices.getValue());
-            case DICEROLL -> new DiceRoll();
-            case HANDGUESS -> new HandGuess();
+            case DICEROLL -> new DiceRoll(bet, gameChoices.getValue());
+            case HANDGUESS -> new HandGuess(bet, gameChoices.getValue());
         }
         navBarLabel.setText("Current balance: $" + Controller.getPlayer().getBalance());
     }
@@ -109,6 +109,12 @@ public class GameController {
         Image coinToss = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/cointoss.png")),
                 60, 60, true, true);
 
+        Image diceRoll = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/diceroll.png")),
+                60, 60, true, true);
+
+        Image handGuess = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png")),
+                60, 60, true, true);
+
         if (GameController.game == Game.COINTOSS){
             gameTitle.setText("CoinToss");
             gameDetails.setText("Odds: 1:2, Payout: 2x");
@@ -126,6 +132,8 @@ public class GameController {
             gameTitle.setText("DiceRoll");
             gameDetails.setText("Odds: 1:6, Payout: 5x");
             gameChoicesLabel.setText("Choose a number between 1-6");
+            gameImage1.setImage(diceRoll);
+            gameImage2.setImage(diceRoll);
             betInputWarning.setText("");
 
             gameChoices.getItems().add("1");
@@ -142,6 +150,8 @@ public class GameController {
             gameTitle.setText("HandGuess");
             gameDetails.setText("Odds: 1:11, Payout: 10x");
             gameChoicesLabel.setText("Choose a number between 0-10");
+            gameImage1.setImage(handGuess);
+            gameImage2.setImage(handGuess);
             betInputWarning.setText("");
 
             gameChoices.getItems().add("0");
