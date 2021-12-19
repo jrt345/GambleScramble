@@ -1,6 +1,7 @@
 package game.games;
 
 import game.Main;
+import game.utils.GameData;
 import game.utils.GameUtils;
 import javafx.scene.image.Image;
 
@@ -20,11 +21,13 @@ public class DiceRoll {
         }
     }
 
-    public DiceRoll(int bet, String userOption) {
+    public DiceRoll(int bet, String userOption) throws IOException {
         String[] options = {"1", "2", "3", "4", "5", "6"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 5);
 
         int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 5);
+        GameUtils.updateBalance(outcome);
+        GameData.serialize();
 
         Image[] images = {
                 new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/diceroll/dice1.png")),
@@ -50,7 +53,5 @@ public class DiceRoll {
             GameUtils.gameOutcome("DiceRoll",
                     GameUtils.outcomeSetter(Game.DICEROLL, computerOption, false, outcome), image);
         }
-
-        GameUtils.updateBalance(outcome);
     }
 }

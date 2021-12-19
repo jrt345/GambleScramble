@@ -29,6 +29,10 @@ public class Main extends Application {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+            if (Controller.getPlayer().getBalance() <= 0){
+                Controller.getPlayer().setBalance(100);
+                GameData.serialize();
+            }
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gambleScramble.fxml"));

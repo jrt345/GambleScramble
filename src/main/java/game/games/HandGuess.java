@@ -1,6 +1,7 @@
 package game.games;
 
 import game.Main;
+import game.utils.GameData;
 import game.utils.GameUtils;
 import javafx.scene.image.Image;
 
@@ -20,11 +21,13 @@ public class HandGuess {
         }
     }
 
-    public HandGuess(int bet, String userOption) {
+    public HandGuess(int bet, String userOption) throws IOException {
         String[] options = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 10);
 
         int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 10);
+        GameUtils.updateBalance(outcome);
+        GameData.serialize();
 
         Image[] images = {
                 new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand0.png")),
@@ -60,7 +63,5 @@ public class HandGuess {
             GameUtils.gameOutcome("HandGuess",
                     GameUtils.outcomeSetter(Game.HANDGUESS, computerOption, false, outcome), image);
         }
-
-        GameUtils.updateBalance(outcome);
     }
 }

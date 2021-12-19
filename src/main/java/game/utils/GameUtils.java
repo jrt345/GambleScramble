@@ -43,7 +43,7 @@ public class GameUtils {
 
     public static int getOutcome(String userOption, String computerOption, int bet, int multiplier) {
         if (userOption.equals(computerOption)){
-            return bet*multiplier;
+            return ((bet*multiplier)-bet);
         } else {
             return bet*-1;
         }

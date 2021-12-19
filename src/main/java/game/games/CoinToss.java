@@ -1,6 +1,7 @@
 package game.games;
 
 import game.Main;
+import game.utils.GameData;
 import game.utils.GameUtils;
 import javafx.scene.image.Image;
 
@@ -21,11 +22,13 @@ public class CoinToss {
         }
     }
 
-    public CoinToss(int bet, String userOption) {
+    public CoinToss(int bet, String userOption) throws IOException {
         String[] options = {"Heads", "Tails"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 1);
 
         int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 2);
+        GameUtils.updateBalance(outcome);
+        GameData.serialize();
 
         Image[] images = {
                 new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/cointoss/heads.png")),
@@ -43,7 +46,5 @@ public class CoinToss {
             GameUtils.gameOutcome("CoinToss",
                     GameUtils.outcomeSetter(Game.COINTOSS, computerOption, false, outcome), image);
         }
-
-        GameUtils.updateBalance(outcome);
     }
 }

@@ -8,10 +8,7 @@ import game.utils.GameData;
 import game.utils.GameUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -61,7 +58,7 @@ public class GameController {
     @FXML
     private Button placeBetButton;
 
-    private void runGame(Game game, int bet){
+    private void runGame(Game game, int bet) throws IOException {
         switch (game) {
             case COINTOSS -> new CoinToss(bet, gameChoices.getValue());
             case DICEROLL -> new DiceRoll(bet, gameChoices.getValue());
@@ -98,6 +95,11 @@ public class GameController {
             for (Button button : buttons) {
                 button.setDisable(true);
             }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "To play again, exit the game and re-open the game.");
+            alert.setTitle("Bankruptcy Notice");
+            alert.setHeaderText("You are bankrupt!");
+
+            alert.showAndWait();
         }
 
         GameData.serialize();
