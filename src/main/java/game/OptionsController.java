@@ -27,13 +27,13 @@ public class OptionsController implements Initializable {
     private Button applyButton;
 
     @FXML
-    private ChoiceBox<?> themes;
+    private ChoiceBox<String> themes;
 
     @FXML
-    private ChoiceBox<?> currencyBoxExchange;
+    private ChoiceBox<String> currencyBoxExchange;
 
     @FXML
-    private ChoiceBox<?> currencyBoxUser;
+    private ChoiceBox<String> currencyBoxUser;
 
     @FXML
     private Button convertButton;
@@ -86,6 +86,10 @@ public class OptionsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        themes.getItems().add("Light");
+        themes.getItems().add("Dark");
+        themes.getItems().add("Minimal (Light)");
+        themes.getItems().add("Minimal (Dark)");
+        themes.setValue(Controller.getPlayer().getTheme().getString());
     }
 }

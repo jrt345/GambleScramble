@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class AboutBoxController {
+
     @FXML
     private Button okButton;
 
