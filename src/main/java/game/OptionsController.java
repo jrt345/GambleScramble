@@ -63,8 +63,10 @@ public class OptionsController implements Initializable {
     }
 
     @FXML
-    void openGitHubPage(ActionEvent event) {
-
+    void openGitHubPage(ActionEvent event) throws IOException {
+        Runtime rt = Runtime.getRuntime();
+        String url = "https://github.com/jrt345/GambleScramble";
+        rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
     }
 
     @FXML
