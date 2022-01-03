@@ -11,7 +11,7 @@ public class AboutBoxController {
     private Button okButton;
 
     @FXML
-    void closeAboutBox(ActionEvent event) {
+    private void closeAboutBox(ActionEvent event) {
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
     }

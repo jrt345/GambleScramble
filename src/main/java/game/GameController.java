@@ -64,7 +64,8 @@ public class GameController {
             case DICEROLL -> new DiceRoll(bet, gameChoices.getValue());
             case HANDGUESS -> new HandGuess(bet, gameChoices.getValue());
         }
-        navBarLabel.setText("Current balance: $" + Controller.getPlayer().getBalance());
+        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
+                Controller.getPlayer().getBalance());
     }
 
     @FXML

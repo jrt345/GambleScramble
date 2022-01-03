@@ -66,6 +66,7 @@ public class Controller implements Initializable {
         Parent root = fxmlLoader.load();
 
         OptionsController controller = fxmlLoader.getController();
+        controller.setNavBarLabel(navBarLabel);
 
         Stage stage = new Stage();
         stage.setTitle("Options");
@@ -85,7 +86,8 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Button[] buttons = {coinTossButton, diceRollButton, handGuessButton};
 
-        navBarLabel.setText("Current balance: $" + getPlayer().getBalance());
+        navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +
+                getPlayer().getBalance());
         GameController.setNavBarLabel(navBarLabel);
         GameController.setButtons(buttons);
     }
