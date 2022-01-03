@@ -2,9 +2,13 @@ package game;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -46,8 +50,16 @@ public class OptionsController implements Initializable {
     }
 
     @FXML
-    void openAboutBox(ActionEvent event) {
+    void openAboutBox(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("aboutBox.fxml"));
+        Parent root = fxmlLoader.load();
 
+        Stage stage = new Stage();
+        stage.setTitle("About GambleScramble");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(new Scene(root, 500, 400));
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML
