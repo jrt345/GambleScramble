@@ -2,6 +2,8 @@ package game;
 
 import game.utils.Currency;
 import game.utils.CurrencyConverter;
+import game.utils.GameData;
+import game.utils.GameUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +50,7 @@ public class OptionsController implements Initializable {
 
 
     @FXML
-    private void convertCurrency(ActionEvent event) {
+    private void convertCurrency(ActionEvent event) throws IOException {
         int balance = Controller.getPlayer().getBalance();
         Currency currentCurrency = CurrencyConverter.stringToCurrency(currencyBoxUser.getValue());
         Currency selectedCurrency = CurrencyConverter.stringToCurrency(currencyBoxExchange.getValue());
@@ -71,6 +73,7 @@ public class OptionsController implements Initializable {
                     Controller.getPlayer().getBalance());
 
             updateCurrencyBoxes(false);
+            GameData.serialize();
         }
     }
 
@@ -145,6 +148,12 @@ public class OptionsController implements Initializable {
         themes.setValue(Controller.getPlayer().getTheme().getString());
 
         updateCurrencyBoxes(true);
+
+        if (GameUtils.isPlayerBankrupt()){
+            currencyBoxUser.setDisable(true);
+            currencyBoxExchange.setDisable(true);
+            convertButton.setDisable(true);
+        }
     }
 
 }
