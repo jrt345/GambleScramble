@@ -93,5 +93,24 @@ public class OptionsController implements Initializable {
         themes.getItems().add("Minimal (Light)");
         themes.getItems().add("Minimal (Dark)");
         themes.setValue(Controller.getPlayer().getTheme().getString());
+
+        currencyBoxUser.getItems().add("USD");
+        currencyBoxUser.getItems().add("EUR");
+        currencyBoxUser.getItems().add("GBP");
+        currencyBoxUser.getItems().add("AUD");
+        currencyBoxUser.getItems().add("CAD");
+        currencyBoxUser.getItems().add("NZD");
+        currencyBoxUser.setValue(Controller.getPlayer().getCurrency().toString());
+        currencyBoxUser.setDisable(true);
+
+        currencyBoxExchange.getItems().add("USD");
+        currencyBoxExchange.getItems().add("EUR");
+        currencyBoxExchange.getItems().add("GBP");
+        currencyBoxExchange.getItems().add("AUD");
+        currencyBoxExchange.getItems().add("CAD");
+        currencyBoxExchange.getItems().add("NZD");
+        currencyBoxExchange.getItems().remove(Controller.getPlayer()
+                .getCurrency().getIndex());
     }
+
 }
