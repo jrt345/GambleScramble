@@ -70,9 +70,9 @@
       </GridPane>
       <ButtonBar layoutY="260.0" prefHeight="40.0" prefWidth="500.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#setNewSettings" text="OK" />
-            <Button mnemonicParsing="false" onAction="#cancelSettings" text="Cancel" />
-            <Button mnemonicParsing="false" onAction="#applySettings" text="Apply" />
+          <Button fx:id="okButton" mnemonicParsing="false" onAction="#setNewSettings" text="OK" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelSettings" text="Cancel" />
+            <Button fx:id="applyButton" mnemonicParsing="false" onAction="#applySettings" text="Apply" />
         </buttons>
          <padding>
             <Insets right="10.0" />
