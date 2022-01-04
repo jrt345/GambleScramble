@@ -41,6 +41,7 @@ public class Main extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gambleScramble.fxml"));
         stage.setTitle("GambleScramble");
+        stage.setResizable(false);
         Scene scene = new Scene(fxmlLoader.load(), 900, 570);
         GameUtils.setSceneTheme(scene, true, Controller.getImageView());
         stage.setScene(scene);
