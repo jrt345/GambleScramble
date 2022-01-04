@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Controller">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Controller">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -17,7 +17,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="300.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <AnchorPane id="coinTossPane" prefHeight="300.0" prefWidth="200.0" stylesheets="@lighttheme.css">
+                  <AnchorPane id="coinTossPane" prefHeight="300.0" prefWidth="200.0">
                      <children>
                         <Button fx:id="coinTossButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playCoinToss" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
@@ -25,7 +25,7 @@
                            </font>
                         </Button>
                      </children></AnchorPane>
-                  <AnchorPane id="diceRollPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@lighttheme.css" GridPane.columnIndex="1">
+                  <AnchorPane id="diceRollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
                         <Button fx:id="diceRollButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playDiceRoll" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
@@ -33,7 +33,7 @@
                            </font>
                         </Button>
                      </children></AnchorPane>
-                  <AnchorPane id="handGuessPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@lighttheme.css" GridPane.columnIndex="2">
+                  <AnchorPane id="handGuessPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3;" GridPane.columnIndex="2">
                      <children>
                         <Button fx:id="handGuessButton" focusTraversable="false" layoutX="29.0" layoutY="233.0" mnemonicParsing="false" onAction="#playHandGuess" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
@@ -56,18 +56,18 @@
                       <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane id="titlePane" stylesheets="@lighttheme.css">
+                        <AnchorPane id="titlePane">
                            <children>
-                              <Label alignment="CENTER" prefHeight="100.0" prefWidth="900.0" text="GambleScramble" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label id="label" alignment="CENTER" prefHeight="100.0" prefWidth="900.0" text="GambleScramble" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Trebuchet MS Bold" size="75.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane id="navBarPane" prefHeight="50.0" prefWidth="900.0" stylesheets="@lighttheme.css" GridPane.rowIndex="1">
+                        <AnchorPane id="navBarPane" prefHeight="50.0" prefWidth="900.0" GridPane.rowIndex="1">
                            <children>
-                              <Label fx:id="navBarLabel" layoutX="34.0" layoutY="7.0" prefHeight="50.0" prefWidth="900.0" text="Current balance: $" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label id="label" fx:id="navBarLabel" layoutX="34.0" layoutY="7.0" prefHeight="50.0" prefWidth="900.0" text="Current balance: $" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Trebuchet MS Bold" size="30.0" />
                                  </font>
@@ -89,9 +89,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane id="stopPane" prefHeight="70.0" prefWidth="900.0" stylesheets="@lighttheme.css">
+                  <AnchorPane prefHeight="70.0" prefWidth="900.0">
                      <children>
-                        <GridPane prefHeight="70.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane id="stopPane" prefHeight="70.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="450.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="450.0" />
@@ -121,9 +121,9 @@
                            </children>
                         </GridPane>
                      </children></AnchorPane>
-                  <AnchorPane id="versionPane" prefHeight="50.0" prefWidth="900.0" stylesheets="@lighttheme.css" GridPane.rowIndex="1">
+                  <AnchorPane id="versionPane" prefHeight="50.0" prefWidth="900.0" GridPane.rowIndex="1">
                      <children>
-                        <Label layoutY="7.0" prefHeight="50.0" prefWidth="890.0" text="GambleScramble 1.0 " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" layoutY="7.0" prefHeight="50.0" prefWidth="890.0" text="GambleScramble 1.0 " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="32.0" />
                            </font>

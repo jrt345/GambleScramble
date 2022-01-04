@@ -1,27 +1,55 @@
+#background {
+    -fx-background-color: #1F1E1E;
+}
+
+#label {
+    -fx-text-fill: #FFFFFF;
+}
+
 #titlePane {
     -fx-background-color: #1F1E1E;
 }
 
 #navBarPane {
-    -fx-background-color: #40403A;
+    -fx-background-color: #2A2828;
 }
 
 #coinTossPane {
-    -fx-background-color: #B80003;
+    -fx-background-color: #2A2828;
 }
 
 #diceRollPane {
-    -fx-background-color: #C54A07;
+    -fx-background-color: #2A2828;
 }
 
 #handGuessPane {
-    -fx-background-color: #DDA303;
+    -fx-background-color: #2A2828;
 }
 
 #stopPane {
-    -fx-background-color: #40403A;
+    -fx-background-color: #2A2828;
 }
 
 #versionPane {
     -fx-background-color: #1F1E1E;
+}
+
+#aboutBoxBackground {
+    -fx-background-color: #1F1E1E;
+}
+
+#aboutBoxLabel {
+    -fx-text-fill: #FFFFFF;
+}
+
+#separator {
+    -fx-background-color: #000000;
+}
+
+#textArea {
+    -fx-text-fill: #FFFFFF;
+}
+
+#textArea .content{
+    -fx-background-color: #2A2828;
 }

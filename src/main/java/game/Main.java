@@ -1,6 +1,7 @@
 package game;
 
 import game.utils.GameData;
+import game.utils.GameUtils;
 import game.utils.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +40,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 900, 570);
         stage.setTitle("GambleScramble");
         stage.setScene(scene);
+        GameUtils.setSceneTheme(scene, true);
         stage.show();
 
         stage.setOnCloseRequest(e -> {

@@ -6,6 +6,7 @@ import game.games.Game;
 import game.games.HandGuess;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.Theme;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -96,6 +97,7 @@ public class GameController {
             for (Button button : buttons) {
                 button.setDisable(true);
             }
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "To play again, exit the game and re-open the game.");
             alert.setTitle("Bankruptcy Notice");
             alert.setHeaderText("You are bankrupt!");
@@ -116,6 +118,9 @@ public class GameController {
                 60, 60, true, true);
 
         Image handGuess = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png")),
+                60, 60, true, true);
+
+        Image handGuessV2 = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png")),
                 60, 60, true, true);
 
         if (GameController.game == Game.COINTOSS){
@@ -153,8 +158,15 @@ public class GameController {
             gameTitle.setText("HandGuess");
             gameDetails.setText("Odds: 1:11, Payout: 10x");
             gameChoicesLabel.setText("Choose a number between 0-10");
-            gameImage1.setImage(handGuess);
-            gameImage2.setImage(handGuess);
+
+            if (Controller.getPlayer().getTheme() == Theme.DARK){
+                gameImage1.setImage(handGuessV2);
+                gameImage2.setImage(handGuessV2);
+            } else {
+                gameImage1.setImage(handGuess);
+                gameImage2.setImage(handGuess);
+            }
+
             betInputWarning.setText("");
 
             gameChoices.getItems().add("0");

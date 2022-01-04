@@ -1,3 +1,11 @@
+#background {
+    -fx-background-color: #F8F9FA;
+}
+
+#label {
+    -fx-text-fill: #000000
+}
+
 #titlePane {
     -fx-background-color: #DEE2E6;
 }

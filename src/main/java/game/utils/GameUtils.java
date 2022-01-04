@@ -14,9 +14,30 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Random;
 
 public class GameUtils {
+    public static void setSceneTheme(Scene scene, boolean isInitial){
+        if (isInitial){
+            if (Controller.getPlayer().getTheme() == Theme.DARK){
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
+
+            } else {
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("lightTheme.css")).toExternalForm());
+            }
+        } else {
+            if (Controller.getPlayer().getTheme() == Theme.DARK){
+                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("lightTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
+
+            } else {
+                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("lightTheme.css")).toExternalForm());
+            }
+        }
+    }
+
     public static int getRandomNumber(int min, int max){
         Random random = new Random();
         return random.nextInt(max + 1 - min) + min;
@@ -32,7 +53,9 @@ public class GameUtils {
 
         stage.setTitle(title);
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(root, 450, 240));
+        Scene scene = new Scene(root, 450, 240);
+        GameUtils.setSceneTheme(scene, true);
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }

@@ -2,10 +2,10 @@ package game.utils;
 
 public class CurrencyConverter {
 
-    private double usdBalance;
-
     public static Currency stringToCurrency(String string){
+
         Currency currency = null;
+
         if (string.equals("USD")){
             currency = Currency.USD;
         }
@@ -24,6 +24,7 @@ public class CurrencyConverter {
         if (string.equals("NZD")){
             currency = Currency.NZD;
         }
+
         return currency;
     }
 
@@ -48,6 +49,7 @@ public class CurrencyConverter {
         if (currentBalance.equals(Currency.NZD)){
             usdBalance = balance/Currency.NZD.getRate();
         }
+
         return usdBalance;
     }
 
@@ -72,6 +74,7 @@ public class CurrencyConverter {
         if (selectedCurrency.equals(Currency.NZD)){
             newBalance = usdBalance*Currency.NZD.getRate();
         }
+
         return newBalance;
     }
 

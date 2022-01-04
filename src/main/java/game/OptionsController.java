@@ -1,9 +1,6 @@
 package game;
 
-import game.utils.Currency;
-import game.utils.CurrencyConverter;
-import game.utils.GameData;
-import game.utils.GameUtils;
+import game.utils.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +8,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -25,6 +25,12 @@ public class OptionsController implements Initializable {
 
     public void setNavBarLabel(Label navBarLabel){
         OptionsController.navBarLabel = navBarLabel;
+    }
+
+    private static Button[] buttons;
+
+    public static void setButtons(Button[] buttons) {
+        OptionsController.buttons = buttons;
     }
 
     @FXML
@@ -40,6 +46,9 @@ public class OptionsController implements Initializable {
     private ChoiceBox<String> themes;
 
     @FXML
+    private ImageView currencyImageView;
+
+    @FXML
     private ChoiceBox<String> currencyBoxExchange;
 
     @FXML
@@ -47,6 +56,7 @@ public class OptionsController implements Initializable {
 
     @FXML
     private Button convertButton;
+
 
 
     @FXML
@@ -90,7 +100,9 @@ public class OptionsController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("About GambleScramble");
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(root, 500, 400));
+        Scene scene = new Scene(root, 500, 400);
+        GameUtils.setSceneTheme(scene,true);
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
@@ -102,9 +114,33 @@ public class OptionsController implements Initializable {
         rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
     }
 
-    @FXML
-    private void applySettings(ActionEvent event) {
+    private void updateTheme(boolean isApply){
+        if (themes.getValue().equals("Light")){
+            Controller.getPlayer().setTheme(Theme.LIGHT);
+        }
+        if (themes.getValue().equals("Dark")){
+            Controller.getPlayer().setTheme(Theme.DARK);
+        }
 
+        if (isApply){
+            GameUtils.setSceneTheme(applyButton.getScene(), false);
+
+            if (Controller.getPlayer().getTheme() == Theme.DARK){
+                currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
+            } else {
+                currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows.png"))));
+
+            }
+        }
+
+        GameUtils.setSceneTheme(navBarLabel.getScene(), false);
+    }
+
+    @FXML
+    private void applySettings(ActionEvent event) throws IOException {
+        updateTheme(true);
+
+        GameData.serialize();
     }
 
     @FXML
@@ -114,9 +150,14 @@ public class OptionsController implements Initializable {
     }
 
     @FXML
-    private void setNewSettings(ActionEvent event) {
+    private void setNewSettings(ActionEvent event) throws IOException {
+        updateTheme(false);
+
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
+
+
+        GameData.serialize();
     }
 
     private void updateCurrencyBoxes(boolean isInitial){
@@ -143,8 +184,6 @@ public class OptionsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         themes.getItems().add("Light");
         themes.getItems().add("Dark");
-        themes.getItems().add("Minimal (Light)");
-        themes.getItems().add("Minimal (Dark)");
         themes.setValue(Controller.getPlayer().getTheme().getString());
 
         updateCurrencyBoxes(true);
@@ -154,6 +193,9 @@ public class OptionsController implements Initializable {
             currencyBoxExchange.setDisable(true);
             convertButton.setDisable(true);
         }
-    }
 
+        if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
+            currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
+        }
+    }
 }

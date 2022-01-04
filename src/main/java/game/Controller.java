@@ -4,6 +4,7 @@ import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.HandGuess;
 import game.utils.GameData;
+import game.utils.GameUtils;
 import game.utils.Player;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -45,6 +46,8 @@ public class Controller implements Initializable {
     @FXML
     private Button handGuessButton;
 
+    private final Button[] buttons = {coinTossButton, diceRollButton, handGuessButton};
+
     @FXML
     void playCoinToss(ActionEvent event) {
         new CoinToss();
@@ -65,13 +68,16 @@ public class Controller implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("options.fxml"));
         Parent root = fxmlLoader.load();
 
+        OptionsController.setButtons(buttons);
         OptionsController controller = fxmlLoader.getController();
         controller.setNavBarLabel(navBarLabel);
 
         Stage stage = new Stage();
         stage.setTitle("Options");
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(root, 500, 300));
+        Scene scene = new Scene(root, 500,300);
+        GameUtils.setSceneTheme(scene, true);
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
@@ -84,8 +90,6 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Button[] buttons = {coinTossButton, diceRollButton, handGuessButton};
-
         navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +
                 getPlayer().getBalance());
         GameController.setNavBarLabel(navBarLabel);

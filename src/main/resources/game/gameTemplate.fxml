@@ -4,13 +4,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane prefHeight="240.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.GameController">
+<AnchorPane id="background" prefHeight="240.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.GameController">
    <children>
       <BorderPane prefHeight="250.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="70.0" prefWidth="450.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="gameTitle" alignment="CENTER" prefHeight="70.0" prefWidth="450.0" text="GameTitle" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Label id="label" fx:id="gameTitle" alignment="CENTER" prefHeight="70.0" prefWidth="450.0" text="GameTitle" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="Trebuchet MS Bold" size="49.0" />
                      </font>
@@ -35,17 +35,17 @@
                <children>
                   <ChoiceBox fx:id="gameChoices" layoutX="11.0" layoutY="48.0" prefWidth="175.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="48.0" />
                   <TextField fx:id="betInput" layoutX="241.0" layoutY="48.0" prefWidth="175.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="48.0" />
-                  <Label alignment="CENTER" layoutX="193.0" layoutY="50.0" prefWidth="70.0" text="Enter bet:" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="48.0">
+                  <Label id="label" alignment="CENTER" layoutX="193.0" layoutY="50.0" prefWidth="70.0" text="Enter bet:" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="48.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gameChoicesLabel" layoutX="11.0" layoutY="23.0" text="Choose a number between 0-10" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="23.0">
+                  <Label id="label" fx:id="gameChoicesLabel" layoutX="11.0" layoutY="23.0" text="Choose a number between 0-10" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="23.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gameDetails" layoutX="324.0" layoutY="71.0" text="Odds: 1:11, Payout: 10x" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                  <Label id="label" fx:id="gameDetails" layoutX="324.0" layoutY="71.0" text="Odds: 1:11, Payout: 10x" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                   <Label fx:id="betInputWarning" layoutX="266.0" layoutY="32.0" prefHeight="17.0" prefWidth="173.0" text="Please enter a number" textFill="#ff3737" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="32.0">
                      <font>
                         <Font size="11.0" />
