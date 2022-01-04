@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -36,6 +37,15 @@ public class Controller implements Initializable {
 
     @FXML
     private Label navBarLabel;
+
+    @FXML
+    private ImageView handGuessImageView;
+
+    private static ImageView imageView;
+
+    public static ImageView getImageView() {
+        return imageView;
+    }
 
     @FXML
     private Button coinTossButton;
@@ -70,7 +80,7 @@ public class Controller implements Initializable {
         stage.setTitle("Options");
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 500,300);
-        GameUtils.setSceneTheme(scene, true);
+        GameUtils.setSceneTheme(scene, true, getImageView());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -84,6 +94,8 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        imageView = handGuessImageView;
+
         Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton};
 
         navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +

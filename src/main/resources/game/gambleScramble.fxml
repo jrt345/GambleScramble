@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Controller">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <GridPane prefHeight="300.0" BorderPane.alignment="CENTER">
+            <GridPane id="background" prefHeight="300.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -24,6 +25,15 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/cointoss.png" />
+                           </image></ImageView>
+                        <Label id="label" fx:id="navBarLabel1" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="CoinToss" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="35.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
                   <AnchorPane id="diceRollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
@@ -32,6 +42,15 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/diceroll.png" />
+                           </image></ImageView>
+                        <Label id="label" fx:id="navBarLabel11" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="DiceRoll" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="35.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
                   <AnchorPane id="handGuessPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3;" GridPane.columnIndex="2">
                      <children>
@@ -40,6 +59,15 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
+                        <ImageView fx:id="handGuessImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/handguess.png" />
+                           </image></ImageView>
+                        <Label id="label" fx:id="navBarLabel12" alignment="TOP_CENTER" layoutX="59.0" prefHeight="50.0" prefWidth="183.0" text="HandGuess" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="35.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
                </children>
             </GridPane>

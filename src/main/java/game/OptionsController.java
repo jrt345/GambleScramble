@@ -126,7 +126,7 @@ public class OptionsController implements Initializable {
         stage.setTitle("About GambleScramble");
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 500, 400);
-        GameUtils.setSceneTheme(scene,true);
+        GameUtils.setSceneTheme(scene,true, Controller.getImageView());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -148,7 +148,7 @@ public class OptionsController implements Initializable {
         }
 
         if (isApply){
-            GameUtils.setSceneTheme(applyButton.getScene(), false);
+            GameUtils.setSceneTheme(applyButton.getScene(), false, Controller.getImageView());
 
             if (Controller.getPlayer().getTheme() == Theme.DARK){
                 currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
@@ -158,7 +158,7 @@ public class OptionsController implements Initializable {
             }
         }
 
-        GameUtils.setSceneTheme(navBarLabel.getScene(), false);
+        GameUtils.setSceneTheme(navBarLabel.getScene(), false, Controller.getImageView());
     }
 
     @FXML
