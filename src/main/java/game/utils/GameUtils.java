@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -18,6 +19,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class GameUtils {
+
     public static void setSceneTheme(Scene scene, boolean isInitial){
         if (isInitial){
             if (Controller.getPlayer().getTheme() == Theme.DARK){
@@ -134,5 +136,17 @@ public class GameUtils {
 
     public static boolean isPlayerBankrupt(){
         return Controller.getPlayer().getBalance() <= 0;
+    }
+
+    public static void bankruptcyAlert(Button[] buttons){
+        for (Button button : buttons) {
+            button.setDisable(true);
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "To play again, exit the game and re-open the game.");
+        alert.setTitle("Bankruptcy Notice");
+        alert.setHeaderText("You are bankrupt!");
+
+        alert.showAndWait();
     }
 }

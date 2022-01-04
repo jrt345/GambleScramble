@@ -4,17 +4,15 @@ import java.io.Serializable;
 
 public class Player implements Serializable {
     int balance;
-    int streak;
     Theme theme;
     Currency currency;
 
     public Player() {
-        this(100, 0, Theme.LIGHT, Currency.USD);
+        this(100, Theme.LIGHT, Currency.USD);
     }
 
-    public Player(int balance, int streak, Theme theme, Currency currency){
+    public Player(int balance, Theme theme, Currency currency){
         this.balance = balance;
-        this.streak = streak;
         this.theme = theme;
         this.currency = currency;
     }
@@ -25,14 +23,6 @@ public class Player implements Serializable {
 
     public void setBalance(int balance) {
         this.balance = balance;
-    }
-
-    public int getStreak() {
-        return streak;
-    }
-
-    public void setStreak(int streak) {
-        this.streak = streak;
     }
 
     public Theme getTheme() {

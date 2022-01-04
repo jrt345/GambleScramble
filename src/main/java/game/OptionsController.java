@@ -1,6 +1,7 @@
 package game;
 
 import game.utils.*;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,7 @@ public class OptionsController implements Initializable {
 
     private static Label navBarLabel;
 
-    public void setNavBarLabel(Label navBarLabel){
+    public static void setNavBarLabel(Label navBarLabel){
         OptionsController.navBarLabel = navBarLabel;
     }
 
@@ -56,9 +57,7 @@ public class OptionsController implements Initializable {
 
     @FXML
     private Button convertButton;
-
-
-
+    
     @FXML
     private void convertCurrency(ActionEvent event) throws IOException {
         int balance = Controller.getPlayer().getBalance();
@@ -85,11 +84,37 @@ public class OptionsController implements Initializable {
             updateCurrencyBoxes(false);
             GameData.serialize();
         }
+
+        if (GameUtils.isPlayerBankrupt()){
+            currencyBoxUser.setDisable(true);
+            currencyBoxExchange.setDisable(true);
+            convertButton.setDisable(true);
+
+            GameUtils.bankruptcyAlert(buttons);
+        }
     }
 
     @FXML
-    private void deleteData(ActionEvent event) {
+    private void deleteData(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                "Your data will be deleted permanently!");
+        alert.setTitle("Confirm delete");
+        alert.setHeaderText("Are you sure you want to delete your data?");
 
+        ButtonType deleteButton = new ButtonType("Delete");
+
+        alert.getButtonTypes().set(1, deleteButton);
+        alert.getButtonTypes().set(0, ButtonType.CANCEL);
+
+        alert.getDialogPane().lookupButton(deleteButton).setFocusTraversable(false);
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get().equals(deleteButton)) {
+            Controller.setPlayer(new Player());
+            GameData.serialize();
+            Platform.exit();
+        }
     }
 
     @FXML
@@ -188,14 +213,18 @@ public class OptionsController implements Initializable {
 
         updateCurrencyBoxes(true);
 
+        if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
+            currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
+        }
+
         if (GameUtils.isPlayerBankrupt()){
             currencyBoxUser.setDisable(true);
             currencyBoxExchange.setDisable(true);
             convertButton.setDisable(true);
-        }
 
-        if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
-            currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
+            for (Button button : buttons) {
+                button.setDisable(true);
+            }
         }
     }
 }

@@ -3,7 +3,6 @@ package game.utils;
 public class CurrencyConverter {
 
     public static Currency stringToCurrency(String string){
-
         Currency currency = null;
 
         if (string.equals("USD")){

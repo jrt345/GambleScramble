@@ -9,7 +9,10 @@ import game.utils.GameUtils;
 import game.utils.Theme;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -81,8 +84,7 @@ public class GameController {
                 betInputWarning.setText("Your bet can't be zero");
             } else if (bet < 0){
                 betInputWarning.setText("Your bet can't be negative");
-            }
-            else {
+            } else {
                 runGame(game, bet);
             }
         } catch (NumberFormatException e) {
@@ -94,18 +96,18 @@ public class GameController {
             betInput.setDisable(true);
             placeBetButton.setDisable(true);
 
-            for (Button button : buttons) {
-                button.setDisable(true);
-            }
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "To play again, exit the game and re-open the game.");
-            alert.setTitle("Bankruptcy Notice");
-            alert.setHeaderText("You are bankrupt!");
-
-            alert.showAndWait();
+            GameUtils.bankruptcyAlert(buttons);
         }
 
         GameData.serialize();
+    }
+
+    private static void setNumericalGameChoices(ChoiceBox<String> choiceBox, int min, int max){
+
+        for (int i = min;i < max+1;i++){
+            choiceBox.getItems().add(Integer.toString(i));
+        }
+
     }
 
     public void setGame(Game game){
@@ -144,12 +146,7 @@ public class GameController {
             gameImage2.setImage(diceRoll);
             betInputWarning.setText("");
 
-            gameChoices.getItems().add("1");
-            gameChoices.getItems().add("2");
-            gameChoices.getItems().add("3");
-            gameChoices.getItems().add("4");
-            gameChoices.getItems().add("5");
-            gameChoices.getItems().add("6");
+            setNumericalGameChoices(gameChoices,1,6);
 
             gameChoices.setValue("1");
         }
@@ -169,17 +166,7 @@ public class GameController {
 
             betInputWarning.setText("");
 
-            gameChoices.getItems().add("0");
-            gameChoices.getItems().add("1");
-            gameChoices.getItems().add("2");
-            gameChoices.getItems().add("3");
-            gameChoices.getItems().add("4");
-            gameChoices.getItems().add("5");
-            gameChoices.getItems().add("6");
-            gameChoices.getItems().add("7");
-            gameChoices.getItems().add("8");
-            gameChoices.getItems().add("9");
-            gameChoices.getItems().add("10");
+            setNumericalGameChoices(gameChoices,0,10);
 
             gameChoices.setValue("0");
         }

@@ -46,31 +46,25 @@ public class Controller implements Initializable {
     @FXML
     private Button handGuessButton;
 
-    private final Button[] buttons = {coinTossButton, diceRollButton, handGuessButton};
-
     @FXML
-    void playCoinToss(ActionEvent event) {
+    private void playCoinToss(ActionEvent event) {
         new CoinToss();
     }
 
     @FXML
-    void playDiceRoll(ActionEvent event) {
+    private void playDiceRoll(ActionEvent event) {
         new DiceRoll();
     }
 
     @FXML
-    void playHandGuess(ActionEvent event) {
+    private void playHandGuess(ActionEvent event) {
         new HandGuess();
     }
 
     @FXML
-    void openOptions(ActionEvent event) throws IOException {
+    private void openOptions(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("options.fxml"));
         Parent root = fxmlLoader.load();
-
-        OptionsController.setButtons(buttons);
-        OptionsController controller = fxmlLoader.getController();
-        controller.setNavBarLabel(navBarLabel);
 
         Stage stage = new Stage();
         stage.setTitle("Options");
@@ -83,16 +77,21 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void quitGame(ActionEvent event) throws IOException {
+    private void quitGame(ActionEvent event) throws IOException {
         GameData.serialize();
         Platform.exit();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton};
+
         navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +
                 getPlayer().getBalance());
+
         GameController.setNavBarLabel(navBarLabel);
         GameController.setButtons(buttons);
+        OptionsController.setNavBarLabel(navBarLabel);
+        OptionsController.setButtons(buttons);
     }
 }
