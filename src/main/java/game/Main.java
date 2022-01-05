@@ -35,9 +35,15 @@ public class Main extends Application {
                 Controller.setPlayer(new Player());
                 GameData.serialize();
             }
-            if (Controller.getPlayer().getBalance() <= 0){
-                Controller.getPlayer().setCurrency(Currency.USD);
-                Controller.getPlayer().setBalance(100);
+
+            try {
+                if (Controller.getPlayer().getBalance() <= 0){
+                    Controller.getPlayer().setCurrency(Currency.USD);
+                    Controller.getPlayer().setBalance(100);
+                    GameData.serialize();
+                }
+            } catch (Exception e) {
+                Controller.setPlayer(new Player());
                 GameData.serialize();
             }
         }
