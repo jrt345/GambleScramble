@@ -1,5 +1,6 @@
-package game;
+package game.controllers;
 
+import game.Main;
 import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.Game;
@@ -102,15 +103,13 @@ public class GameController {
         GameData.serialize();
     }
 
-    private static void setNumericalGameChoices(ChoiceBox<String> choiceBox, int min, int max){
-
+    private static void setNumericalGameChoices(ChoiceBox<String> choiceBox, int min, int max) {
         for (int i = min;i < max+1;i++){
             choiceBox.getItems().add(Integer.toString(i));
         }
-
     }
 
-    public void setGame(Game game){
+    public void setGame(Game game) {
         GameController.game = game;
 
         Image coinToss = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/cointoss.png")),

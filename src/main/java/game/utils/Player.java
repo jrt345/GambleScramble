@@ -11,7 +11,7 @@ public class Player implements Serializable {
         this(100, Theme.LIGHT, Currency.USD);
     }
 
-    public Player(int balance, Theme theme, Currency currency){
+    public Player(int balance, Theme theme, Currency currency) {
         this.balance = balance;
         this.theme = theme;
         this.currency = currency;

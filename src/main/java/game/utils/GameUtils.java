@@ -1,8 +1,8 @@
 package game.utils;
 
-import game.Controller;
-import game.GameController;
 import game.Main;
+import game.controllers.Controller;
+import game.controllers.GameController;
 import game.games.Game;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,9 +20,9 @@ import java.util.Random;
 
 public class GameUtils {
 
-    public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView){
+    public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
         if (isInitial){
-            if (Controller.getPlayer().getTheme() == Theme.DARK){
+            if (Controller.getPlayer().getTheme() == Theme.DARK) {
                 scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
                 imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
             } else {
@@ -30,7 +30,7 @@ public class GameUtils {
                 imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         } else {
-            if (Controller.getPlayer().getTheme() == Theme.DARK){
+            if (Controller.getPlayer().getTheme() == Theme.DARK) {
                 scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("lightTheme.css")).toExternalForm());
                 scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
                 imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
@@ -42,7 +42,7 @@ public class GameUtils {
         }
     }
 
-    public static int getRandomNumber(int min, int max){
+    public static int getRandomNumber(int min, int max) {
         Random random = new Random();
         return random.nextInt(max + 1 - min) + min;
     }
@@ -69,18 +69,18 @@ public class GameUtils {
     }
 
     public static int getOutcome(String userOption, String computerOption, int bet, int multiplier) {
-        if (userOption.equals(computerOption)){
+        if (userOption.equals(computerOption)) {
             return ((bet*multiplier)-bet);
         } else {
             return bet*-1;
         }
     }
 
-    public static void updateBalance(int outcome){
+    public static void updateBalance(int outcome) {
         Controller.getPlayer().setBalance(Controller.getPlayer().getBalance() + outcome);
     }
 
-    public static Image imageSetter(String[] options, String computerOption, Image[] images){
+    public static Image imageSetter(String[] options, String computerOption, Image[] images) {
         Image image = null;
         for (int i = 0;i < options.length;i++){
             if (computerOption.equals(options[i])){
@@ -90,15 +90,15 @@ public class GameUtils {
         return image;
     }
 
-    private static String computerOptionIntroSetter(Game game, String computerOption){
+    private static String computerOptionIntroSetter(Game game, String computerOption) {
         String computerOptionIntro = null;
         switch (game){
             case COINTOSS -> computerOptionIntro = "Just got " + computerOption + ". ";
             case DICEROLL -> computerOptionIntro = "Just rolled a " + computerOption + ". ";
             case HANDGUESS -> {
-                if (computerOption.equals("0")){
+                if (computerOption.equals("0")) {
                     computerOptionIntro = "I have no fingers up. ";
-                } else if (computerOption.equals("1")){
+                } else if (computerOption.equals("1")) {
                     computerOptionIntro = "I have " + computerOption + " finger up. ";
                 } else {
                     computerOptionIntro = "I have " + computerOption + " fingers up. ";
@@ -108,7 +108,7 @@ public class GameUtils {
         return computerOptionIntro;
     }
 
-    private static String statusSetter(boolean win, int outcome){
+    private static String statusSetter(boolean win, int outcome) {
         String status;
         if (!win){
             status = "You lose! You lost: -"
@@ -122,7 +122,7 @@ public class GameUtils {
         return status;
     }
 
-    public static String outcomeSetter(Game game, String computerOption, boolean win, int outcome){
+    public static String outcomeSetter(Game game, String computerOption, boolean win, int outcome) {
         return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
     }
 
@@ -136,11 +136,11 @@ public class GameUtils {
         alert.showAndWait();
     }
 
-    public static boolean isPlayerBankrupt(){
+    public static boolean isPlayerBankrupt() {
         return Controller.getPlayer().getBalance() <= 0;
     }
 
-    public static void bankruptcyAlert(Button[] buttons){
+    public static void bankruptcyAlert(Button[] buttons) {
         for (Button button : buttons) {
             button.setDisable(true);
         }

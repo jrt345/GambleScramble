@@ -9,4 +9,6 @@ module com.company.gamblescramble {
     exports game.utils;
     opens game.games to javafx.fxml;
     exports game.games;
+    exports game.controllers;
+    opens game.controllers to javafx.fxml;
 }

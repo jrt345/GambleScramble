@@ -1,5 +1,6 @@
 package game;
 
+import game.controllers.Controller;
 import game.utils.Currency;
 import game.utils.GameData;
 import game.utils.GameUtils;

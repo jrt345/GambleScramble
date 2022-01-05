@@ -46,7 +46,7 @@ public class DiceRoll {
 
         Image image = GameUtils.imageSetter(options, computerOption, images);
 
-        if (userOption.equals(computerOption)){
+        if (userOption.equals(computerOption)) {
             GameUtils.gameOutcome("DiceRoll",
                     GameUtils.outcomeSetter(Game.DICEROLL, computerOption, true, outcome), image);
         } else {

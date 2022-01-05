@@ -1,5 +1,6 @@
-package game;
+package game.controllers;
 
+import game.Main;
 import game.utils.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -24,7 +25,7 @@ public class OptionsController implements Initializable {
 
     private static Label navBarLabel;
 
-    public static void setNavBarLabel(Label navBarLabel){
+    public static void setNavBarLabel(Label navBarLabel) {
         OptionsController.navBarLabel = navBarLabel;
     }
 
@@ -75,7 +76,7 @@ public class OptionsController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.isPresent() && result.get().equals(ButtonType.OK)) {
+        if (result.isPresent() && result.get().equals(ButtonType.OK)){
             Controller.getPlayer().setCurrency(selectedCurrency);
             Controller.getPlayer().setBalance(newBalance);
             navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
@@ -110,7 +111,7 @@ public class OptionsController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
 
-        if (result.isPresent() && result.get().equals(deleteButton)) {
+        if (result.isPresent() && result.get().equals(deleteButton)){
             Controller.setPlayer(new Player());
             GameData.serialize();
             Platform.exit();
@@ -150,11 +151,10 @@ public class OptionsController implements Initializable {
         if (isApply){
             GameUtils.setSceneTheme(applyButton.getScene(), false, Controller.getImageView());
 
-            if (Controller.getPlayer().getTheme() == Theme.DARK){
+            if (Controller.getPlayer().getTheme() == Theme.DARK) {
                 currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
             } else {
                 currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows.png"))));
-
             }
         }
 
@@ -180,7 +180,6 @@ public class OptionsController implements Initializable {
 
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
-
 
         GameData.serialize();
     }

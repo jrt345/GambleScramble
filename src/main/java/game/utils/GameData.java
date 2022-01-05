@@ -1,6 +1,6 @@
 package game.utils;
 
-import game.Controller;
+import game.controllers.Controller;
 
 import java.io.*;
 

@@ -56,7 +56,7 @@ public class HandGuess {
 
         Image image = GameUtils.imageSetter(options, computerOption, images);
 
-        if (userOption.equals(computerOption)){
+        if (userOption.equals(computerOption)) {
             GameUtils.gameOutcome("HandGuess",
                     GameUtils.outcomeSetter(Game.HANDGUESS, computerOption, true, outcome), image);
         } else {

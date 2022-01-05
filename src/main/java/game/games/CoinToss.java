@@ -39,7 +39,7 @@ public class CoinToss {
 
         Image image = GameUtils.imageSetter(options, computerOption, images);
 
-        if (userOption.equals(computerOption)){
+        if (userOption.equals(computerOption)) {
             GameUtils.gameOutcome("CoinToss",
                     GameUtils.outcomeSetter(Game.COINTOSS, computerOption, true, outcome), image);
         } else {

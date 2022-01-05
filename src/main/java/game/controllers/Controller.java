@@ -1,5 +1,6 @@
-package game;
+package game.controllers;
 
+import game.Main;
 import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.HandGuess;

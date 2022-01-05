@@ -4,7 +4,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane id="background" prefHeight="240.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.GameController">
+<AnchorPane id="background" prefHeight="240.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.GameController">
    <children>
       <BorderPane prefHeight="250.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -23,7 +23,7 @@
          <bottom>
             <AnchorPane prefHeight="70.0" prefWidth="450.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="placeBetButton" focusTraversable="false" layoutX="98.0" layoutY="9.0" mnemonicParsing="false" onAction="#placeBet" prefHeight="50.0" prefWidth="250.0" text="Place bet" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0">
+                  <Button fx:id="placeBetButton" defaultButton="true" focusTraversable="false" layoutX="98.0" layoutY="9.0" mnemonicParsing="false" onAction="#placeBet" prefHeight="50.0" prefWidth="250.0" text="Place bet" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="Trebuchet MS Bold" size="27.0" />
                      </font>
