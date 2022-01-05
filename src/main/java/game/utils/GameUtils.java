@@ -23,20 +23,20 @@ public class GameUtils {
     public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
         if (isInitial){
             if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/darkTheme.css")).toExternalForm());
                 imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
             } else {
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("lightTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/lightTheme.css")).toExternalForm());
                 imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         } else {
             if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("lightTheme.css")).toExternalForm());
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
+                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("themes/lightTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/darkTheme.css")).toExternalForm());
                 imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
             } else {
-                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("darkTheme.css")).toExternalForm());
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("lightTheme.css")).toExternalForm());
+                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("themes/darkTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/lightTheme.css")).toExternalForm());
                 imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         }
