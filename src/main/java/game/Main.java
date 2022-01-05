@@ -8,10 +8,12 @@ import game.utils.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -46,6 +48,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 900, 570);
         GameUtils.setSceneTheme(scene, true, Controller.getImageView());
         stage.setScene(scene);
+        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
 
         stage.setOnCloseRequest(e -> {

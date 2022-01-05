@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <AnchorPane id="aboutBoxBackground" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.AboutBoxController">
@@ -10,11 +12,16 @@
          <top>
             <AnchorPane id="aboutBoxBackground" prefHeight="75.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label id="aboutBoxLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="9.0" prefHeight="58.0" prefWidth="392.0" text="GambleScramble" textAlignment="CENTER" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="9.0">
+                  <Label id="aboutBoxLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="4.0" prefHeight="64.0" prefWidth="383.0" text="GambleScramble" textAlignment="CENTER" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="5.0">
                      <font>
-                        <Font name="Trebuchet MS Bold" size="50.0" />
+                        <Font name="Trebuchet MS Bold" size="49.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="63.0" fitWidth="63.0" layoutX="38.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="6.0">
+                     <image>
+                        <Image url="@images/gamblescramble/gamblescramble.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </top>

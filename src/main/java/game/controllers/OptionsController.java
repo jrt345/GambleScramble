@@ -130,6 +130,7 @@ public class OptionsController implements Initializable {
         GameUtils.setSceneTheme(scene,true, Controller.getImageView());
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
     }
 
