@@ -3,9 +3,9 @@ package game.utils;
 import java.io.Serializable;
 
 public class Player implements Serializable {
-    int balance;
-    Theme theme;
-    Currency currency;
+    private int balance;
+    private Theme theme;
+    private Currency currency;
 
     public Player() {
         this(100, Theme.LIGHT, Currency.USD);
