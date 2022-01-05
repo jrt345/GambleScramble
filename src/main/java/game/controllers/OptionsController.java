@@ -126,7 +126,7 @@ public class OptionsController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("About GambleScramble");
         stage.initModality(Modality.APPLICATION_MODAL);
-        Scene scene = new Scene(root, 500, 400);
+        Scene scene = new Scene(root, 500, 350);
         GameUtils.setSceneTheme(scene,true, Controller.getImageView());
         stage.setScene(scene);
         stage.setResizable(false);
