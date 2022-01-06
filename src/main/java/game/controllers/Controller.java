@@ -105,9 +105,7 @@ public class Controller implements Initializable {
         navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +
                 getPlayer().getBalance());
 
-        GameController.setNavBarLabel(navBarLabel);
-        GameController.setButtons(buttons);
-        OptionsController.setNavBarLabel(navBarLabel);
-        OptionsController.setButtons(buttons);
+        GameUtils.setNavBarLabel(navBarLabel);
+        GameUtils.setButtons(buttons);
     }
 }

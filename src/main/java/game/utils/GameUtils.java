@@ -21,6 +21,26 @@ import java.util.Random;
 
 public class GameUtils {
 
+    private static Label navBarLabel;
+
+    public static Label getNavBarLabel() {
+        return navBarLabel;
+    }
+
+    public static void setNavBarLabel(Label navBarLabel) {
+        GameUtils.navBarLabel = navBarLabel;
+    }
+
+    private static Button[] buttons;
+
+    public static Button[] getButtons() {
+        return buttons;
+    }
+
+    public static void setButtons(Button[] buttons) {
+        GameUtils.buttons = buttons;
+    }
+
     public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
         String lightTheme = App.getCssLocations()[0];
         String darkTheme = App.getCssLocations()[1];
@@ -44,6 +64,11 @@ public class GameUtils {
                 imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         }
+    }
+
+    public static void refreshNavBarLabel() {
+        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
+                Controller.getPlayer().getBalance());
     }
 
     public static int getRandomNumber(int min, int max) {

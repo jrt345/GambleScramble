@@ -24,18 +24,6 @@ public class GameController {
 
     private static Game game;
 
-    private static Label navBarLabel;
-
-    public static void setNavBarLabel(Label navBarLabel) {
-        GameController.navBarLabel = navBarLabel;
-    }
-
-    private static Button[] buttons;
-
-    public static void setButtons(Button[] buttons) {
-        GameController.buttons = buttons;
-    }
-
     @FXML
     private Label gameTitle;
 
@@ -67,8 +55,7 @@ public class GameController {
         GameUtils.updateBalance(-bet);
         GameData.serialize();
 
-        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
-                (Controller.getPlayer().getBalance()));
+        GameUtils.refreshNavBarLabel();
 
         switch (game) {
             case COINTOSS -> new CoinToss(bet, gameChoices.getValue());
@@ -76,8 +63,7 @@ public class GameController {
             case HANDGUESS -> new HandGuess(bet, gameChoices.getValue());
         }
 
-        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
-                Controller.getPlayer().getBalance());
+        GameUtils.refreshNavBarLabel();
     }
 
     @FXML
@@ -104,7 +90,7 @@ public class GameController {
             betInput.setDisable(true);
             placeBetButton.setDisable(true);
 
-            GameUtils.bankruptcyAlert(buttons, navBarLabel);
+            GameUtils.bankruptcyAlert(GameUtils.getButtons(), GameUtils.getNavBarLabel());
         }
 
         GameData.serialize();

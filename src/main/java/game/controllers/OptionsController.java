@@ -9,7 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -22,18 +25,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class OptionsController implements Initializable {
-
-    private static Label navBarLabel;
-
-    public static void setNavBarLabel(Label navBarLabel) {
-        OptionsController.navBarLabel = navBarLabel;
-    }
-
-    private static Button[] buttons;
-
-    public static void setButtons(Button[] buttons) {
-        OptionsController.buttons = buttons;
-    }
 
     @FXML
     private Button okButton;
@@ -79,8 +70,7 @@ public class OptionsController implements Initializable {
         if (result.isPresent() && result.get().equals(ButtonType.OK)){
             Controller.getPlayer().setCurrency(selectedCurrency);
             Controller.getPlayer().setBalance(newBalance);
-            navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
-                    Controller.getPlayer().getBalance());
+            GameUtils.refreshNavBarLabel();
 
             updateCurrencyBoxes(false);
             GameData.serialize();
@@ -91,7 +81,7 @@ public class OptionsController implements Initializable {
             currencyBoxExchange.setDisable(true);
             convertButton.setDisable(true);
 
-            GameUtils.bankruptcyAlert(buttons, navBarLabel);
+            GameUtils.bankruptcyAlert(GameUtils.getButtons(), GameUtils.getNavBarLabel());
         }
     }
 
@@ -157,7 +147,7 @@ public class OptionsController implements Initializable {
             }
         }
 
-        GameUtils.setSceneTheme(navBarLabel.getScene(), false, Controller.getImageView());
+        GameUtils.setSceneTheme(GameUtils.getNavBarLabel().getScene(), false, Controller.getImageView());
     }
 
     @FXML
@@ -220,7 +210,7 @@ public class OptionsController implements Initializable {
             currencyBoxExchange.setDisable(true);
             convertButton.setDisable(true);
 
-            for (Button button : buttons) {
+            for (Button button : GameUtils.getButtons()) {
                 button.setDisable(true);
             }
         }
