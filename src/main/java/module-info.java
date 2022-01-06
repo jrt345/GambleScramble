@@ -1,4 +1,11 @@
-module com.company.gamblescramble {
+module game {
+    requires java.base;
+    requires java.desktop;
+    requires java.scripting;
+    requires java.xml;
+    requires jdk.jfr;
+    requires jdk.unsupported;
+
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -10,5 +17,4 @@ module com.company.gamblescramble {
     exports game.games;
     opens game.controllers to javafx.fxml;
     exports game.controllers;
-
 }
