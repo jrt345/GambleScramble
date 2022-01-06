@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -144,7 +145,7 @@ public class GameUtils {
         return Controller.getPlayer().getBalance() <= 0;
     }
 
-    public static void bankruptcyAlert(Button[] buttons) {
+    public static void bankruptcyAlert(Button[] buttons, Label navBarLabel) {
         for (Button button : buttons) {
             button.setDisable(true);
         }
@@ -154,5 +155,8 @@ public class GameUtils {
         alert.setHeaderText("You are bankrupt!");
 
         alert.showAndWait();
+
+        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
+                Controller.getPlayer().getBalance());
     }
 }

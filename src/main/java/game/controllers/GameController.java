@@ -104,7 +104,7 @@ public class GameController {
             betInput.setDisable(true);
             placeBetButton.setDisable(true);
 
-            GameUtils.bankruptcyAlert(buttons);
+            GameUtils.bankruptcyAlert(buttons, navBarLabel);
         }
 
         GameData.serialize();
