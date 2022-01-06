@@ -1,6 +1,6 @@
 package game.utils;
 
-import game.Main;
+import game.App;
 import game.controllers.Controller;
 import game.controllers.GameController;
 import game.games.Game;
@@ -23,21 +23,21 @@ public class GameUtils {
     public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
         if (isInitial){
             if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/darkTheme.css")).toExternalForm());
-                imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
+                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/darkTheme.css")).toExternalForm());
+                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
             } else {
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/lightTheme.css")).toExternalForm());
-                imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
+                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/lightTheme.css")).toExternalForm());
+                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         } else {
             if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("themes/lightTheme.css")).toExternalForm());
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/darkTheme.css")).toExternalForm());
-                imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
+                scene.getStylesheets().remove(Objects.requireNonNull(App.class.getResource("themes/lightTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/darkTheme.css")).toExternalForm());
+                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
             } else {
-                scene.getStylesheets().remove(Objects.requireNonNull(Main.class.getResource("themes/darkTheme.css")).toExternalForm());
-                scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("themes/lightTheme.css")).toExternalForm());
-                imageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
+                scene.getStylesheets().remove(Objects.requireNonNull(App.class.getResource("themes/darkTheme.css")).toExternalForm());
+                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/lightTheme.css")).toExternalForm());
+                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         }
     }
@@ -48,7 +48,7 @@ public class GameUtils {
     }
 
     public static void loadGame(Game game, String title) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gameTemplate.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gameTemplate.fxml"));
         Parent root = fxmlLoader.load();
 
         GameController controller = fxmlLoader.getController();
@@ -61,7 +61,7 @@ public class GameUtils {
         GameUtils.setSceneTheme(scene, true, Controller.getImageView());
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
     }
 

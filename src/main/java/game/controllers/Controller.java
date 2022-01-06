@@ -1,6 +1,6 @@
 package game.controllers;
 
-import game.Main;
+import game.App;
 import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.HandGuess;
@@ -76,7 +76,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void openOptions(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("options.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("options.fxml"));
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -86,7 +86,7 @@ public class Controller implements Initializable {
         GameUtils.setSceneTheme(scene, true, getImageView());
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
     }
 

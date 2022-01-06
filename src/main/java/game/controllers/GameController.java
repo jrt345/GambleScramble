@@ -1,6 +1,6 @@
 package game.controllers;
 
-import game.Main;
+import game.App;
 import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.Game;
@@ -112,16 +112,16 @@ public class GameController {
     public void setGame(Game game) {
         GameController.game = game;
 
-        Image coinToss = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/cointoss.png")),
+        Image coinToss = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/cointoss.png")),
                 60, 60, true, true);
 
-        Image diceRoll = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/diceroll.png")),
+        Image diceRoll = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/diceroll.png")),
                 60, 60, true, true);
 
-        Image handGuess = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess.png")),
+        Image handGuess = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png")),
                 60, 60, true, true);
 
-        Image handGuessV2 = new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/handguess-v2.png")),
+        Image handGuessV2 = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png")),
                 60, 60, true, true);
 
         if (GameController.game == Game.COINTOSS){

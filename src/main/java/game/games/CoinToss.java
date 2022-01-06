@@ -1,6 +1,6 @@
 package game.games;
 
-import game.Main;
+import game.App;
 import game.utils.GameData;
 import game.utils.GameUtils;
 import javafx.scene.image.Image;
@@ -31,9 +31,9 @@ public class CoinToss {
         GameData.serialize();
 
         Image[] images = {
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/cointoss/heads.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/heads.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/cointoss/tails.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/tails.png")),
                         50, 50, true, true)
         };
 

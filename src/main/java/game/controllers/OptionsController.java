@@ -1,6 +1,6 @@
 package game.controllers;
 
-import game.Main;
+import game.App;
 import game.utils.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -120,7 +120,7 @@ public class OptionsController implements Initializable {
 
     @FXML
     private void openAboutBox(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("aboutBox.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("aboutBox.fxml"));
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
@@ -130,7 +130,7 @@ public class OptionsController implements Initializable {
         GameUtils.setSceneTheme(scene,true, Controller.getImageView());
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
+        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
     }
 
@@ -153,9 +153,9 @@ public class OptionsController implements Initializable {
             GameUtils.setSceneTheme(applyButton.getScene(), false, Controller.getImageView());
 
             if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
+                currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
             } else {
-                currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows.png"))));
+                currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows.png"))));
             }
         }
 
@@ -214,7 +214,7 @@ public class OptionsController implements Initializable {
         updateCurrencyBoxes(true);
 
         if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
-            currencyImageView.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
+            currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
         }
 
         if (GameUtils.isPlayerBankrupt()){

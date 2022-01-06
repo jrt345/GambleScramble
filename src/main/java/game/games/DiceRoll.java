@@ -1,6 +1,6 @@
 package game.games;
 
-import game.Main;
+import game.App;
 import game.utils.GameData;
 import game.utils.GameUtils;
 import javafx.scene.image.Image;
@@ -30,17 +30,17 @@ public class DiceRoll {
         GameData.serialize();
 
         Image[] images = {
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/diceroll/dice1.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice1.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/diceroll/dice2.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice2.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/diceroll/dice3.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice3.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/diceroll/dice4.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice4.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/diceroll/dice5.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice5.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/diceroll/dice6.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice6.png")),
                         50, 50, true, true)
         };
 

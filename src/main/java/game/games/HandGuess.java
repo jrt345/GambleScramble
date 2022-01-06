@@ -1,6 +1,6 @@
 package game.games;
 
-import game.Main;
+import game.App;
 import game.utils.GameData;
 import game.utils.GameUtils;
 import javafx.scene.image.Image;
@@ -30,27 +30,27 @@ public class HandGuess {
         GameData.serialize();
 
         Image[] images = {
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand0.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand0.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand1.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand1.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand2.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand2.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand3.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand3.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand4.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand4.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand5.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand5.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand6.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand6.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand7.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand7.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand8.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand8.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand9.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand9.png")),
                         50, 50, true, true),
-                new Image(Objects.requireNonNull(Main.class.getResourceAsStream("images/handguess/hand10.png")),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand10.png")),
                         50, 50, true, true)
         };
 
