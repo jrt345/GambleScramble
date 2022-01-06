@@ -17,6 +17,12 @@ import java.util.Objects;
 
 public class App extends Application {
 
+    private static final String[] cssLocations = new String[2];
+
+    public static String[] getCssLocations() {
+        return cssLocations;
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -47,6 +53,9 @@ public class App extends Application {
                 GameData.serialize();
             }
         }
+
+        cssLocations[0] = Objects.requireNonNull(App.class.getResource("lighttheme.css")).toExternalForm();
+        cssLocations[1] = Objects.requireNonNull(App.class.getResource("darktheme.css")).toExternalForm();
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gambleScramble.fxml"));
         stage.setTitle("GambleScramble");

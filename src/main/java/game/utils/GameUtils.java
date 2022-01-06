@@ -21,22 +21,25 @@ import java.util.Random;
 public class GameUtils {
 
     public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
+        String lightTheme = App.getCssLocations()[0];
+        String darkTheme = App.getCssLocations()[1];
+
         if (isInitial){
             if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/darkTheme.css")).toExternalForm());
+                scene.getStylesheets().add(darkTheme);
                 imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
             } else {
-                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/lightTheme.css")).toExternalForm());
+                scene.getStylesheets().add(lightTheme);
                 imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         } else {
             if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().remove(Objects.requireNonNull(App.class.getResource("themes/lightTheme.css")).toExternalForm());
-                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/darkTheme.css")).toExternalForm());
+                scene.getStylesheets().clear();
+                scene.getStylesheets().add(darkTheme);
                 imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
             } else {
-                scene.getStylesheets().remove(Objects.requireNonNull(App.class.getResource("themes/darkTheme.css")).toExternalForm());
-                scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("themes/lightTheme.css")).toExternalForm());
+                scene.getStylesheets().clear();
+                scene.getStylesheets().add(lightTheme);
                 imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
             }
         }
