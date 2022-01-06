@@ -81,7 +81,7 @@ public class OptionsController implements Initializable {
             currencyBoxExchange.setDisable(true);
             convertButton.setDisable(true);
 
-            GameUtils.bankruptcyAlert(GameUtils.getButtons(), GameUtils.getNavBarLabel());
+            GameUtils.bankruptcyAlert();
         }
     }
 

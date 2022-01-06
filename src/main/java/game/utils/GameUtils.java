@@ -170,7 +170,7 @@ public class GameUtils {
         return Controller.getPlayer().getBalance() <= 0;
     }
 
-    public static void bankruptcyAlert(Button[] buttons, Label navBarLabel) {
+    public static void bankruptcyAlert() {
         for (Button button : buttons) {
             button.setDisable(true);
         }
@@ -181,7 +181,6 @@ public class GameUtils {
 
         alert.showAndWait();
 
-        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
-                Controller.getPlayer().getBalance());
+        refreshNavBarLabel();
     }
 }
