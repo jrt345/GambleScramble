@@ -26,7 +26,11 @@ public class HandGuess {
         String computerOption = GameUtils.generateComputerChoice(options, 0, 10);
 
         int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 10);
-        GameUtils.updateBalance(outcome);
+
+        if (outcome > 0){
+            GameUtils.updateBalance(outcome);
+        }
+
         GameData.serialize();
 
         Image[] images = {

@@ -74,7 +74,7 @@ public class GameUtils {
 
     public static int getOutcome(String userOption, String computerOption, int bet, int multiplier) {
         if (userOption.equals(computerOption)) {
-            return ((bet*multiplier)-bet);
+            return ((bet*multiplier));
         } else {
             return bet*-1;
         }

@@ -27,7 +27,11 @@ public class CoinToss {
         String computerOption = GameUtils.generateComputerChoice(options, 0, 1);
 
         int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 2);
-        GameUtils.updateBalance(outcome);
+
+        if (outcome > 0){
+            GameUtils.updateBalance(outcome);
+        }
+
         GameData.serialize();
 
         Image[] images = {

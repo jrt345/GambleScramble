@@ -64,11 +64,18 @@ public class GameController {
     private Button placeBetButton;
 
     private void runGame(Game game, int bet) throws IOException {
+        GameUtils.updateBalance(-bet);
+        GameData.serialize();
+
+        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
+                (Controller.getPlayer().getBalance()));
+
         switch (game) {
             case COINTOSS -> new CoinToss(bet, gameChoices.getValue());
             case DICEROLL -> new DiceRoll(bet, gameChoices.getValue());
             case HANDGUESS -> new HandGuess(bet, gameChoices.getValue());
         }
+
         navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
                 Controller.getPlayer().getBalance());
     }

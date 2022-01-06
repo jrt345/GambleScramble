@@ -26,7 +26,11 @@ public class DiceRoll {
         String computerOption = GameUtils.generateComputerChoice(options, 0, 5);
 
         int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 5);
-        GameUtils.updateBalance(outcome);
+
+        if (outcome > 0){
+            GameUtils.updateBalance(outcome);
+        }
+
         GameData.serialize();
 
         Image[] images = {
