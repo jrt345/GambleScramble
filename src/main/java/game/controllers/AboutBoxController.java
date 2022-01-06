@@ -19,7 +19,14 @@ public class AboutBoxController {
     }
 
     @FXML
-    void openLink(ActionEvent event) throws IOException {
+    private void openGitHubPage(ActionEvent event) throws IOException {
+        Runtime rt = Runtime.getRuntime();
+        String url = "https://github.com/jrt345/GambleScramble";
+        rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+    }
+
+    @FXML
+    void openLicensePage(ActionEvent event) throws IOException {
         Runtime rt = Runtime.getRuntime();
         String url = "https://www.gnu.org/licenses/gpl-3.0.en.html";
         rt.exec("rundll32 url.dll,FileProtocolHandler " + url);

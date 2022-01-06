@@ -96,6 +96,11 @@ public class OptionsController implements Initializable {
     }
 
     @FXML
+    private void openData(ActionEvent event) throws IOException {
+        Runtime.getRuntime().exec("explorer.exe /select," + System.getProperty("user.dir").concat("\\userdata\\player.dat"));
+    }
+
+    @FXML
     private void deleteData(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                 "Your data will be deleted permanently!");
@@ -132,13 +137,6 @@ public class OptionsController implements Initializable {
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
-    }
-
-    @FXML
-    private void openGitHubPage(ActionEvent event) throws IOException {
-        Runtime rt = Runtime.getRuntime();
-        String url = "https://github.com/jrt345/GambleScramble";
-        rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
     }
 
     private void updateTheme(boolean isApply){

@@ -48,13 +48,22 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertCurrency" prefWidth="100.0" text="Convert" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="127.0" text="Delete data:" textAlignment="CENTER" GridPane.rowIndex="3">
+            <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertCurrency" prefWidth="106.0" text="Convert" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="4.0" />
+               </children>
+            </AnchorPane>
+            <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="127.0" text="Data:" textAlignment="CENTER" GridPane.rowIndex="3">
                <font>
                   <Font name="Trebuchet MS Bold" size="20.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#deleteData" prefWidth="100.0" text="Delete Data" textFill="RED" GridPane.rowIndex="4" />
+            <AnchorPane GridPane.rowIndex="4">
+               <children>
+                  <Button layoutX="136.0" layoutY="5.0" mnemonicParsing="false" onAction="#deleteData" prefWidth="106.0" text="Delete Data" textFill="RED" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
+                  <Button layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#openData" prefHeight="25.0" prefWidth="106.0" text="Open in Explorer" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="4.0" />
+               </children>
+            </AnchorPane>
             <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="241.0" text="About GambleScramble:" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Trebuchet MS Bold" size="20.0" />
@@ -62,8 +71,7 @@
             </Label>
             <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Button layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAboutBox" prefWidth="100.0" text="About" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="5.0" />
-                  <Button layoutX="136.0" layoutY="5.0" mnemonicParsing="false" onAction="#openGitHubPage" prefWidth="100.0" text="GitHub Page" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
+                  <Button layoutX="72.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAboutBox" prefWidth="106.0" text="About" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="5.0" />
                </children>
             </AnchorPane>
          </children>
