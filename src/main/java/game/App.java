@@ -43,7 +43,7 @@ public class App extends Application {
             }
 
             try {
-                if (Controller.getPlayer().getBalance() <= 0){
+                if (GameUtils.isPlayerBankrupt()){
                     Controller.getPlayer().setCurrency(Currency.USD);
                     Controller.getPlayer().setBalance(100);
                     GameData.serialize();
@@ -68,8 +68,8 @@ public class App extends Application {
 
         stage.setOnCloseRequest(e -> {
             try {
-                GameData.serialize();
-            } catch (IOException e1) {
+                GameUtils.secureSerialize();
+            } catch (IOException | ClassNotFoundException e1) {
                 e1.printStackTrace();
             }
         });

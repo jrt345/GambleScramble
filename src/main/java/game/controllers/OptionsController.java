@@ -76,13 +76,7 @@ public class OptionsController implements Initializable {
             GameData.serialize();
         }
 
-        if (GameUtils.isPlayerBankrupt()){
-            currencyBoxUser.setDisable(true);
-            currencyBoxExchange.setDisable(true);
-            convertButton.setDisable(true);
-
-            GameUtils.bankruptcyAlert();
-        }
+        GameUtils.bankruptcyCheck(true, true, false);
     }
 
     @FXML
@@ -147,7 +141,7 @@ public class OptionsController implements Initializable {
             }
         }
 
-        GameUtils.setSceneTheme(GameUtils.getNavBarLabel().getScene(), false, Controller.getImageView());
+        GameUtils.setSceneTheme(NodeUtils.getNavBarLabel().getScene(), false, Controller.getImageView());
     }
 
     @FXML
@@ -201,18 +195,14 @@ public class OptionsController implements Initializable {
 
         updateCurrencyBoxes(true);
 
+        NodeUtils.setCurrencyBoxUser(currencyBoxUser);
+        NodeUtils.setCurrencyBoxExchange(currencyBoxExchange);
+        NodeUtils.setOptionsButton(convertButton);
+
         if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
             currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
         }
 
-        if (GameUtils.isPlayerBankrupt()){
-            currencyBoxUser.setDisable(true);
-            currencyBoxExchange.setDisable(true);
-            convertButton.setDisable(true);
-
-            for (Button button : GameUtils.getButtons()) {
-                button.setDisable(true);
-            }
-        }
+        GameUtils.bankruptcyCheck(false, true, false);
     }
 }

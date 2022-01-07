@@ -7,9 +7,11 @@ import game.games.Game;
 import game.games.HandGuess;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.NodeUtils;
 import game.utils.Theme;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -18,9 +20,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class GameController {
+public class GameController implements Initializable {
 
     private static Game game;
 
@@ -53,9 +57,9 @@ public class GameController {
 
     private void runGame(Game game, int bet) throws IOException {
         GameUtils.updateBalance(-bet);
-        GameData.serialize();
 
-        GameUtils.refreshNavBarLabel();
+        GameData.serialize();
+        GameUtils.refreshData();
 
         switch (game) {
             case COINTOSS -> new CoinToss(bet, gameChoices.getValue());
@@ -63,7 +67,8 @@ public class GameController {
             case HANDGUESS -> new HandGuess(bet, gameChoices.getValue());
         }
 
-        GameUtils.refreshNavBarLabel();
+        GameData.serialize();
+        GameUtils.refreshData();
     }
 
     @FXML
@@ -85,13 +90,7 @@ public class GameController {
             betInputWarning.setText("Please enter a number");
         }
 
-        if (GameUtils.isPlayerBankrupt()){
-            gameChoices.setDisable(true);
-            betInput.setDisable(true);
-            placeBetButton.setDisable(true);
-
-            GameUtils.bankruptcyAlert();
-        }
+        GameUtils.bankruptcyCheck(true, false, true);
 
         GameData.serialize();
     }
@@ -162,5 +161,14 @@ public class GameController {
 
             gameChoices.setValue("0");
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        NodeUtils.setBetChoiceBox(gameChoices);
+        NodeUtils.setBetTextField(betInput);
+        NodeUtils.setPlaceBetButton(placeBetButton);
+
+        GameUtils.bankruptcyCheck(true, false, true);
     }
 }

@@ -4,8 +4,8 @@ import game.App;
 import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.HandGuess;
-import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.NodeUtils;
 import game.utils.Player;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -91,8 +91,13 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void quitGame(ActionEvent event) throws IOException {
-        GameData.serialize();
+    private void quitGame(ActionEvent event) {
+        try {
+            GameUtils.secureSerialize();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         Platform.exit();
     }
 
@@ -105,7 +110,7 @@ public class Controller implements Initializable {
         navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +
                 getPlayer().getBalance());
 
-        GameUtils.setNavBarLabel(navBarLabel);
-        GameUtils.setButtons(buttons);
+        NodeUtils.setNavBarLabel(navBarLabel);
+        NodeUtils.setGameButtons(buttons);
     }
 }

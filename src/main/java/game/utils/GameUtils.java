@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -20,26 +19,6 @@ import java.util.Objects;
 import java.util.Random;
 
 public class GameUtils {
-
-    private static Label navBarLabel;
-
-    public static Label getNavBarLabel() {
-        return navBarLabel;
-    }
-
-    public static void setNavBarLabel(Label navBarLabel) {
-        GameUtils.navBarLabel = navBarLabel;
-    }
-
-    private static Button[] buttons;
-
-    public static Button[] getButtons() {
-        return buttons;
-    }
-
-    public static void setButtons(Button[] buttons) {
-        GameUtils.buttons = buttons;
-    }
 
     public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
         String lightTheme = App.getCssLocations()[0];
@@ -66,9 +45,25 @@ public class GameUtils {
         }
     }
 
+    public static void secureSerialize() throws IOException, ClassNotFoundException {
+        Controller.setPlayer(GameData.deserialize());
+        GameData.serialize();
+
+    }
+
     public static void refreshNavBarLabel() {
-        navBarLabel.setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
+        NodeUtils.getNavBarLabel().setText("Current balance: " + Controller.getPlayer().getCurrency().getSymbol() +
                 Controller.getPlayer().getBalance());
+    }
+
+    public static void refreshData() {
+        try {
+            secureSerialize();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        refreshNavBarLabel();
     }
 
     public static int getRandomNumber(int min, int max) {
@@ -171,16 +166,38 @@ public class GameUtils {
     }
 
     public static void bankruptcyAlert() {
-        for (Button button : buttons) {
-            button.setDisable(true);
-        }
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "To play again, exit the game and re-open the game.");
         alert.setTitle("Bankruptcy Notice");
         alert.setHeaderText("You are bankrupt!");
-
         alert.showAndWait();
 
         refreshNavBarLabel();
+    }
+
+    public static void bankruptcyCheck(boolean enableAlert, boolean disableOptions, boolean disableGame) {
+
+        refreshData();
+        if (isPlayerBankrupt()){
+
+            for (Button button : NodeUtils.getGameButtons()) {
+                button.setDisable(true);
+            }
+
+            if (disableOptions){
+                NodeUtils.getCurrencyBoxUser().setDisable(true);
+                NodeUtils.getCurrencyBoxExchange().setDisable(true);
+                NodeUtils.getOptionsButton().setDisable(true);
+            }
+            if (disableGame){
+                NodeUtils.getBetChoiceBox().setDisable(true);
+                NodeUtils.getBetTextField().setDisable(true);
+                NodeUtils.getPlaceBetButton().setDisable(true);
+            }
+            if (enableAlert){
+                bankruptcyAlert();
+            }
+
+            refreshData();
+        }
     }
 }
