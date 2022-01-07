@@ -80,9 +80,10 @@ public class OptionsController implements Initializable {
     }
 
     @FXML
-    private void openData(ActionEvent event) throws IOException {
-        Runtime.getRuntime().exec("explorer.exe /select," + System.getProperty("user.dir").concat("\\userdata\\player.dat"));
-    }
+    private void openGitHubPage(ActionEvent event) throws IOException {
+        Runtime rt = Runtime.getRuntime();
+        String url = "https://github.com/jrt345/GambleScramble";
+        rt.exec("rundll32 url.dll,FileProtocolHandler " + url);    }
 
     @FXML
     private void deleteData(ActionEvent event) throws IOException {

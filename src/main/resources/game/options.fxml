@@ -7,84 +7,76 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane id="background" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.OptionsController">
-   <children>
-      <Label id="label" alignment="CENTER" prefHeight="70.0" prefWidth="500.0" text="Options" textAlignment="CENTER">
-         <font>
-            <Font name="Trebuchet MS Bold" size="49.0" />
-         </font>
-      </Label>
-      <GridPane layoutY="70.0" prefHeight="166.0" prefWidth="500.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label id="label" alignment="CENTER" prefHeight="37.0" prefWidth="85.0" text="Theme:" textAlignment="CENTER">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label id="label" alignment="CENTER" prefHeight="37.0" prefWidth="107.0" text="Currency:" textAlignment="CENTER" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="20.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="themes" prefWidth="150.0" GridPane.rowIndex="1" />
-            <AnchorPane prefHeight="50.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <ChoiceBox fx:id="currencyBoxUser" layoutX="14.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="11.0" />
-                  <ChoiceBox fx:id="currencyBoxExchange" layoutX="161.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0" />
-                  <ImageView id="as" fx:id="currencyImageView" fitHeight="45.0" fitWidth="45.0" layoutX="103.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@images/gamblescramble/exchangeArrows.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertCurrency" prefWidth="106.0" text="Convert" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="4.0" />
-               </children>
-            </AnchorPane>
-            <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="127.0" text="Data:" textAlignment="CENTER" GridPane.rowIndex="3">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="20.0" />
-               </font>
-            </Label>
-            <AnchorPane GridPane.rowIndex="4">
-               <children>
-                  <Button layoutX="136.0" layoutY="5.0" mnemonicParsing="false" onAction="#deleteData" prefWidth="106.0" text="Delete Data" textFill="RED" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
-                  <Button layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#openData" prefHeight="25.0" prefWidth="106.0" text="Open in Explorer" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="4.0" />
-               </children>
-            </AnchorPane>
-            <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="241.0" text="About GambleScramble:" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="20.0" />
-               </font>
-            </Label>
-            <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <children>
-                  <Button layoutX="72.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAboutBox" prefWidth="106.0" text="About" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="5.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </GridPane>
-      <ButtonBar layoutY="260.0" prefHeight="40.0" prefWidth="500.0">
-        <buttons>
-          <Button fx:id="okButton" mnemonicParsing="false" onAction="#setNewSettings" text="OK" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelSettings" text="Cancel" />
-            <Button fx:id="applyButton" mnemonicParsing="false" onAction="#applySettings" text="Apply" />
-        </buttons>
-         <padding>
-            <Insets right="10.0" />
-         </padding>
-      </ButtonBar>
-   </children>
+    <children>
+        <Label id="label" alignment="CENTER" prefHeight="70.0" prefWidth="500.0" text="Options" textAlignment="CENTER">
+            <font>
+                <Font name="Trebuchet MS Bold" size="49.0" />
+            </font>
+        </Label>
+        <GridPane layoutY="70.0" prefHeight="166.0" prefWidth="500.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label id="label" alignment="CENTER" prefHeight="37.0" prefWidth="85.0" text="Theme:" textAlignment="CENTER">
+                    <font>
+                        <Font name="Trebuchet MS Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label id="label" alignment="CENTER" prefHeight="37.0" prefWidth="107.0" text="Currency:" textAlignment="CENTER" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="Trebuchet MS Bold" size="20.0" />
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="themes" prefWidth="150.0" GridPane.rowIndex="1" />
+                <AnchorPane prefHeight="50.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <ChoiceBox fx:id="currencyBoxUser" layoutX="14.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="11.0" />
+                        <ChoiceBox fx:id="currencyBoxExchange" layoutX="161.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0" />
+                        <ImageView id="as" fx:id="currencyImageView" fitHeight="45.0" fitWidth="45.0" layoutX="103.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="0.0">
+                            <image>
+                                <Image url="@images/gamblescramble/exchangeArrows.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+                <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertCurrency" prefWidth="100.0" text="Convert" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="127.0" text="Delete data:" textAlignment="CENTER" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Trebuchet MS Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Button mnemonicParsing="false" onAction="#deleteData" prefWidth="100.0" text="Delete Data" textFill="RED" GridPane.rowIndex="4" />
+                <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="241.0" text="About GambleScramble:" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Trebuchet MS Bold" size="20.0" />
+                    </font>
+                </Label>
+                <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <children>
+                        <Button layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAboutBox" prefWidth="100.0" text="About" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="5.0" />
+                        <Button layoutX="136.0" layoutY="5.0" mnemonicParsing="false" onAction="#openGitHubPage" prefWidth="100.0" text="GitHub Page" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </GridPane>
+        <ButtonBar layoutY="260.0" prefHeight="40.0" prefWidth="500.0">
+            <buttons>
+                <Button fx:id="okButton" mnemonicParsing="false" onAction="#setNewSettings" text="OK" />
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelSettings" text="Cancel" />
+                <Button fx:id="applyButton" mnemonicParsing="false" onAction="#applySettings" text="Apply" />
+            </buttons>
+            <padding>
+                <Insets right="10.0" />
+            </padding>
+        </ButtonBar>
+    </children>
 </AnchorPane>
