@@ -1,10 +1,7 @@
 package game;
 
 import game.controllers.Controller;
-import game.utils.Currency;
-import game.utils.GameData;
-import game.utils.GameUtils;
-import game.utils.Player;
+import game.utils.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -73,6 +70,14 @@ public class App extends Application {
                 e1.printStackTrace();
             }
         });
+
+        if (UpdateChecker.isUpdateAvailable() && Controller.getPlayer().getCheckForUpdates()){
+            try {
+                GameUtils.showUpdateAlert();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) {

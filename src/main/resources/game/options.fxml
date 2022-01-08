@@ -66,9 +66,10 @@
                         <Button layoutX="136.0" layoutY="5.0" mnemonicParsing="false" onAction="#openGitHubPage" prefWidth="100.0" text="GitHub Page" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
                     </children>
                 </AnchorPane>
+            <CheckBox id="label" fx:id="checkForUpdatesCheckBox" mnemonicParsing="false" text="Check for updates on launch" GridPane.rowIndex="2" />
             </children>
         </GridPane>
-        <ButtonBar layoutY="260.0" prefHeight="40.0" prefWidth="500.0">
+        <ButtonBar layoutX="130.0" layoutY="260.0" prefHeight="40.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="260.0">
             <buttons>
                 <Button fx:id="okButton" mnemonicParsing="false" onAction="#setNewSettings" text="OK" />
                 <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelSettings" text="Cancel" />
@@ -78,5 +79,13 @@
                 <Insets right="10.0" />
             </padding>
         </ButtonBar>
+      <ButtonBar layoutY="260.0" prefHeight="40.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="260.0">
+         <buttons>
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateGame" prefHeight="25.0" prefWidth="110.0" text="Update Available" />
+         </buttons>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </ButtonBar>
     </children>
 </AnchorPane>

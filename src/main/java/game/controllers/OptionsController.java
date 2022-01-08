@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
@@ -49,6 +46,12 @@ public class OptionsController implements Initializable {
 
     @FXML
     private Button convertButton;
+
+    @FXML
+    private CheckBox checkForUpdatesCheckBox;
+
+    @FXML
+    private Button updateButton;
     
     @FXML
     private void convertCurrency(ActionEvent event) throws IOException {
@@ -83,7 +86,8 @@ public class OptionsController implements Initializable {
     private void openGitHubPage(ActionEvent event) throws IOException {
         Runtime rt = Runtime.getRuntime();
         String url = "https://github.com/jrt345/GambleScramble";
-        rt.exec("rundll32 url.dll,FileProtocolHandler " + url);    }
+        rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+    }
 
     @FXML
     private void deleteData(ActionEvent event) throws IOException {
@@ -149,6 +153,10 @@ public class OptionsController implements Initializable {
     private void applySettings(ActionEvent event) throws IOException {
         updateTheme(true);
 
+        if (checkForUpdatesCheckBox.isSelected() != Controller.getPlayer().getCheckForUpdates()){
+            Controller.getPlayer().setCheckForUpdates(checkForUpdatesCheckBox.isSelected());
+        }
+
         GameData.serialize();
     }
 
@@ -161,6 +169,10 @@ public class OptionsController implements Initializable {
     @FXML
     private void setNewSettings(ActionEvent event) throws IOException {
         updateTheme(false);
+
+        if (checkForUpdatesCheckBox.isSelected() != Controller.getPlayer().getCheckForUpdates()){
+            Controller.getPlayer().setCheckForUpdates(checkForUpdatesCheckBox.isSelected());
+        }
 
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
@@ -188,8 +200,22 @@ public class OptionsController implements Initializable {
         currencyBoxExchange.setValue(currencyBoxExchange.getItems().get(0));
     }
 
+    @FXML
+    private void updateGame(ActionEvent event) throws IOException {
+        GameUtils.showUpdateAlert();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (Controller.getPlayer().getCheckForUpdates()){
+            checkForUpdatesCheckBox.fire();
+        }
+
+        if (!UpdateChecker.isUpdateAvailable()){
+            updateButton.setDisable(true);
+            updateButton.setOpacity(0);
+        }
+
         themes.getItems().add("Light");
         themes.getItems().add("Dark");
         themes.setValue(Controller.getPlayer().getTheme().getString());
