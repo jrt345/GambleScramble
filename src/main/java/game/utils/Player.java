@@ -6,15 +6,17 @@ public class Player implements Serializable {
     private int balance;
     private Theme theme;
     private Currency currency;
+    private boolean checkForUpdates;
 
     public Player() {
-        this(100, Theme.LIGHT, Currency.USD);
+        this(100, Theme.LIGHT, Currency.USD, true);
     }
 
-    public Player(int balance, Theme theme, Currency currency) {
+    public Player(int balance, Theme theme, Currency currency, boolean checkForUpdates) {
         this.balance = balance;
         this.theme = theme;
         this.currency = currency;
+        this.checkForUpdates = checkForUpdates;
     }
 
     public int getBalance() {
@@ -39,5 +41,13 @@ public class Player implements Serializable {
 
     public void setCurrency(Currency currency) {
         this.currency = currency;
+    }
+
+    public boolean getCheckForUpdates() {
+        return checkForUpdates;
+    }
+
+    public void setCheckForUpdates(boolean checkForUpdates) {
+        this.checkForUpdates = checkForUpdates;
     }
 }
