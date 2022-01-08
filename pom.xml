@@ -6,7 +6,7 @@
 
     <groupId>game</groupId>
     <artifactId>GambleScramble</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <name>GambleScramble</name>
 
     <properties>
