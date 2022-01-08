@@ -9,18 +9,17 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class DiceRoll {
-    private static void loadDiceRoll() throws IOException {
-        GameUtils.loadGame(Game.DICEROLL, "DiceRoll");
-    }
 
+    //Launches DiceRoll game
     public DiceRoll() {
         try {
-            loadDiceRoll();
+            GameUtils.loadGame(Game.DICEROLL, "DiceRoll");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    //Displays alert showing the outcome of the bet
     public DiceRoll(int bet, String userOption) throws IOException {
         String[] options = {"1", "2", "3", "4", "5", "6"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 5);
@@ -51,10 +50,10 @@ public class DiceRoll {
         Image image = GameUtils.imageSetter(options, computerOption, images);
 
         if (userOption.equals(computerOption)) {
-            GameUtils.gameOutcome("DiceRoll",
+            GameUtils.gameOutcomeAlert("DiceRoll",
                     GameUtils.outcomeSetter(Game.DICEROLL, computerOption, true, outcome), image);
         } else {
-            GameUtils.gameOutcome("DiceRoll",
+            GameUtils.gameOutcomeAlert("DiceRoll",
                     GameUtils.outcomeSetter(Game.DICEROLL, computerOption, false, outcome), image);
         }
     }

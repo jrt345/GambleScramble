@@ -32,16 +32,16 @@ public class GameController implements Initializable {
     private Label gameTitle;
 
     @FXML
-    private ImageView gameImage1;
+    private ImageView gameImage1; //Upper left imageView
 
     @FXML
-    private ImageView gameImage2;
+    private ImageView gameImage2; //Upper right imageView
 
     @FXML
-    private Label gameDetails;
+    private Label gameDetails; //Shows the odds and the payout of a game
 
     @FXML
-    private Label gameChoicesLabel;
+    private Label gameChoicesLabel; //Tells the player what they can bet on
 
     @FXML
     private ChoiceBox<String> gameChoices;
@@ -73,6 +73,8 @@ public class GameController implements Initializable {
 
     @FXML
     private void placeBet(ActionEvent event) throws IOException {
+        /*Will try to convert betInput into a number as the bet
+        * if any issues occur betInputWarning will update*/
         try {
             int bet = Integer.parseInt(betInput.getText());
             betInputWarning.setText("");
@@ -95,12 +97,15 @@ public class GameController implements Initializable {
         GameData.serialize();
     }
 
+    /*If the choices of a game are numerical it will convert numbers
+    * between min and max into strings and add them to choiceBox*/
     private static void setNumericalGameChoices(ChoiceBox<String> choiceBox, int min, int max) {
         for (int i = min;i < max+1;i++){
             choiceBox.getItems().add(Integer.toString(i));
         }
     }
 
+    //Sets gameTemplate.fxml appearance to match the chosen game
     public void setGame(Game game) {
         GameController.game = game;
 

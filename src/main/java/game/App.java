@@ -14,6 +14,7 @@ import java.util.Objects;
 
 public class App extends Application {
 
+    //String array to store the locations of the css stylesheets
     private static final String[] cssLocations = new String[2];
 
     public static String[] getCssLocations() {
@@ -23,6 +24,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+        //Checks if "userdata" folder exists
         boolean isUserDataCreated = new File(GameData.userDataDir).exists();
 
         if (!isUserDataCreated || !(new File(GameData.userDataDir.concat("player.dat")).exists())){
@@ -51,8 +53,8 @@ public class App extends Application {
             }
         }
 
-        cssLocations[0] = Objects.requireNonNull(App.class.getResource("lighttheme.css")).toExternalForm();
-        cssLocations[1] = Objects.requireNonNull(App.class.getResource("darktheme.css")).toExternalForm();
+        cssLocations[0] = Objects.requireNonNull(App.class.getResource("lightTheme.css")).toExternalForm();
+        cssLocations[1] = Objects.requireNonNull(App.class.getResource("darkTheme.css")).toExternalForm();
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gambleScramble.fxml"));
         stage.setTitle("GambleScramble");

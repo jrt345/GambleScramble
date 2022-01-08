@@ -224,7 +224,7 @@ public class OptionsController implements Initializable {
 
         NodeUtils.setCurrencyBoxUser(currencyBoxUser);
         NodeUtils.setCurrencyBoxExchange(currencyBoxExchange);
-        NodeUtils.setOptionsButton(convertButton);
+        NodeUtils.setConvertButton(convertButton);
 
         if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
             currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));

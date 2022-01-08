@@ -6,6 +6,7 @@ import java.io.*;
 
 public class GameData {
 
+    //Location of userdata folder
     public static final String userDataDir = System.getProperty("user.dir").concat("\\userdata\\");
 
     public static void serialize() throws IOException {

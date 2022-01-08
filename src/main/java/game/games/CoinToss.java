@@ -10,18 +10,16 @@ import java.util.Objects;
 
 public class CoinToss {
 
-    private static void loadCoinToss() throws IOException {
-        GameUtils.loadGame(Game.COINTOSS, "CoinToss");
-    }
-
+    //Launches CoinToss game
     public CoinToss() {
         try {
-            loadCoinToss();
+            GameUtils.loadGame(Game.COINTOSS, "CoinToss");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    //Displays alert showing the outcome of the bet
     public CoinToss(int bet, String userOption) throws IOException {
         String[] options = {"Heads", "Tails"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 1);
@@ -44,10 +42,10 @@ public class CoinToss {
         Image image = GameUtils.imageSetter(options, computerOption, images);
 
         if (userOption.equals(computerOption)) {
-            GameUtils.gameOutcome("CoinToss",
+            GameUtils.gameOutcomeAlert("CoinToss",
                     GameUtils.outcomeSetter(Game.COINTOSS, computerOption, true, outcome), image);
         } else {
-            GameUtils.gameOutcome("CoinToss",
+            GameUtils.gameOutcomeAlert("CoinToss",
                     GameUtils.outcomeSetter(Game.COINTOSS, computerOption, false, outcome), image);
         }
     }

@@ -2,6 +2,7 @@ package game.utils;
 
 public class CurrencyConverter {
 
+    //Returns currency enum based on string
     public static Currency stringToCurrency(String string){
         Currency currency = null;
 
@@ -27,6 +28,7 @@ public class CurrencyConverter {
         return currency;
     }
 
+    //Converts balance to USD and returns new balance
     private static double convertToUSD(int balance, Currency currentBalance) {
         double usdBalance = 0;
 
@@ -52,6 +54,7 @@ public class CurrencyConverter {
         return usdBalance;
     }
 
+    //Converts balance from USD and returns new balance
     private static double convertFromUSD(double usdBalance, Currency selectedCurrency){
         double newBalance = 0;
 

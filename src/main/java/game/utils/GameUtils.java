@@ -27,7 +27,8 @@ public class GameUtils {
 
     /*Sets the stylesheet of gambleScramble.fxml whether it is done when
     * initially loading or when changing the theme, imageView is based
-    * on the HandGuess logo which changes to match the current theme*/
+    * on the HandGuess logo which changes to match the current theme
+    * Array index key: 0 = lightTheme.css, 1 = darkTheme.css*/
     public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
         String lightTheme = App.getCssLocations()[0];
         String darkTheme = App.getCssLocations()[1];
@@ -53,9 +54,15 @@ public class GameUtils {
         }
     }
 
+    /*Set the player object in Controller to data from player.dat, and then serialize
+    * the data to properly and accurately serialize user data*/
     public static void secureSerialize() throws IOException, ClassNotFoundException {
         Controller.setPlayer(GameData.deserialize());
         GameData.serialize();
+    }
+
+    public static void updateBalance(int outcome) {
+        Controller.getPlayer().setBalance(Controller.getPlayer().getBalance() + outcome);
     }
 
     public static void refreshNavBarLabel() {
@@ -139,6 +146,7 @@ public class GameUtils {
         return random.nextInt(max + 1 - min) + min;
     }
 
+    //Load gameTemplate.fxml with different attributes based on the game
     public static void loadGame(Game game, String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gameTemplate.fxml"));
         Parent root = fxmlLoader.load();
@@ -157,14 +165,12 @@ public class GameUtils {
         stage.show();
     }
 
-    public static void updateBalance(int outcome) {
-        Controller.getPlayer().setBalance(Controller.getPlayer().getBalance() + outcome);
-    }
-
+    //Generate a random choice for the games based on the game's options
     public static String generateComputerChoice(String[] options, int min, int max) {
         return options[getRandomNumber(min, max)];
     }
 
+    //Returns the profit or loss a player receives after placing their bet
     public static int getOutcome(String userOption, String computerOption, int bet, int multiplier) {
         if (userOption.equals(computerOption)) {
             return ((bet*multiplier));
@@ -173,6 +179,7 @@ public class GameUtils {
         }
     }
 
+    //Returns an image to match the randomly generated outcome
     public static Image imageSetter(String[] options, String computerOption, Image[] images) {
         Image image = null;
         for (int i = 0;i < options.length;i++){
@@ -183,6 +190,7 @@ public class GameUtils {
         return image;
     }
 
+    //Returns a description of the randomly generated outcome
     private static String computerOptionIntroSetter(Game game, String computerOption) {
         String computerOptionIntro = null;
         switch (game){
@@ -201,6 +209,7 @@ public class GameUtils {
         return computerOptionIntro;
     }
 
+    //Returns a string describing if the player won or lost and how much
     private static String statusSetter(boolean win, int outcome) {
         String status;
         if (!win){
@@ -215,11 +224,12 @@ public class GameUtils {
         return status;
     }
 
+    //Combines computerOptionIntroSetter and statusSetter into one string
     public static String outcomeSetter(Game game, String computerOption, boolean win, int outcome) {
         return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
     }
 
-    public static void gameOutcome(String game, String result, Image image) {
+    public static void gameOutcomeAlert(String game, String result, Image image) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, result);
         alert.setTitle("Results");
         alert.setHeaderText(game);
@@ -242,19 +252,26 @@ public class GameUtils {
         refreshNavBarLabel();
     }
 
+    /*Checks if the user is bankrupt an if to show an alert and what buttons
+    * to disable if the user is bankrupt*/
     public static void bankruptcyCheck(boolean enableAlert, boolean disableOptions, boolean disableGame) {
         refreshData();
         if (isPlayerBankrupt()){
 
+            //Disables the game buttons in the main stage
             for (Button button : NodeUtils.getGameButtons()) {
                 button.setDisable(true);
             }
 
+            /*If a player goes bankrupt in the options screen
+            * disable currency exchanging */
             if (disableOptions){
                 NodeUtils.getCurrencyBoxUser().setDisable(true);
                 NodeUtils.getCurrencyBoxExchange().setDisable(true);
-                NodeUtils.getOptionsButton().setDisable(true);
+                NodeUtils.getConvertButton().setDisable(true);
             }
+            /*If a player goes bankrupt while playing a game
+             * disable placing further bets*/
             if (disableGame){
                 NodeUtils.getBetChoiceBox().setDisable(true);
                 NodeUtils.getBetTextField().setDisable(true);

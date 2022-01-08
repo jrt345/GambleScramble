@@ -9,18 +9,17 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class HandGuess {
-    private static void loadHandGuess() throws IOException {
-        GameUtils.loadGame(Game.HANDGUESS, "HandGuess");
-    }
 
+    //Launches HandGuess game
     public HandGuess() {
         try {
-            loadHandGuess();
+            GameUtils.loadGame(Game.HANDGUESS, "HandGuess");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    //Displays alert showing the outcome of the bet
     public HandGuess(int bet, String userOption) throws IOException {
         String[] options = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 10);
@@ -61,10 +60,10 @@ public class HandGuess {
         Image image = GameUtils.imageSetter(options, computerOption, images);
 
         if (userOption.equals(computerOption)) {
-            GameUtils.gameOutcome("HandGuess",
+            GameUtils.gameOutcomeAlert("HandGuess",
                     GameUtils.outcomeSetter(Game.HANDGUESS, computerOption, true, outcome), image);
         } else {
-            GameUtils.gameOutcome("HandGuess",
+            GameUtils.gameOutcomeAlert("HandGuess",
                     GameUtils.outcomeSetter(Game.HANDGUESS, computerOption, false, outcome), image);
         }
     }
