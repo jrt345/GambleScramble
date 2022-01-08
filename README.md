@@ -3,8 +3,8 @@
 # GambleScramble
 
 <p align="center">
-  <a href="https://github.com/jrt345/GambleScramble/releases/latest"><img src="https://img.shields.io/github/v/release/jrt345/GambleScramble"/></a>
-  <a href="https://opensource.org/licenses/GPL-3.0"><img src="https://img.shields.io/github/license/jrt345/GambleScramble"/></a>
+  <a href="https://github.com/jrt345/GambleScramble/releases/latest"><img src="https://img.shields.io/github/v/release/jrt345/gamblescramble"/></a>
+  <a href="https://opensource.org/licenses/GPL-3.0"><img src="https://img.shields.io/github/license/jrt345/gamblescramble"/></a>
 </p>
 
 **A simple gambling game made with Java 17 and JavaFX 17.**
