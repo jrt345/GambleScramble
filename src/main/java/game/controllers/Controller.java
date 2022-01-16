@@ -60,6 +60,9 @@ public class Controller implements Initializable {
     private Button handGuessButton;
 
     @FXML
+    private Button rpsButton;
+
+    @FXML
     private void playCoinToss(ActionEvent event) {
         new CoinToss();
     }
@@ -72,6 +75,11 @@ public class Controller implements Initializable {
     @FXML
     private void playHandGuess(ActionEvent event) {
         new HandGuess();
+    }
+
+    @FXML
+    private void playRPS() {
+
     }
 
     @FXML
@@ -105,7 +113,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         imageView = handGuessImageView;
 
-        Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton};
+        Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton, rpsButton};
 
         navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +
                 getPlayer().getBalance());
