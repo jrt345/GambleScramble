@@ -2,7 +2,8 @@ package game.utils;
 
 public enum Theme {
     LIGHT("Light"),
-    DARK("Dark");
+    DARK("Dark"),
+    HACKER("Hacker");
 
     private final String string;
 

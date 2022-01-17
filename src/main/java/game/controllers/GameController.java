@@ -184,6 +184,31 @@ public class GameController implements Initializable {
             gameChoices.getItems().add("Scissors");
             gameChoices.setValue("Rock");
         }
+
+        if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+            Image coinTossH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/cointoss.png")));
+            Image diceRollH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png")));
+            Image handGuessH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png")));
+            Image rpsH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png")));
+
+            if (GameController.game == Game.COINTOSS){
+                gameImage1.setImage(coinTossH);
+                gameImage2.setImage(coinTossH);
+            }
+            if (GameController.game == Game.DICEROLL){
+                gameImage1.setImage(diceRollH);
+                gameImage2.setImage(diceRollH);
+            }
+            if (GameController.game == Game.HANDGUESS){
+                gameImage1.setImage(handGuessH);
+                gameImage2.setImage(handGuessH);
+            }
+            if (GameController.game == Game.ROCKPAPERSCISSORS){
+                gameImage1.setImage(rpsH);
+                gameImage2.setImage(rpsH);
+            }
+
+        }
     }
 
     @Override

@@ -121,7 +121,7 @@ public class OptionsController implements Initializable {
         stage.setTitle("About GambleScramble");
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 500, 350);
-        GameUtils.setSceneTheme(scene,true, Controller.getImageView());
+        GameUtils.setSceneTheme(scene, Controller.getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
@@ -135,18 +135,22 @@ public class OptionsController implements Initializable {
         if (themes.getValue().equals("Dark")){
             Controller.getPlayer().setTheme(Theme.DARK);
         }
+        if (themes.getValue().equals("Hacker")){
+            Controller.getPlayer().setTheme(Theme.HACKER);
+        }
 
-        if (isApply){
-            GameUtils.setSceneTheme(applyButton.getScene(), false, Controller.getImageView());
-
-            if (Controller.getPlayer().getTheme() == Theme.DARK) {
+        if (isApply) {
+            GameUtils.setSceneTheme(applyButton.getScene(),  Controller.getImageViews());
+            if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+                currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/exchangeArrows.png"))));
+            } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
                 currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
             } else {
                 currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows.png"))));
             }
         }
 
-        GameUtils.setSceneTheme(NodeUtils.getNavBarLabel().getScene(), false, Controller.getImageView());
+        GameUtils.setSceneTheme(NodeUtils.getNavBarLabel().getScene(),  Controller.getImageViews());
     }
 
     @FXML
@@ -218,6 +222,7 @@ public class OptionsController implements Initializable {
 
         themes.getItems().add("Light");
         themes.getItems().add("Dark");
+        themes.getItems().add("Hacker");
         themes.setValue(Controller.getPlayer().getTheme().getString());
 
         updateCurrencyBoxes(true);
@@ -226,6 +231,9 @@ public class OptionsController implements Initializable {
         NodeUtils.setCurrencyBoxExchange(currencyBoxExchange);
         NodeUtils.setConvertButton(convertButton);
 
+        if (Controller.getPlayer().getTheme().equals(Theme.HACKER)){
+            currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/exchangeArrows.png"))));
+        }
         if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
             currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
         }

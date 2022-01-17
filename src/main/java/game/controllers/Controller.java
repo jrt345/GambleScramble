@@ -43,12 +43,21 @@ public class Controller implements Initializable {
     private Label navBarLabel;
 
     @FXML
+    private ImageView coinTossImageView;
+
+    @FXML
+    private ImageView diceRollImageView;
+
+    @FXML
     private ImageView handGuessImageView;
 
-    private static ImageView imageView;
+    @FXML
+    private ImageView rpsImageView;
 
-    public static ImageView getImageView() {
-        return imageView;
+    private static ImageView[] imageViews;
+
+    public static ImageView[] getImageViews() {
+        return imageViews;
     }
 
     @FXML
@@ -92,7 +101,7 @@ public class Controller implements Initializable {
         stage.setTitle("Options");
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 500,300);
-        GameUtils.setSceneTheme(scene, true, getImageView());
+        GameUtils.setSceneTheme(scene,  getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
@@ -112,7 +121,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imageView = handGuessImageView;
+        imageViews = new ImageView[]{coinTossImageView, diceRollImageView, handGuessImageView, rpsImageView};
 
         Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton, rpsButton};
 
