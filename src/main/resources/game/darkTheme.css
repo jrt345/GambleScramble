@@ -38,6 +38,10 @@
     -fx-background-color: #1F1E1E;
 }
 
+#checkBox {
+    -fx-text-fill: #FFFFFF;
+}
+
 #aboutBoxBackground {
     -fx-background-color: #1F1E1E;
 }
@@ -46,14 +50,14 @@
     -fx-text-fill: #FFFFFF;
 }
 
-#separator {
-    -fx-background-color: #000000;
+#separator .line{
+    -fx-border-color: #FFFFFF;
 }
 
 #textArea {
     -fx-text-fill: #FFFFFF;
 }
 
-#textArea .content{
+#textArea .content {
     -fx-background-color: #2A2828;
 }

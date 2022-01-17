@@ -21,12 +21,12 @@
                <children>
                   <AnchorPane id="coinTossPane" prefHeight="300.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="coinTossButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playCoinToss" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button id="button" fx:id="coinTossButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playCoinToss" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                        <ImageView fx:id="coinTossImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
                            <image>
                               <Image url="@images/gamblescramble/cointoss.png" />
                            </image></ImageView>
@@ -38,12 +38,12 @@
                      </children></AnchorPane>
                   <AnchorPane id="diceRollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Button fx:id="diceRollButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playDiceRoll" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button id="button" fx:id="diceRollButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playDiceRoll" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                        <ImageView fx:id="diceRollImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
                            <image>
                               <Image url="@images/gamblescramble/diceroll.png" />
                            </image></ImageView>
@@ -55,7 +55,7 @@
                      </children></AnchorPane>
                   <AnchorPane id="handGuessPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3;" GridPane.columnIndex="2">
                      <children>
-                        <Button fx:id="handGuessButton" focusTraversable="false" layoutX="29.0" layoutY="233.0" mnemonicParsing="false" onAction="#playHandGuess" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button id="button" fx:id="handGuessButton" focusTraversable="false" layoutX="29.0" layoutY="233.0" mnemonicParsing="false" onAction="#playHandGuess" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
@@ -72,12 +72,12 @@
                      </children></AnchorPane>
                   <AnchorPane id="rpsPane" prefHeight="300.0" prefWidth="200.0" GridPane.columnIndex="3">
                      <children>
-                        <Button fx:id="rpsButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playRPS" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button id="button" fx:id="rpsButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playRPS" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                        <ImageView fx:id="rpsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
                            <image>
                               <Image url="@images/gamblescramble/rockpaperscissors.png" />
                            </image>
@@ -150,7 +150,7 @@
                            <children>
                               <AnchorPane>
                                  <children>
-                                    <Button focusTraversable="false" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" onAction="#openOptions" prefHeight="50.0" prefWidth="450.0" text="Options" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                                    <Button id="button" focusTraversable="false" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" onAction="#openOptions" prefHeight="50.0" prefWidth="450.0" text="Options" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
                                        <font>
                                           <Font name="Trebuchet MS Bold" size="27.0" />
                                        </font>
@@ -159,7 +159,7 @@
                               </AnchorPane>
                               <AnchorPane GridPane.columnIndex="1">
                                  <children>
-                                    <Button focusTraversable="false" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="50.0" prefWidth="450.0" text="Quit Game" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="10.0">
+                                    <Button id="button" focusTraversable="false" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="50.0" prefWidth="450.0" text="Quit Game" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="10.0">
                                        <font>
                                           <Font name="Trebuchet MS Bold" size="27.0" />
                                        </font>
