@@ -68,6 +68,7 @@ public class OptionsController implements Initializable {
                 currencyBoxUser.getValue() + " to " +
                 currencyBoxExchange.getValue() + "?");
 
+        ThemeUtils.setAlertTheme(alert);
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && result.get().equals(ButtonType.OK)){
@@ -103,6 +104,7 @@ public class OptionsController implements Initializable {
 
         alert.getDialogPane().lookupButton(deleteButton).setFocusTraversable(false);
 
+        ThemeUtils.setAlertTheme(alert);
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && result.get().equals(deleteButton)){

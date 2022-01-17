@@ -140,6 +140,7 @@ public class GameUtils {
         alert.setHeaderText(game);
 
         alert.setGraphic(new ImageView(image));
+        ThemeUtils.setAlertTheme(alert);
         alert.showAndWait();
     }
 
@@ -151,6 +152,7 @@ public class GameUtils {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "To play again, exit the game and re-open the game.");
         alert.setTitle("Bankruptcy Notice");
         alert.setHeaderText("You are bankrupt!");
+        ThemeUtils.setAlertTheme(alert);
         alert.showAndWait();
 
         refreshNavBarLabel();

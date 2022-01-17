@@ -3,6 +3,8 @@ package game.utils;
 import game.App;
 import game.controllers.Controller;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -35,5 +37,21 @@ public class ThemeUtils {
         } else {
             scene.getStylesheets().add(lightTheme);
         }
+    }
+
+    //Sets the theme of an alert
+    public static void setAlertTheme(Alert alert) {
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().clear();
+
+        if (Controller.getPlayer().getTheme() == Theme.HACKER){
+            dialogPane.getStylesheets().add(hackerTheme);
+        } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
+            dialogPane.getStylesheets().add(darkTheme);
+        } else {
+            dialogPane.getStylesheets().add(lightTheme);
+        }
+
+        alert.setDialogPane(dialogPane);
     }
 }

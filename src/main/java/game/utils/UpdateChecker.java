@@ -1,5 +1,6 @@
 package game.utils;
 
+import game.controllers.Controller;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
@@ -15,7 +16,7 @@ import java.net.URLConnection;
 
 public class UpdateChecker {
 
-    private static final String currentVersionString = "1.0.0";
+    private static final String currentVersionString = "-1.0.0";
 
     //Gets the latest version of GambleScramble (as a string) from the GitHub repository
     public static String getLatestVersion() {
@@ -71,6 +72,24 @@ public class UpdateChecker {
             }
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    private static void setUpdateAlertTheme(Label[] labels, Hyperlink[] hyperlinks) {
+        if (Controller.getPlayer().getTheme() != Theme.LIGHT){
+            for (Label label : labels){
+                if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+                    label.setStyle(" -fx-text-fill: #20C20E; ");
+                } else if (Controller.getPlayer().getTheme() == Theme.DARK){
+                    label.setStyle(" -fx-text-fill: #FFFFFF; ");
+                }
+            }
+
+            for (Hyperlink hyperlink : hyperlinks){
+                if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+                    hyperlink.setStyle(" -fx-text-fill: #3EFF29; ");
+                }
+            }
         }
     }
 
@@ -132,6 +151,9 @@ public class UpdateChecker {
 
         alert.getDialogPane().contentProperty().set(primaryVbox);
 
+        ThemeUtils.setAlertTheme(alert);
+        setUpdateAlertTheme(new Label[]{introLabel, label, downloadLabel},
+                new Hyperlink[]{repoLink, downloadLink});
         alert.showAndWait();
     }
 }

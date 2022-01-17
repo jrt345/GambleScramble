@@ -38,6 +38,22 @@
     -fx-background-color: #1F1E1E;
 }
 
+.alert{
+    -fx-background-color: #1F1E1E;
+}
+.alert > *.button-bar > *.container{
+    -fx-background-color: #1F1E1E;
+}
+.alert > *.label.content{
+    -fx-text-fill: #FFFFFF;
+}
+.alert:header *.header-panel{
+    -fx-background-color: #1F1E1E;
+}
+.alert:header *.header-panel *.label{
+    -fx-text-fill: #FFFFFF;
+}
+
 #checkBox {
     -fx-text-fill: #FFFFFF;
 }

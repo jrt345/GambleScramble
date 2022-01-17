@@ -24,6 +24,12 @@
     -fx-text-fill: #20C20E;
 }
 
+#button:focused{
+    -fx-background-color: #000000;
+    -fx-border-color: #106407;
+    -fx-text-fill: #20C20E;
+}
+
 #titlePane {
     -fx-background-color: #000000;
 }
@@ -56,10 +62,50 @@
     -fx-background-color: #000000;
 }
 
+.alert {
+    -fx-background-color: #000000;
+}
+.alert > *.button-bar > *.container {
+    -fx-background-color: #000000;
+}
+.alert > *.label.content {
+    -fx-text-fill: #20C20E;
+}
+.alert:header *.header-panel {
+    -fx-background-color: #000000;
+}
+.alert:header *.header-panel *.label {
+    -fx-text-fill: #20C20E;
+}
+
+.alert .button {
+    -fx-background-color: #000000;
+    -fx-border-color: #20C20E;
+    -fx-text-fill: #20C20E;
+}
+
+.alert .button:focused {
+    -fx-background-color: #000000;
+    -fx-border-color: #106407;
+    -fx-text-fill: #20C20E;
+}
+
+.alert .button:hover {
+    -fx-background-color: #000000;
+    -fx-border-color: #FFFFFF;
+    -fx-text-fill: #FFFFFF;
+}
+
 #choiceBox {
     -fx-background-color: #000000;
     -fx-border-color: #20C20E;
     -fx-mark-color: #20C20E;
+}
+
+#choiceBox:focused {
+    -fx-background-color: #000000;
+    -fx-border-color: #106407;
+    -fx-text-fill: #20C20E;
 }
 
 #choiceBox .context-menu {
@@ -107,6 +153,12 @@
     -fx-border-color: #20C20E;
 }
 
+#checkBox:focused .box{
+    -fx-background-color: #000000;
+    -fx-border-color: #106407;
+    -fx-text-fill: #20C20E;
+}
+
 #textField {
     -fx-background-color: #000000;
     -fx-border-color: #20C20E;
@@ -139,7 +191,7 @@
 }
 
 #hyperlink {
-    -fx-text-fill: #20C20E;
+    -fx-text-fill: #3EFF29;
 }
 
 #hyperlink:visited {
