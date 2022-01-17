@@ -8,6 +8,7 @@ import game.games.RockPaperScissors;
 import game.utils.GameUtils;
 import game.utils.NodeUtils;
 import game.utils.Player;
+import game.utils.ThemeUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -101,7 +102,7 @@ public class Controller implements Initializable {
         stage.setTitle("Options");
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 500,300);
-        GameUtils.setSceneTheme(scene,  getImageViews());
+        ThemeUtils.setSceneTheme(scene,  getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));

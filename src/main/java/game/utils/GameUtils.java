@@ -25,40 +25,6 @@ import java.util.Random;
 
 public class GameUtils {
 
-    /*Sets the stylesheet of gambleScramble.fxml whether it is done when
-    * initially loading or when changing the theme, imageViews is based
-    * on the all game logos which change to match the current theme
-    * cssLocations array index key: 0 = lightTheme.css, 1 = darkTheme.css
-    * imageView array index key:
-    * 0 = coinTossImageView,
-    * 0 = diceRollImageView,
-    * 0 = handGuessImageView,
-    * 0 = rpsImageView*/
-    public static void setSceneTheme(Scene scene, ImageView[] imageViews) {
-        String lightTheme = App.getCssLocations()[0];
-        String darkTheme = App.getCssLocations()[1];
-        String hackerTheme = App.getCssLocations()[2];
-
-        scene.getStylesheets().clear();
-        imageViews[0].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/cointoss.png"))));
-        imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/diceroll.png"))));
-        imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
-        imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png"))));
-
-        if (Controller.getPlayer().getTheme() == Theme.HACKER) {
-            scene.getStylesheets().add(hackerTheme);
-            imageViews[0].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/cointoss.png"))));
-            imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png"))));
-            imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png"))));
-            imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png"))));
-        } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
-            scene.getStylesheets().add(darkTheme);
-            imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
-        } else {
-            scene.getStylesheets().add(lightTheme);
-        }
-    }
-
     /*Set the player object in Controller to data from player.dat, and then serialize
     * the data to properly and accurately serialize user data*/
     public static void secureSerialize() throws IOException, ClassNotFoundException {
@@ -163,7 +129,7 @@ public class GameUtils {
         stage.setTitle(title);
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 450, 240);
-        GameUtils.setSceneTheme(scene, Controller.getImageViews());
+        ThemeUtils.setSceneTheme(scene, Controller.getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
@@ -240,7 +206,6 @@ public class GameUtils {
         alert.setHeaderText(game);
 
         alert.setGraphic(new ImageView(image));
-
         alert.showAndWait();
     }
 

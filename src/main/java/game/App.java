@@ -62,7 +62,7 @@ public class App extends Application {
         stage.setTitle("GambleScramble");
         stage.setResizable(false);
         Scene scene = new Scene(fxmlLoader.load(), 1200, 570);
-        GameUtils.setSceneTheme(scene,  Controller.getImageViews());
+        ThemeUtils.setSceneTheme(scene,  Controller.getImageViews());
         stage.setScene(scene);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
