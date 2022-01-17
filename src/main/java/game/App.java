@@ -77,7 +77,7 @@ public class App extends Application {
 
         if (UpdateChecker.isUpdateAvailable() && Controller.getPlayer().getCheckForUpdates()){
             try {
-                GameUtils.showUpdateAlert();
+                UpdateChecker.showUpdateAlert();
             } catch (IOException e) {
                 e.printStackTrace();
             }

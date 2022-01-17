@@ -5,17 +5,12 @@ import game.controllers.Controller;
 import game.controllers.GameController;
 import game.games.Game;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -49,67 +44,6 @@ public class GameUtils {
         }
 
         refreshNavBarLabel();
-    }
-
-    public static void showUpdateAlert() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("Update available!");
-
-        VBox primaryVbox = new VBox();
-        VBox vboxPt1 = new VBox();
-        VBox vboxPt2 = new VBox();
-
-        //vboxPt1 contains the introLabel and flowPane (with label and repoLink)
-        Label introLabel = new Label("A new version of GambleScramble has been released! Version: " + UpdateChecker.getLatestVersion());
-
-        Label label = new Label(" is available at ");
-        Hyperlink repoLink = new Hyperlink("github.com/jrt345/GambleScramble.");
-
-        FlowPane flowPane = new FlowPane(label, repoLink);
-        flowPane.setAlignment(Pos.CENTER);
-
-        vboxPt1.getChildren().addAll(introLabel, flowPane);
-        vboxPt1.setAlignment(Pos.CENTER);
-
-        //vboxPt2 contains the downloadLabel and downloadLink
-        Label downloadLabel = new Label("You can download version: " + UpdateChecker.getLatestVersion() + " here: ");
-        Hyperlink downloadLink = new Hyperlink("https://github.com/jrt345/GambleScramble/releases/latest");
-
-        vboxPt2.getChildren().addAll(downloadLabel, downloadLink);
-        vboxPt2.setAlignment(Pos.CENTER);
-
-        /*primaryVbox contains vboxPt1, an empty label and vboxPt2;
-        * the empty label provides a gap between vboxPt1 and vboxPt2*/
-        primaryVbox.getChildren().addAll(vboxPt1, new Label(), vboxPt2);
-        primaryVbox.setAlignment(Pos.CENTER);
-
-        //Open main page of GambleScramble repository
-        repoLink.setOnAction( (evt) -> {
-            alert.close();
-            Runtime rt = Runtime.getRuntime();
-            String url = "https://github.com/jrt345/GambleScramble";
-            try {
-                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } );
-
-        //Open downloads page of latest GambleScramble release
-        downloadLink.setOnAction( (evt) -> {
-            alert.close();
-            Runtime rt = Runtime.getRuntime();
-            String url = "https://github.com/jrt345/GambleScramble/releases/latest";
-            try {
-                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } );
-
-        alert.getDialogPane().contentProperty().set(primaryVbox);
-
-        alert.showAndWait();
     }
 
     public static int getRandomNumber(int min, int max) {

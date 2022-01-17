@@ -206,7 +206,7 @@ public class OptionsController implements Initializable {
 
     @FXML
     private void updateGame(ActionEvent event) throws IOException {
-        GameUtils.showUpdateAlert();
+        UpdateChecker.showUpdateAlert();
     }
 
     @Override
