@@ -1,5 +1,5 @@
 package game.games;
 
 public enum Game {
-    COINTOSS, DICEROLL, HANDGUESS
+    COINTOSS, DICEROLL, HANDGUESS, ROCKPAPERSCISSORS
 }

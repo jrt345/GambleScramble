@@ -1,10 +1,7 @@
 package game.controllers;
 
 import game.App;
-import game.games.CoinToss;
-import game.games.DiceRoll;
-import game.games.Game;
-import game.games.HandGuess;
+import game.games.*;
 import game.utils.GameData;
 import game.utils.GameUtils;
 import game.utils.NodeUtils;
@@ -18,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,6 +64,7 @@ public class GameController implements Initializable {
             case COINTOSS -> new CoinToss(bet, gameChoices.getValue());
             case DICEROLL -> new DiceRoll(bet, gameChoices.getValue());
             case HANDGUESS -> new HandGuess(bet, gameChoices.getValue());
+            case ROCKPAPERSCISSORS -> new RockPaperScissors(bet, gameChoices.getValue());
         }
 
         GameData.serialize();
@@ -121,6 +121,9 @@ public class GameController implements Initializable {
         Image handGuessV2 = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png")),
                 60, 60, true, true);
 
+        Image rps = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png")),
+                60, 60, true, true);
+
         if (GameController.game == Game.COINTOSS){
             gameTitle.setText("CoinToss");
             gameDetails.setText("Odds: 1:2, Payout: 2x");
@@ -134,7 +137,7 @@ public class GameController implements Initializable {
             gameChoices.setValue("Heads");
         }
 
-        if (GameController.game == (Game.DICEROLL)){
+        if (GameController.game == Game.DICEROLL){
             gameTitle.setText("DiceRoll");
             gameDetails.setText("Odds: 1:6, Payout: 5x");
             gameChoicesLabel.setText("Choose a number between 1-6");
@@ -147,7 +150,7 @@ public class GameController implements Initializable {
             gameChoices.setValue("1");
         }
 
-        if (GameController.game == (Game.HANDGUESS)){
+        if (GameController.game == Game.HANDGUESS){
             gameTitle.setText("HandGuess");
             gameDetails.setText("Odds: 1:11, Payout: 10x");
             gameChoicesLabel.setText("Choose a number between 0-10");
@@ -165,6 +168,21 @@ public class GameController implements Initializable {
             setNumericalGameChoices(gameChoices,0,10);
 
             gameChoices.setValue("0");
+        }
+
+        if (GameController.game == Game.ROCKPAPERSCISSORS){
+            gameTitle.setText("Rock Paper Scissors");
+            gameTitle.setFont(Font.font("Trebuchet MS", FontWeight.BOLD, 33));
+            gameDetails.setText("Odds: 1:2, Payout: 2x");
+            gameChoicesLabel.setText("Rock, Paper, Scissors?!");
+            gameImage1.setImage(rps);
+            gameImage2.setImage(rps);
+            betInputWarning.setText("");
+
+            gameChoices.getItems().add("Rock");
+            gameChoices.getItems().add("Paper");
+            gameChoices.getItems().add("Scissors");
+            gameChoices.setValue("Rock");
         }
     }
 

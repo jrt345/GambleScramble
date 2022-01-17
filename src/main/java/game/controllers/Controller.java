@@ -4,6 +4,7 @@ import game.App;
 import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.HandGuess;
+import game.games.RockPaperScissors;
 import game.utils.GameUtils;
 import game.utils.NodeUtils;
 import game.utils.Player;
@@ -79,7 +80,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void playRPS() {
-
+        new RockPaperScissors();
     }
 
     @FXML
