@@ -12,6 +12,18 @@
     -fx-text-fill: #20C20E;
 }
 
+#button:hover{
+    -fx-background-color: #000000;
+    -fx-border-color: #FFFFFF;
+    -fx-text-fill: #FFFFFF;
+}
+
+#button:pressed{
+    -fx-background-color: #000000;
+    -fx-border-color: #20C20E;
+    -fx-text-fill: #20C20E;
+}
+
 #titlePane {
     -fx-background-color: #000000;
 }
@@ -67,7 +79,22 @@
  }
 
 #choiceBox .menu-item:focused > .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #FFFFFF;
+}
+
+#choiceBox:hover {
+    -fx-border-color: #FFFFFF;
+    -fx-text-fill: #FFFFFF;
+    -fx-mark-color: #FFFFFF;
+}
+
+#choiceBox .label:hover {
+    -fx-text-fill: #FFFFFF;
+    -fx-mark-color: #FFFFFF;
+}
+
+#choiceBox:showing {
+    -fx-mark-color: #20C20E;
 }
 
 #checkBox {
