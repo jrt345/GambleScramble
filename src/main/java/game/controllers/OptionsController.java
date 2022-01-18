@@ -140,12 +140,15 @@ public class OptionsController implements Initializable {
         if (themes.getValue().equals("Hacker")){
             Controller.getPlayer().setTheme(Theme.HACKER);
         }
+        if (themes.getValue().equals("Slate")){
+            Controller.getPlayer().setTheme(Theme.SLATE);
+        }
 
         if (isApply) {
             ThemeUtils.setSceneTheme(applyButton.getScene(),  Controller.getImageViews());
             if (Controller.getPlayer().getTheme() == Theme.HACKER) {
                 currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/exchangeArrows.png"))));
-            } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
+            } else if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE) {
                 currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
             } else {
                 currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows.png"))));
@@ -225,6 +228,7 @@ public class OptionsController implements Initializable {
         themes.getItems().add("Light");
         themes.getItems().add("Dark");
         themes.getItems().add("Hacker");
+        themes.getItems().add("Slate");
         themes.setValue(Controller.getPlayer().getTheme().getString());
 
         updateCurrencyBoxes(true);
@@ -233,10 +237,10 @@ public class OptionsController implements Initializable {
         NodeUtils.setCurrencyBoxExchange(currencyBoxExchange);
         NodeUtils.setConvertButton(convertButton);
 
-        if (Controller.getPlayer().getTheme().equals(Theme.HACKER)){
+        if (Controller.getPlayer().getTheme() == Theme.HACKER){
             currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/exchangeArrows.png"))));
         }
-        if (Controller.getPlayer().getTheme().equals(Theme.DARK)){
+        if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE){
             currencyImageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png"))));
         }
 

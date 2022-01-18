@@ -36,12 +36,6 @@
     -fx-text-fill: #FFFFFF;
 }
 
-#button:focused:pressed {
-    -fx-background-color: #000000;
-    -fx-border-color: #20C20E;
-    -fx-text-fill: #20C20E;
-}
-
 #titlePane {
     -fx-background-color: #000000;
 }
@@ -160,12 +154,12 @@
     -fx-mark-color: #20C20E;
 }
 
-#checkBox .box{
+#checkBox .box {
     -fx-background-color: #000000;
     -fx-border-color: #20C20E;
 }
 
-#checkBox:focused .box{
+#checkBox:focused .box {
     -fx-background-color: #000000;
     -fx-border-color: #106407;
     -fx-text-fill: #20C20E;

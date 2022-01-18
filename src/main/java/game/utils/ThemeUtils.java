@@ -17,6 +17,7 @@ public class ThemeUtils {
     private static final String lightTheme = App.getCssLocations()[0];
     private static final String darkTheme = App.getCssLocations()[1];
     private static final String hackerTheme = App.getCssLocations()[2];
+    private static final String slateTheme = App.getCssLocations()[3];
 
     /*Sets the stylesheet of GambleScramble, imageViews is based
      * on the all game logos which change to match the current theme*/
@@ -27,7 +28,10 @@ public class ThemeUtils {
         imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
         imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png"))));
 
-        if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+        if (Controller.getPlayer().getTheme() == Theme.SLATE){
+            scene.getStylesheets().add(slateTheme);
+            imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
+        } else if (Controller.getPlayer().getTheme() == Theme.HACKER) {
             scene.getStylesheets().add(hackerTheme);
             imageViews[0].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/cointoss.png"))));
             imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png"))));
@@ -46,7 +50,9 @@ public class ThemeUtils {
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().clear();
 
-        if (Controller.getPlayer().getTheme() == Theme.HACKER){
+        if (Controller.getPlayer().getTheme() == Theme.SLATE) {
+            dialogPane.getStylesheets().add(slateTheme);
+        } else if (Controller.getPlayer().getTheme() == Theme.HACKER){
             dialogPane.getStylesheets().add(hackerTheme);
         } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
             dialogPane.getStylesheets().add(darkTheme);
@@ -62,7 +68,9 @@ public class ThemeUtils {
 
         if (Controller.getPlayer().getTheme() != Theme.LIGHT){
             for (Label label : labels){
-                if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+                if (Controller.getPlayer().getTheme() == Theme.SLATE) {
+                    label.setStyle(" -fx-text-fill: #E0E8F6; ");
+                } else if (Controller.getPlayer().getTheme() == Theme.HACKER) {
                     label.setStyle(" -fx-text-fill: #20C20E; ");
                 } else if (Controller.getPlayer().getTheme() == Theme.DARK){
                     label.setStyle(" -fx-text-fill: #FFFFFF; ");

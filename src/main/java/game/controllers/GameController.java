@@ -155,7 +155,7 @@ public class GameController implements Initializable {
             gameDetails.setText("Odds: 1:11, Payout: 10x");
             gameChoicesLabel.setText("Choose a number between 0-10");
 
-            if (Controller.getPlayer().getTheme() == Theme.DARK){
+            if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE){
                 gameImage1.setImage(handGuessV2);
                 gameImage2.setImage(handGuessV2);
             } else {

@@ -3,7 +3,8 @@ package game.utils;
 public enum Theme {
     LIGHT("Light"),
     DARK("Dark"),
-    HACKER("Hacker");
+    HACKER("Hacker"),
+    SLATE("Slate");
 
     private final String string;
 

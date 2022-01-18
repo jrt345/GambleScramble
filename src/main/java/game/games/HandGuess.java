@@ -113,7 +113,7 @@ public class HandGuess {
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
             image = GameUtils.imageSetter(options, computerOption, imagesH);
-        } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
+        } else if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE) {
             image = GameUtils.imageSetter(options, computerOption, imagesD);
 
         } else {
