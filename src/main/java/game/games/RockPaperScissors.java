@@ -4,6 +4,7 @@ import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
@@ -47,6 +48,15 @@ public class RockPaperScissors {
                         50, 50, true, true)
         };
 
+        Image[] imagesH = {
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/hackertheme/rpsR.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/hackertheme/rpsP.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/hackertheme/rpsS.png")),
+                        50, 50, true, true)
+        };
+
         /*While the user and computer are tied, display an alert and
         * generate a new computerOption*/
         while (userOption.equals(computerOption)){
@@ -65,7 +75,12 @@ public class RockPaperScissors {
 
         GameData.serialize();
 
-        Image image = GameUtils.imageSetter(options, computerOption, images);
+        Image image;
+        if (Controller.getPlayer().getTheme() == Theme.HACKER){
+            image = GameUtils.imageSetter(options, computerOption, imagesH);
+        } else {
+            image = GameUtils.imageSetter(options, computerOption, images);
+        }
 
         if (outcome > 0) {
             GameUtils.gameOutcomeAlert("Rock Paper Scissors",

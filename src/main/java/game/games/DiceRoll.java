@@ -1,8 +1,10 @@
 package game.games;
 
 import game.App;
+import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
@@ -47,7 +49,27 @@ public class DiceRoll {
                         50, 50, true, true)
         };
 
-        Image image = GameUtils.imageSetter(options, computerOption, images);
+        Image[] imagesH = {
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice1.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice2.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice3.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice4.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice5.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice6.png")),
+                        50, 50, true, true)
+        };
+
+        Image image;
+        if (Controller.getPlayer().getTheme() == Theme.HACKER){
+            image = GameUtils.imageSetter(options, computerOption, imagesH);
+        } else {
+            image = GameUtils.imageSetter(options, computerOption, images);
+        }
 
         if (userOption.equals(computerOption)) {
             GameUtils.gameOutcomeAlert("DiceRoll",

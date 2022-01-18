@@ -1,8 +1,10 @@
 package game.games;
 
 import game.App;
+import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
@@ -57,7 +59,66 @@ public class HandGuess {
                         50, 50, true, true)
         };
 
-        Image image = GameUtils.imageSetter(options, computerOption, images);
+        Image[] imagesD = {
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand0.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand1.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand2.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand3.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand4.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand5.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand6.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand7.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand8.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand9.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand10.png")),
+                        50, 50, true, true)
+        };
+
+        Image[] imagesH = {
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand0.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand1.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand2.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand3.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand4.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand5.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand6.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand7.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand8.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand9.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand10.png")),
+                        50, 50, true, true)
+        };
+
+
+        Image image;
+        if (Controller.getPlayer().getTheme() == Theme.HACKER){
+            image = GameUtils.imageSetter(options, computerOption, imagesH);
+        } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
+            image = GameUtils.imageSetter(options, computerOption, imagesD);
+
+        } else {
+            image = GameUtils.imageSetter(options, computerOption, images);
+        }
 
         if (userOption.equals(computerOption)) {
             GameUtils.gameOutcomeAlert("HandGuess",
