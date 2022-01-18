@@ -36,6 +36,12 @@
     -fx-text-fill: #FFFFFF;
 }
 
+#button:focused:pressed {
+    -fx-background-color: #000000;
+    -fx-border-color: #20C20E;
+    -fx-text-fill: #20C20E;
+}
+
 #titlePane {
     -fx-background-color: #000000;
 }
