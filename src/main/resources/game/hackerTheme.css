@@ -12,22 +12,28 @@
     -fx-text-fill: #20C20E;
 }
 
-#button:hover{
+#button:hover {
     -fx-background-color: #000000;
     -fx-border-color: #FFFFFF;
     -fx-text-fill: #FFFFFF;
 }
 
-#button:pressed{
+#button:pressed {
     -fx-background-color: #000000;
     -fx-border-color: #20C20E;
     -fx-text-fill: #20C20E;
 }
 
-#button:focused{
+#button:focused {
     -fx-background-color: #000000;
     -fx-border-color: #106407;
     -fx-text-fill: #20C20E;
+}
+
+#button:focused:hover {
+    -fx-background-color: #000000;
+    -fx-border-color: #FFFFFF;
+    -fx-text-fill: #FFFFFF;
 }
 
 #titlePane {
