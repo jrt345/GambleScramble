@@ -192,6 +192,10 @@
     -fx-text-fill: #20C20E;
 }
 
+#textArea:focused {
+    -fx-background-color: #106407;
+}
+
 #textArea .content {
     -fx-background-color: #000000;
 }

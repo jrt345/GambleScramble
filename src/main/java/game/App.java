@@ -15,7 +15,7 @@ import java.util.Objects;
 public class App extends Application {
 
     //String array to store the locations of the css stylesheets
-    private static final String[] cssLocations = new String[4];
+    private static final String[] cssLocations = new String[5];
 
     public static String[] getCssLocations() {
         return cssLocations;
@@ -57,6 +57,7 @@ public class App extends Application {
         cssLocations[1] = Objects.requireNonNull(App.class.getResource("darkTheme.css")).toExternalForm();
         cssLocations[2] = Objects.requireNonNull(App.class.getResource("hackerTheme.css")).toExternalForm();
         cssLocations[3] = Objects.requireNonNull(App.class.getResource("slateTheme.css")).toExternalForm();
+        cssLocations[4] = Objects.requireNonNull(App.class.getResource("roseTheme.css")).toExternalForm();
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gambleScramble.fxml"));
         stage.setTitle("GambleScramble");

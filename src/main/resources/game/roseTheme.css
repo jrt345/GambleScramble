@@ -1,0 +1,208 @@
+#background {
+    -fx-background-color: #D6B6AE;
+}
+
+#label {
+    -fx-text-fill: #000000;
+}
+
+#button {
+     -fx-background-color: #EADAD6;
+     -fx-text-fill: #000000
+}
+
+#button:hover {
+     -fx-background-color: #F8F3F2;
+     -fx-text-fill: #000000
+}
+
+#button:pressed {
+     -fx-background-color: #E3CDCA;
+     -fx-text-fill: #000000
+}
+
+#button:focused {
+     -fx-background-color: #EADAD6;
+     -fx-border-color: #FFFFFF;
+     -fx-text-fill: #000000
+}
+
+#button:focused:hover {
+     -fx-background-color: #F8F3F2;
+     -fx-border-color: #FFFFFF;
+     -fx-text-fill: #000000
+}
+
+#button:focused:pressed {
+     -fx-background-color: #E3CDCA;
+     -fx-border-color: #FFFFFF;
+     -fx-text-fill: #000000
+}
+
+#titlePane {
+    -fx-background-color: #D6B6AE;
+}
+
+#navBarPane {
+    -fx-background-color: #D6B6AE;
+}
+
+#coinTossPane {
+    -fx-background-color: #CDA397;
+}
+
+#diceRollPane {
+    -fx-background-color: #CDA397;
+}
+
+#handGuessPane {
+    -fx-background-color: #CDA397;
+}
+
+#rpsPane {
+    -fx-background-color: #CDA397;
+}
+
+#stopPane {
+    -fx-background-color: #CDA397;
+}
+
+#versionPane {
+    -fx-background-color: #D6B6AE;
+}
+
+.alert {
+    -fx-background-color: #D6B6AE;
+}
+.alert > *.button-bar > *.container {
+    -fx-background-color: #D6B6AE;
+}
+.alert > *.label.content {
+    -fx-text-fill: #000000;
+}
+.alert:header *.header-panel {
+    -fx-background-color: #D6B6AE;
+}
+.alert:header *.header-panel *.label {
+    -fx-text-fill: #000000;
+}
+
+.alert .button {
+     -fx-background-color: #EADAD6;
+     -fx-text-fill: #000000
+}
+
+.alert .button:focused {
+     -fx-background-color: #EADAD6;
+     -fx-border-color: #FFFFFF;
+     -fx-text-fill: #000000
+}
+
+.alert .button:hover {
+     -fx-background-color: #F8F3F2;
+     -fx-text-fill: #000000
+}
+
+#choiceBox {
+    -fx-background-color: #EADAD6;
+    -fx-border-color: #EADAD6;
+    -fx-text-fill: #000000;
+    -fx-mark-color: #000000;
+}
+
+#choiceBox:focused {
+    -fx-background-color: #EADAD6;
+    -fx-border-color: #FFFFFF;
+    -fx-text-fill: #000000;
+}
+
+#choiceBox .context-menu {
+    -fx-background-color: #EADAD6;
+}
+
+#choiceBox .label{
+    -fx-text-fill: #000000;
+}
+
+#choiceBox .menu-item:focused {
+    -fx-background-color: #F8F3F2;
+}
+
+#choiceBox .menu-item > .label {
+    -fx-text-fill: #000000;
+ }
+
+#choiceBox .menu-item:focused > .label {
+    -fx-text-fill: #000000;
+}
+
+#choiceBox:hover {
+     -fx-background-color: #F8F3F2;
+     -fx-border-color: #FFFFFF;
+     -fx-text-fill: #000000;
+     -fx-mark-color: #000000;
+}
+
+#choiceBox .label:hover {
+    -fx-text-fill: #000000;
+    -fx-mark-color: #000000;
+}
+
+#choiceBox:showing {
+    -fx-mark-color: #000000;
+}
+
+#checkBox {
+    -fx-text-fill: #000000;
+    -fx-mark-color: #000000;
+}
+
+#checkBox .box {
+    -fx-background-color: #EADAD6;
+    -fx-border-color: #EADAD6;
+}
+
+#checkBox:focused .box {
+    -fx-background-color: #F8F3F2;
+    -fx-border-color: #EADAD6;
+    -fx-text-fill: #E0E8F6;
+}
+
+#checkBox .box:hover {
+    -fx-background-color: #F8F3F2;
+    -fx-mark-color: #000000;
+}
+
+#textField {
+    -fx-background-color: #EADAD6;
+    -fx-text-fill: #000000;
+}
+
+#betInputWarningLabel {
+    -fx-text-fill: black;
+}
+
+#aboutBoxBackground {
+    -fx-background-color: #D6B6AE;
+}
+
+#aboutBoxLabel {
+    -fx-text-fill: #000000;
+}
+
+#separator .line {
+    -fx-border-color: #FFFFFF;
+}
+
+#textArea {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+}
+
+#textArea:focused {
+    -fx-background-color: #FFFFFF;
+}
+
+#textArea .content {
+    -fx-background-color: #D6B6AE;
+}

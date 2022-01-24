@@ -18,6 +18,7 @@ public class ThemeUtils {
     private static final String darkTheme = App.getCssLocations()[1];
     private static final String hackerTheme = App.getCssLocations()[2];
     private static final String slateTheme = App.getCssLocations()[3];
+    private static final String roseTheme = App.getCssLocations()[4];
 
     /*Sets the stylesheet of GambleScramble, imageViews is based
      * on the all game logos which change to match the current theme*/
@@ -28,7 +29,9 @@ public class ThemeUtils {
         imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
         imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png"))));
 
-        if (Controller.getPlayer().getTheme() == Theme.SLATE){
+        if (Controller.getPlayer().getTheme() == Theme.ROSE) {
+            scene.getStylesheets().add(roseTheme);
+        } else if (Controller.getPlayer().getTheme() == Theme.SLATE){
             scene.getStylesheets().add(slateTheme);
             imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
         } else if (Controller.getPlayer().getTheme() == Theme.HACKER) {
@@ -50,7 +53,9 @@ public class ThemeUtils {
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().clear();
 
-        if (Controller.getPlayer().getTheme() == Theme.SLATE) {
+        if (Controller.getPlayer().getTheme() == Theme.ROSE) {
+            dialogPane.getStylesheets().add(roseTheme);
+        } else if (Controller.getPlayer().getTheme() == Theme.SLATE) {
             dialogPane.getStylesheets().add(slateTheme);
         } else if (Controller.getPlayer().getTheme() == Theme.HACKER){
             dialogPane.getStylesheets().add(hackerTheme);

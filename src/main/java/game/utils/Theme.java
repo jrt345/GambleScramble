@@ -4,7 +4,8 @@ public enum Theme {
     LIGHT("Light"),
     DARK("Dark"),
     HACKER("Hacker"),
-    SLATE("Slate");
+    SLATE("Slate"),
+    ROSE("Rose");
 
     private final String string;
 

@@ -143,6 +143,9 @@ public class OptionsController implements Initializable {
         if (themes.getValue().equals("Slate")){
             Controller.getPlayer().setTheme(Theme.SLATE);
         }
+        if (themes.getValue().equals("Rose")){
+            Controller.getPlayer().setTheme(Theme.ROSE);
+        }
 
         if (isApply) {
             ThemeUtils.setSceneTheme(applyButton.getScene(),  Controller.getImageViews());
@@ -229,6 +232,7 @@ public class OptionsController implements Initializable {
         themes.getItems().add("Dark");
         themes.getItems().add("Hacker");
         themes.getItems().add("Slate");
+        themes.getItems().add("Rose");
         themes.setValue(Controller.getPlayer().getTheme().getString());
 
         updateCurrencyBoxes(true);
