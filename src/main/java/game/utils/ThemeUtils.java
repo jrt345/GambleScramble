@@ -29,22 +29,24 @@ public class ThemeUtils {
         imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
         imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png"))));
 
-        if (Controller.getPlayer().getTheme() == Theme.ROSE) {
-            scene.getStylesheets().add(roseTheme);
-        } else if (Controller.getPlayer().getTheme() == Theme.SLATE){
-            scene.getStylesheets().add(slateTheme);
-            imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
-        } else if (Controller.getPlayer().getTheme() == Theme.HACKER) {
-            scene.getStylesheets().add(hackerTheme);
-            imageViews[0].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/cointoss.png"))));
-            imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png"))));
-            imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png"))));
-            imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png"))));
-        } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
-            scene.getStylesheets().add(darkTheme);
-            imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
-        } else {
-            scene.getStylesheets().add(lightTheme);
+        switch (Controller.getPlayer().getTheme()) {
+            case DARK -> {
+                scene.getStylesheets().add(darkTheme);
+                imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
+            }
+            case HACKER -> {
+                scene.getStylesheets().add(hackerTheme);
+                imageViews[0].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/cointoss.png"))));
+                imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png"))));
+                imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png"))));
+                imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png"))));
+            }
+            case SLATE -> {
+                scene.getStylesheets().add(slateTheme);
+                imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
+            }
+            case ROSE -> scene.getStylesheets().add(roseTheme);
+            default -> scene.getStylesheets().add(lightTheme);
         }
     }
 
@@ -53,16 +55,12 @@ public class ThemeUtils {
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().clear();
 
-        if (Controller.getPlayer().getTheme() == Theme.ROSE) {
-            dialogPane.getStylesheets().add(roseTheme);
-        } else if (Controller.getPlayer().getTheme() == Theme.SLATE) {
-            dialogPane.getStylesheets().add(slateTheme);
-        } else if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            dialogPane.getStylesheets().add(hackerTheme);
-        } else if (Controller.getPlayer().getTheme() == Theme.DARK) {
-            dialogPane.getStylesheets().add(darkTheme);
-        } else {
-            dialogPane.getStylesheets().add(lightTheme);
+        switch (Controller.getPlayer().getTheme()) {
+            case DARK -> dialogPane.getStylesheets().add(darkTheme);
+            case HACKER -> dialogPane.getStylesheets().add(hackerTheme);
+            case SLATE -> dialogPane.getStylesheets().add(slateTheme);
+            case ROSE -> dialogPane.getStylesheets().add(roseTheme);
+            default -> dialogPane.getStylesheets().add(lightTheme);
         }
 
         alert.setDialogPane(dialogPane);
@@ -71,20 +69,20 @@ public class ThemeUtils {
     public static void setAlertTheme(Alert alert, Label[] labels, Hyperlink[] hyperlinks) {
         setAlertTheme(alert);
 
-        if (Controller.getPlayer().getTheme() != Theme.LIGHT){
+        if (Controller.getPlayer().getTheme() != Theme.LIGHT || Controller.getPlayer().getTheme() != Theme.ROSE){
             for (Label label : labels){
                 if (Controller.getPlayer().getTheme() == Theme.SLATE) {
                     label.setStyle(" -fx-text-fill: #E0E8F6; ");
                 } else if (Controller.getPlayer().getTheme() == Theme.HACKER) {
                     label.setStyle(" -fx-text-fill: #20C20E; ");
+
+                    for (Hyperlink hyperlink : hyperlinks) {
+                        if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+                            hyperlink.setStyle(" -fx-text-fill: #3EFF29; ");
+                        }
+                    }
                 } else if (Controller.getPlayer().getTheme() == Theme.DARK){
                     label.setStyle(" -fx-text-fill: #FFFFFF; ");
-                }
-            }
-
-            for (Hyperlink hyperlink : hyperlinks){
-                if (Controller.getPlayer().getTheme() == Theme.HACKER) {
-                    hyperlink.setStyle(" -fx-text-fill: #3EFF29; ");
                 }
             }
         }
