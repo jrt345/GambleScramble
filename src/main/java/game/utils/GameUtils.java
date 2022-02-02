@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -98,7 +99,7 @@ public class GameUtils {
     //Returns a description of the randomly generated outcome
     private static String computerOptionIntroSetter(Game game, String computerOption) {
         String computerOptionIntro = null;
-        switch (game){
+        switch (game) {
             case COINTOSS -> computerOptionIntro = "Just got " + computerOption + ". ";
             case DICEROLL -> computerOptionIntro = "Just rolled a " + computerOption + ". ";
             case HANDGUESS -> {
@@ -129,8 +130,25 @@ public class GameUtils {
         return status;
     }
 
+    private static final AudioClip coinTossSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/cointoss.mp3")).toString());
+    private static final AudioClip diceRollSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/diceroll.mp3")).toString());
+    private static final AudioClip handGuessSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/handguess.mp3")).toString());
+    private static final AudioClip rpsSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/rockpaperscissors.mp3")).toString());
+
+    private static final AudioClip bankruptSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/bankrupt.mp3")).toString());
+
+    public static void playGameSound(Game game) {
+        switch (game) {
+            case COINTOSS -> coinTossSound.play();
+            case DICEROLL -> diceRollSound.play();
+            case HANDGUESS -> handGuessSound.play();
+            case ROCKPAPERSCISSORS -> rpsSound.play();
+        }
+    }
+
     //Combines computerOptionIntroSetter and statusSetter into one string
     public static String outcomeSetter(Game game, String computerOption, boolean win, int outcome) {
+        playGameSound(game);
         return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
     }
 
@@ -141,6 +159,7 @@ public class GameUtils {
 
         alert.setGraphic(new ImageView(image));
         ThemeUtils.setAlertTheme(alert);
+
         alert.showAndWait();
     }
 
@@ -153,6 +172,8 @@ public class GameUtils {
         alert.setTitle("Bankruptcy Notice");
         alert.setHeaderText("You are bankrupt!");
         ThemeUtils.setAlertTheme(alert);
+
+        bankruptSound.play();
         alert.showAndWait();
 
         refreshNavBarLabel();
