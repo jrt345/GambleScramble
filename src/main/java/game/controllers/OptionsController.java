@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -52,7 +53,9 @@ public class OptionsController implements Initializable {
 
     @FXML
     private Button updateButton;
-    
+
+    private static final AudioClip exchangeSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/exchange.mp3")).toString());
+
     @FXML
     private void convertCurrency(ActionEvent event) throws IOException {
         int balance = Controller.getPlayer().getBalance();
@@ -77,6 +80,8 @@ public class OptionsController implements Initializable {
             GameUtils.refreshNavBarLabel();
 
             updateCurrencyBoxes(false);
+
+            exchangeSound.play();
             GameData.serialize();
         }
 
@@ -122,7 +127,7 @@ public class OptionsController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("About GambleScramble");
         stage.initModality(Modality.APPLICATION_MODAL);
-        Scene scene = new Scene(root, 500, 350);
+        Scene scene = new Scene(root, 500, 380);
         ThemeUtils.setSceneTheme(scene, Controller.getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);

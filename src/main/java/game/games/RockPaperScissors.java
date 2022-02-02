@@ -60,9 +60,18 @@ public class RockPaperScissors {
         /*While the user and computer are tied, display an alert and
         * generate a new computerOption*/
         while (userOption.equals(computerOption)){
-            GameUtils.gameOutcomeAlert("Rock Paper Scissors",
-                    computerOption + ". It's a Tie! We'll go again!",
-                    GameUtils.imageSetter(options, computerOption, images));
+            GameUtils.playGameSound(Game.ROCKPAPERSCISSORS);
+
+            if (Controller.getPlayer().getTheme() == Theme.HACKER){
+                GameUtils.gameOutcomeAlert("Rock Paper Scissors",
+                        computerOption + ". It's a Tie! We'll go again!",
+                        GameUtils.imageSetter(options, computerOption, imagesH));
+            } else {
+                GameUtils.gameOutcomeAlert("Rock Paper Scissors",
+                        computerOption + ". It's a Tie! We'll go again!",
+                        GameUtils.imageSetter(options, computerOption, images));
+            }
+
 
             computerOption = GameUtils.generateComputerChoice(options, 0, 2);
         }
@@ -81,6 +90,8 @@ public class RockPaperScissors {
         } else {
             image = GameUtils.imageSetter(options, computerOption, images);
         }
+
+        GameUtils.playGameSound(Game.ROCKPAPERSCISSORS);
 
         if (outcome > 0) {
             GameUtils.gameOutcomeAlert("Rock Paper Scissors",
