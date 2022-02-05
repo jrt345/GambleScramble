@@ -15,7 +15,7 @@ import java.net.URLConnection;
 
 public class UpdateChecker {
 
-    private static final String currentVersionString = "1.0.0";
+    private static final String currentVersionString = "2.0.0";
 
     //Gets the latest version of GambleScramble (as a string) from the GitHub repository
     public static String getLatestVersion() {

@@ -171,7 +171,7 @@
                      </children></AnchorPane>
                   <AnchorPane id="versionPane" prefHeight="50.0" prefWidth="900.0" GridPane.rowIndex="1">
                      <children>
-                        <Label id="label" layoutY="7.0" prefHeight="50.0" prefWidth="890.0" text="GambleScramble 1.0 " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" layoutY="7.0" prefHeight="50.0" prefWidth="890.0" text="GambleScramble 2.0 " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="32.0" />
                            </font>
