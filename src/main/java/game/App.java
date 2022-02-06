@@ -15,7 +15,7 @@ import java.util.Objects;
 public class App extends Application {
 
     //String array to store the locations of the css stylesheets
-    private static final String[] cssLocations = new String[2];
+    private static final String[] cssLocations = new String[5];
 
     public static String[] getCssLocations() {
         return cssLocations;
@@ -55,12 +55,15 @@ public class App extends Application {
 
         cssLocations[0] = Objects.requireNonNull(App.class.getResource("lightTheme.css")).toExternalForm();
         cssLocations[1] = Objects.requireNonNull(App.class.getResource("darkTheme.css")).toExternalForm();
+        cssLocations[2] = Objects.requireNonNull(App.class.getResource("hackerTheme.css")).toExternalForm();
+        cssLocations[3] = Objects.requireNonNull(App.class.getResource("slateTheme.css")).toExternalForm();
+        cssLocations[4] = Objects.requireNonNull(App.class.getResource("roseTheme.css")).toExternalForm();
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gambleScramble.fxml"));
         stage.setTitle("GambleScramble");
         stage.setResizable(false);
-        Scene scene = new Scene(fxmlLoader.load(), 900, 570);
-        GameUtils.setSceneTheme(scene, true, Controller.getImageView());
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 570);
+        ThemeUtils.setSceneTheme(scene,  Controller.getImageViews());
         stage.setScene(scene);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
@@ -75,7 +78,7 @@ public class App extends Application {
 
         if (UpdateChecker.isUpdateAvailable() && Controller.getPlayer().getCheckForUpdates()){
             try {
-                GameUtils.showUpdateAlert();
+                UpdateChecker.showUpdateAlert();
             } catch (IOException e) {
                 e.printStackTrace();
             }

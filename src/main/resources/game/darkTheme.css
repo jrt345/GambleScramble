@@ -26,12 +26,36 @@
     -fx-background-color: #2A2828;
 }
 
+#rpsPane {
+    -fx-background-color: #2A2828;
+}
+
 #stopPane {
     -fx-background-color: #2A2828;
 }
 
 #versionPane {
     -fx-background-color: #1F1E1E;
+}
+
+.alert {
+    -fx-background-color: #1F1E1E;
+}
+.alert > *.button-bar > *.container {
+    -fx-background-color: #1F1E1E;
+}
+.alert > *.label.content {
+    -fx-text-fill: #FFFFFF;
+}
+.alert:header *.header-panel {
+    -fx-background-color: #1F1E1E;
+}
+.alert:header *.header-panel *.label {
+    -fx-text-fill: #FFFFFF;
+}
+
+#checkBox {
+    -fx-text-fill: #FFFFFF;
 }
 
 #aboutBoxBackground {
@@ -42,14 +66,14 @@
     -fx-text-fill: #FFFFFF;
 }
 
-#separator {
-    -fx-background-color: #000000;
+#separator .line {
+    -fx-border-color: #FFFFFF;
 }
 
 #textArea {
     -fx-text-fill: #FFFFFF;
 }
 
-#textArea .content{
+#textArea .content {
     -fx-background-color: #2A2828;
 }

@@ -13,7 +13,7 @@
                 <Font name="Trebuchet MS Bold" size="49.0" />
             </font>
         </Label>
-        <GridPane layoutY="70.0" prefHeight="166.0" prefWidth="500.0">
+        <GridPane id="background" layoutY="70.0" prefHeight="166.0" prefWidth="500.0">
             <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -36,11 +36,11 @@
                         <Font name="Trebuchet MS Bold" size="20.0" />
                     </font>
                 </Label>
-                <ChoiceBox fx:id="themes" prefWidth="150.0" GridPane.rowIndex="1" />
+                <ChoiceBox id="choiceBox" fx:id="themes" prefWidth="150.0" GridPane.rowIndex="1" />
                 <AnchorPane prefHeight="50.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <ChoiceBox fx:id="currencyBoxUser" layoutX="14.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="11.0" />
-                        <ChoiceBox fx:id="currencyBoxExchange" layoutX="161.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0" />
+                        <ChoiceBox id="choiceBox" fx:id="currencyBoxUser" layoutX="14.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="11.0" />
+                        <ChoiceBox id="choiceBox" fx:id="currencyBoxExchange" layoutX="161.0" layoutY="12.0" prefWidth="75.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="161.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0" />
                         <ImageView id="as" fx:id="currencyImageView" fitHeight="45.0" fitWidth="45.0" layoutX="103.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="0.0">
                             <image>
                                 <Image url="@images/gamblescramble/exchangeArrows.png" />
@@ -48,13 +48,13 @@
                         </ImageView>
                     </children>
                 </AnchorPane>
-                <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertCurrency" prefWidth="100.0" text="Convert" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button id="button" fx:id="convertButton" mnemonicParsing="false" onAction="#convertCurrency" prefWidth="100.0" text="Convert" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="127.0" text="Delete data:" textAlignment="CENTER" GridPane.rowIndex="3">
                     <font>
                         <Font name="Trebuchet MS Bold" size="20.0" />
                     </font>
                 </Label>
-                <Button mnemonicParsing="false" onAction="#deleteData" prefWidth="100.0" text="Delete Data" textFill="RED" GridPane.rowIndex="4" />
+                <Button id="button" mnemonicParsing="false" onAction="#deleteData" prefWidth="100.0" text="Delete Data" textFill="RED" GridPane.rowIndex="4" />
                 <Label id="label" alignment="CENTER" prefHeight="33.0" prefWidth="241.0" text="About GambleScramble:" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <font>
                         <Font name="Trebuchet MS Bold" size="20.0" />
@@ -62,26 +62,26 @@
                 </Label>
                 <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <children>
-                        <Button layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAboutBox" prefWidth="100.0" text="About" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="5.0" />
-                        <Button layoutX="136.0" layoutY="5.0" mnemonicParsing="false" onAction="#openGitHubPage" prefWidth="100.0" text="GitHub Page" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
+                        <Button id="button" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAboutBox" prefWidth="100.0" text="About" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="5.0" />
+                        <Button id="button" layoutX="136.0" layoutY="5.0" mnemonicParsing="false" onAction="#openGitHubPage" prefWidth="100.0" text="GitHub Page" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="4.0" />
                     </children>
                 </AnchorPane>
-            <CheckBox id="label" fx:id="checkForUpdatesCheckBox" mnemonicParsing="false" text="Check for updates on launch" GridPane.rowIndex="2" />
+            <CheckBox id="checkBox" fx:id="checkForUpdatesCheckBox" mnemonicParsing="false" text="Check for updates on launch" GridPane.rowIndex="2" />
             </children>
         </GridPane>
-        <ButtonBar layoutX="130.0" layoutY="260.0" prefHeight="40.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="260.0">
+        <ButtonBar id="background" layoutX="130.0" layoutY="260.0" prefHeight="40.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="260.0">
             <buttons>
-                <Button fx:id="okButton" mnemonicParsing="false" onAction="#setNewSettings" text="OK" />
-                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelSettings" text="Cancel" />
-                <Button fx:id="applyButton" mnemonicParsing="false" onAction="#applySettings" text="Apply" />
+                <Button id="button" fx:id="okButton" mnemonicParsing="false" onAction="#setNewSettings" text="OK" />
+                <Button id="button" fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelSettings" text="Cancel" />
+                <Button id="button" fx:id="applyButton" mnemonicParsing="false" onAction="#applySettings" text="Apply" />
             </buttons>
             <padding>
                 <Insets right="10.0" />
             </padding>
         </ButtonBar>
-      <ButtonBar layoutY="260.0" prefHeight="40.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="260.0">
+      <ButtonBar id="background" layoutY="260.0" prefHeight="40.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="260.0">
          <buttons>
-            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateGame" prefHeight="25.0" prefWidth="110.0" text="Update Available" />
+            <Button id="button" fx:id="updateButton" mnemonicParsing="false" onAction="#updateGame" prefHeight="25.0" prefWidth="110.0" text="Update Available" />
          </buttons>
          <padding>
             <Insets right="10.0" />

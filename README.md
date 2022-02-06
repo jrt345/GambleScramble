@@ -1,4 +1,4 @@
-<!--Version-1.0.0-->
+<!--Version-2.0.0-->
 
 # GambleScramble
 
@@ -18,8 +18,9 @@ When you start off the game the player starts with 100 dollars (USD) and can gam
 1. CoinToss
 2. DiceRoll 
 3. HandGuess
+4. Rock Paper Scissors
 
-These games are based on chance, with CoinToss having 1:2 odds of wining and a 2x payout; DiceRoll having 1:6 odds of winning and a 5x payout; HandGuess has a 1:11 odds and a 10x payout. More complex games will be added as this game gets updated.
+These games are based on chance, with CoinToss and Rock Paper Scissors having 1:2 odds of wining and a 2x payout; DiceRoll having 1:6 odds of winning and a 5x payout; HandGuess has a 1:11 odds and a 10x payout. More complex games will be added as this game gets updated.
 
 The player can wish to convert their currency to the following currencies:
 
@@ -34,11 +35,15 @@ The player can wish to convert their currency to the following currencies:
 
 *Note: The exchange rates of the currencies are based on the time of the latest release.*
 
-Currently there are only two themes: Light theme (default) and Dark theme, which can be changed in the options menu.
+There are five themes: Light theme (default), Dark theme, Hacker theme, Slate theme, and Rose theme, which can be changed in the options menu.
 
 | Light theme | Dark theme |
 | ------------- | ------------- |
 | <img src="screenshots/lighttheme.png"/> | <img src="screenshots/darktheme.png"/> |
+
+| Hacker theme | Slate theme | Rose theme |
+| ------------- | ------------- | ------------- |
+| <img src="screenshots/hackertheme.png"/> | <img src="screenshots/slatetheme.png"/> | <img src="screenshots/rosetheme.png"/> |
 
 ***
 
@@ -53,26 +58,19 @@ Currently there are only two themes: Light theme (default) and Dark theme, which
 ## Screenshots:
 
 ### Options page:
-| Light theme | Dark theme |
-| ------------- | ------------- |
-|<img src="screenshots/lighttheme-options.png"/>|<img src="screenshots/darktheme-options.png"/>|
+<img src="screenshots/options.png" width=75%/>
 
 ### CoinToss:
-| Light theme | Dark theme |
-| ------------- | ------------- |
-|<img src="screenshots/lighttheme-cointoss.png"/>|<img src="screenshots/darktheme-cointoss.png"/>|
+<img src="screenshots/cointoss.png" width=75%/>
 
 ### DiceRoll:
-| Light theme | Dark theme |
-| ------------- | ------------- |
-|<img src="screenshots/lighttheme-diceroll.png"/>|<img src="screenshots/darktheme-diceroll.png"/>|
+<img src="screenshots/diceroll.png" width=75%/>
 
 ### HandGuess:
-| Light theme | Dark theme |
-| ------------- | ------------- |
-|<img src="screenshots/lighttheme-handguess.png"/>|<img src="screenshots/darktheme-handguess.png"/>|
+<img src="screenshots/handguess.png" width=75%/>
+
+### Rock Paper Scissors:
+<img src="screenshots/rockpaperscissors.png" width=75%/>
 
 ### About box:
-| Light theme | Dark theme |
-| ------------- | ------------- |
-|<img src="screenshots/lighttheme-about.png"/>|<img src="screenshots/darktheme-about.png"/>|
+<img src="screenshots/aboutbox.png" width=75%/>

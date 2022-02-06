@@ -4,9 +4,11 @@ import game.App;
 import game.games.CoinToss;
 import game.games.DiceRoll;
 import game.games.HandGuess;
+import game.games.RockPaperScissors;
 import game.utils.GameUtils;
 import game.utils.NodeUtils;
 import game.utils.Player;
+import game.utils.ThemeUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,12 +44,21 @@ public class Controller implements Initializable {
     private Label navBarLabel;
 
     @FXML
+    private ImageView coinTossImageView;
+
+    @FXML
+    private ImageView diceRollImageView;
+
+    @FXML
     private ImageView handGuessImageView;
 
-    private static ImageView imageView;
+    @FXML
+    private ImageView rpsImageView;
 
-    public static ImageView getImageView() {
-        return imageView;
+    private static ImageView[] imageViews;
+
+    public static ImageView[] getImageViews() {
+        return imageViews;
     }
 
     @FXML
@@ -58,6 +69,9 @@ public class Controller implements Initializable {
 
     @FXML
     private Button handGuessButton;
+
+    @FXML
+    private Button rpsButton;
 
     @FXML
     private void playCoinToss(ActionEvent event) {
@@ -75,6 +89,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    private void playRPS() {
+        new RockPaperScissors();
+    }
+
+    @FXML
     private void openOptions(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("options.fxml"));
         Parent root = fxmlLoader.load();
@@ -83,7 +102,7 @@ public class Controller implements Initializable {
         stage.setTitle("Options");
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 500,300);
-        GameUtils.setSceneTheme(scene, true, getImageView());
+        ThemeUtils.setSceneTheme(scene,  getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
@@ -103,9 +122,9 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imageView = handGuessImageView;
+        imageViews = new ImageView[]{coinTossImageView, diceRollImageView, handGuessImageView, rpsImageView};
 
-        Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton};
+        Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton, rpsButton};
 
         navBarLabel.setText("Current balance: " + getPlayer().getCurrency().getSymbol() +
                 getPlayer().getBalance());

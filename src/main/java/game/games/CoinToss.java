@@ -1,8 +1,10 @@
 package game.games;
 
 import game.App;
+import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
@@ -39,7 +41,19 @@ public class CoinToss {
                         50, 50, true, true)
         };
 
-        Image image = GameUtils.imageSetter(options, computerOption, images);
+        Image[] imagesH = {
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/hackertheme/heads.png")),
+                        50, 50, true, true),
+                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/hackertheme/tails.png")),
+                        50, 50, true, true)
+        };
+
+        Image image;
+        if (Controller.getPlayer().getTheme() == Theme.HACKER){
+             image = GameUtils.imageSetter(options, computerOption, imagesH);
+        } else {
+             image = GameUtils.imageSetter(options, computerOption, images);
+        }
 
         if (userOption.equals(computerOption)) {
             GameUtils.gameOutcomeAlert("CoinToss",

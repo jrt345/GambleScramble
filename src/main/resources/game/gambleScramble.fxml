@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.Controller">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.Controller">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -13,6 +13,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="300.0" vgrow="ALWAYS" />
@@ -20,16 +21,16 @@
                <children>
                   <AnchorPane id="coinTossPane" prefHeight="300.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="coinTossButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playCoinToss" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button id="button" fx:id="coinTossButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playCoinToss" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                        <ImageView fx:id="coinTossImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
                            <image>
                               <Image url="@images/gamblescramble/cointoss.png" />
                            </image></ImageView>
-                        <Label id="label" fx:id="navBarLabel1" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="CoinToss" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="CoinToss" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -37,16 +38,16 @@
                      </children></AnchorPane>
                   <AnchorPane id="diceRollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Button fx:id="diceRollButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playDiceRoll" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button id="button" fx:id="diceRollButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playDiceRoll" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                        <ImageView fx:id="diceRollImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
                            <image>
                               <Image url="@images/gamblescramble/diceroll.png" />
                            </image></ImageView>
-                        <Label id="label" fx:id="navBarLabel11" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="DiceRoll" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="DiceRoll" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -54,7 +55,7 @@
                      </children></AnchorPane>
                   <AnchorPane id="handGuessPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3;" GridPane.columnIndex="2">
                      <children>
-                        <Button fx:id="handGuessButton" focusTraversable="false" layoutX="29.0" layoutY="233.0" mnemonicParsing="false" onAction="#playHandGuess" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                        <Button id="button" fx:id="handGuessButton" focusTraversable="false" layoutX="29.0" layoutY="233.0" mnemonicParsing="false" onAction="#playHandGuess" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
@@ -63,12 +64,31 @@
                            <image>
                               <Image url="@images/gamblescramble/handguess.png" />
                            </image></ImageView>
-                        <Label id="label" fx:id="navBarLabel12" alignment="TOP_CENTER" layoutX="59.0" prefHeight="50.0" prefWidth="183.0" text="HandGuess" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="59.0" prefHeight="50.0" prefWidth="183.0" text="HandGuess" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>
+                  <AnchorPane id="rpsPane" prefHeight="300.0" prefWidth="200.0" GridPane.columnIndex="3">
+                     <children>
+                        <Button id="button" fx:id="rpsButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playRPS" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="27.0" />
+                           </font>
+                        </Button>
+                        <ImageView fx:id="rpsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/rockpaperscissors.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="label" alignment="TOP_CENTER" layoutX="12.0" prefHeight="50.0" prefWidth="300.0" text="Rock Paper Scissors" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="29.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </GridPane>
          </center>
@@ -86,7 +106,7 @@
                      <children>
                         <AnchorPane id="titlePane">
                            <children>
-                              <Label id="label" alignment="CENTER" prefHeight="100.0" prefWidth="900.0" text="GambleScramble" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label id="label" alignment="CENTER" prefHeight="100.0" prefWidth="1200.0" text="GambleScramble" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Trebuchet MS Bold" size="75.0" />
                                  </font>
@@ -95,7 +115,7 @@
                         </AnchorPane>
                         <AnchorPane id="navBarPane" prefHeight="50.0" prefWidth="900.0" GridPane.rowIndex="1">
                            <children>
-                              <Label id="label" fx:id="navBarLabel" layoutX="34.0" layoutY="7.0" prefHeight="50.0" prefWidth="900.0" text="Current balance: $" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label id="label" fx:id="navBarLabel" layoutX="34.0" layoutY="7.0" prefHeight="50.0" prefWidth="1195.0" text="Current balance: $" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Trebuchet MS Bold" size="30.0" />
                                  </font>
@@ -130,7 +150,7 @@
                            <children>
                               <AnchorPane>
                                  <children>
-                                    <Button focusTraversable="false" mnemonicParsing="false" onAction="#openOptions" prefHeight="50.0" prefWidth="250.0" text="Options" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                                    <Button id="button" focusTraversable="false" layoutX="86.0" layoutY="10.0" mnemonicParsing="false" onAction="#openOptions" prefHeight="50.0" prefWidth="450.0" text="Options" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
                                        <font>
                                           <Font name="Trebuchet MS Bold" size="27.0" />
                                        </font>
@@ -139,7 +159,7 @@
                               </AnchorPane>
                               <AnchorPane GridPane.columnIndex="1">
                                  <children>
-                                    <Button focusTraversable="false" mnemonicParsing="false" onAction="#quitGame" prefHeight="50.0" prefWidth="250.0" text="Quit Game" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="10.0">
+                                    <Button id="button" focusTraversable="false" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="50.0" prefWidth="450.0" text="Quit Game" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="135.0" AnchorPane.topAnchor="10.0">
                                        <font>
                                           <Font name="Trebuchet MS Bold" size="27.0" />
                                        </font>
@@ -151,7 +171,7 @@
                      </children></AnchorPane>
                   <AnchorPane id="versionPane" prefHeight="50.0" prefWidth="900.0" GridPane.rowIndex="1">
                      <children>
-                        <Label id="label" layoutY="7.0" prefHeight="50.0" prefWidth="890.0" text="GambleScramble 1.0 " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" layoutY="7.0" prefHeight="50.0" prefWidth="890.0" text="GambleScramble 2.0 " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="32.0" />
                            </font>

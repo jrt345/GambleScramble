@@ -5,17 +5,13 @@ import game.controllers.Controller;
 import game.controllers.GameController;
 import game.games.Game;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -24,35 +20,6 @@ import java.util.Objects;
 import java.util.Random;
 
 public class GameUtils {
-
-    /*Sets the stylesheet of gambleScramble.fxml whether it is done when
-    * initially loading or when changing the theme, imageView is based
-    * on the HandGuess logo which changes to match the current theme
-    * Array index key: 0 = lightTheme.css, 1 = darkTheme.css*/
-    public static void setSceneTheme(Scene scene, boolean isInitial, ImageView imageView) {
-        String lightTheme = App.getCssLocations()[0];
-        String darkTheme = App.getCssLocations()[1];
-
-        if (isInitial){
-            if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().add(darkTheme);
-                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
-            } else {
-                scene.getStylesheets().add(lightTheme);
-                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
-            }
-        } else {
-            if (Controller.getPlayer().getTheme() == Theme.DARK) {
-                scene.getStylesheets().clear();
-                scene.getStylesheets().add(darkTheme);
-                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
-            } else {
-                scene.getStylesheets().clear();
-                scene.getStylesheets().add(lightTheme);
-                imageView.setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
-            }
-        }
-    }
 
     /*Set the player object in Controller to data from player.dat, and then serialize
     * the data to properly and accurately serialize user data*/
@@ -80,67 +47,6 @@ public class GameUtils {
         refreshNavBarLabel();
     }
 
-    public static void showUpdateAlert() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("Update available!");
-
-        VBox primaryVbox = new VBox();
-        VBox vboxPt1 = new VBox();
-        VBox vboxPt2 = new VBox();
-
-        //vboxPt1 contains the introLabel and flowPane (with label and repoLink)
-        Label introLabel = new Label("A new version of GambleScramble has been released! Version: " + UpdateChecker.getLatestVersion());
-
-        Label label = new Label(" is available at ");
-        Hyperlink repoLink = new Hyperlink("github.com/jrt345/GambleScramble.");
-
-        FlowPane flowPane = new FlowPane(label, repoLink);
-        flowPane.setAlignment(Pos.CENTER);
-
-        vboxPt1.getChildren().addAll(introLabel, flowPane);
-        vboxPt1.setAlignment(Pos.CENTER);
-
-        //vboxPt2 contains the downloadLabel and downloadLink
-        Label downloadLabel = new Label("You can download version: " + UpdateChecker.getLatestVersion() + " here: ");
-        Hyperlink downloadLink = new Hyperlink("https://github.com/jrt345/GambleScramble/releases/latest");
-
-        vboxPt2.getChildren().addAll(downloadLabel, downloadLink);
-        vboxPt2.setAlignment(Pos.CENTER);
-
-        /*primaryVbox contains vboxPt1, an empty label and vboxPt2;
-        * the empty label provides a gap between vboxPt1 and vboxPt2*/
-        primaryVbox.getChildren().addAll(vboxPt1, new Label(), vboxPt2);
-        primaryVbox.setAlignment(Pos.CENTER);
-
-        //Open main page of GambleScramble repository
-        repoLink.setOnAction( (evt) -> {
-            alert.close();
-            Runtime rt = Runtime.getRuntime();
-            String url = "https://github.com/jrt345/GambleScramble";
-            try {
-                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } );
-
-        //Open downloads page of latest GambleScramble release
-        downloadLink.setOnAction( (evt) -> {
-            alert.close();
-            Runtime rt = Runtime.getRuntime();
-            String url = "https://github.com/jrt345/GambleScramble/releases/latest";
-            try {
-                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } );
-
-        alert.getDialogPane().contentProperty().set(primaryVbox);
-
-        alert.showAndWait();
-    }
-
     public static int getRandomNumber(int min, int max) {
         Random random = new Random();
         return random.nextInt(max + 1 - min) + min;
@@ -158,7 +64,7 @@ public class GameUtils {
         stage.setTitle(title);
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 450, 240);
-        GameUtils.setSceneTheme(scene, true, Controller.getImageView());
+        ThemeUtils.setSceneTheme(scene, Controller.getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
@@ -193,7 +99,7 @@ public class GameUtils {
     //Returns a description of the randomly generated outcome
     private static String computerOptionIntroSetter(Game game, String computerOption) {
         String computerOptionIntro = null;
-        switch (game){
+        switch (game) {
             case COINTOSS -> computerOptionIntro = "Just got " + computerOption + ". ";
             case DICEROLL -> computerOptionIntro = "Just rolled a " + computerOption + ". ";
             case HANDGUESS -> {
@@ -224,8 +130,25 @@ public class GameUtils {
         return status;
     }
 
+    private static final AudioClip coinTossSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/cointoss.mp3")).toString());
+    private static final AudioClip diceRollSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/diceroll.mp3")).toString());
+    private static final AudioClip handGuessSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/handguess.mp3")).toString());
+    private static final AudioClip rpsSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/rockpaperscissors.mp3")).toString());
+
+    private static final AudioClip bankruptSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/bankrupt.mp3")).toString());
+
+    public static void playGameSound(Game game) {
+        switch (game) {
+            case COINTOSS -> coinTossSound.play();
+            case DICEROLL -> diceRollSound.play();
+            case HANDGUESS -> handGuessSound.play();
+            case ROCKPAPERSCISSORS -> rpsSound.play();
+        }
+    }
+
     //Combines computerOptionIntroSetter and statusSetter into one string
     public static String outcomeSetter(Game game, String computerOption, boolean win, int outcome) {
+        playGameSound(game);
         return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
     }
 
@@ -235,6 +158,7 @@ public class GameUtils {
         alert.setHeaderText(game);
 
         alert.setGraphic(new ImageView(image));
+        ThemeUtils.setAlertTheme(alert);
 
         alert.showAndWait();
     }
@@ -247,6 +171,9 @@ public class GameUtils {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "To play again, exit the game and re-open the game.");
         alert.setTitle("Bankruptcy Notice");
         alert.setHeaderText("You are bankrupt!");
+        ThemeUtils.setAlertTheme(alert);
+
+        bankruptSound.play();
         alert.showAndWait();
 
         refreshNavBarLabel();

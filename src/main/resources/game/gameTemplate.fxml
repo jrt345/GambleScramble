@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 <AnchorPane id="background" prefHeight="240.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.GameController">
    <children>
-      <BorderPane prefHeight="250.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane id="background" prefHeight="250.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="70.0" prefWidth="450.0" BorderPane.alignment="CENTER">
                <children>
@@ -23,7 +23,7 @@
          <bottom>
             <AnchorPane prefHeight="70.0" prefWidth="450.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="placeBetButton" defaultButton="true" focusTraversable="false" layoutX="98.0" layoutY="9.0" mnemonicParsing="false" onAction="#placeBet" prefHeight="50.0" prefWidth="250.0" text="Place bet" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0">
+                  <Button id="button" fx:id="placeBetButton" defaultButton="true" focusTraversable="false" layoutX="98.0" layoutY="9.0" mnemonicParsing="false" onAction="#placeBet" prefHeight="50.0" prefWidth="250.0" text="Place bet" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="Trebuchet MS Bold" size="27.0" />
                      </font>
@@ -33,8 +33,8 @@
          <center>
             <AnchorPane prefHeight="100.0" prefWidth="450.0" BorderPane.alignment="CENTER">
                <children>
-                  <ChoiceBox fx:id="gameChoices" layoutX="11.0" layoutY="48.0" prefWidth="175.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="48.0" />
-                  <TextField fx:id="betInput" layoutX="241.0" layoutY="48.0" prefWidth="175.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="48.0" />
+                  <ChoiceBox id="choiceBox" fx:id="gameChoices" layoutX="11.0" layoutY="48.0" prefWidth="175.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="48.0" />
+                  <TextField id="textField" fx:id="betInput" layoutX="241.0" layoutY="48.0" prefWidth="175.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="48.0" />
                   <Label id="label" alignment="CENTER" layoutX="193.0" layoutY="50.0" prefWidth="70.0" text="Enter bet:" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="48.0">
                      <font>
                         <Font size="16.0" />
@@ -46,7 +46,7 @@
                      </font>
                   </Label>
                   <Label id="label" fx:id="gameDetails" layoutX="324.0" layoutY="71.0" text="Odds: 1:11, Payout: 10x" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
-                  <Label fx:id="betInputWarning" layoutX="266.0" layoutY="32.0" prefHeight="17.0" prefWidth="173.0" text="Please enter a number" textFill="#ff3737" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="32.0">
+                  <Label id="betInputWarningLabel" fx:id="betInputWarning" layoutX="266.0" layoutY="32.0" prefHeight="17.0" prefWidth="173.0" text="Please enter a number" textFill="#ff3737" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="32.0">
                      <font>
                         <Font size="11.0" />
                      </font>
