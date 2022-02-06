@@ -55,6 +55,18 @@ public class Controller implements Initializable {
     @FXML
     private ImageView rpsImageView;
 
+    @FXML
+    private ImageView scratchOffsImageView;
+
+    @FXML
+    private ImageView powerballImageView;
+
+    @FXML
+    private ImageView rouletteImageView;
+
+    @FXML
+    private ImageView crapsImageView;
+
     private static ImageView[] imageViews;
 
     public static ImageView[] getImageViews() {
@@ -74,6 +86,30 @@ public class Controller implements Initializable {
     private Button rpsButton;
 
     @FXML
+    private Button scratchOffsButton;
+
+    @FXML
+    private Button powerballButton;
+
+    @FXML
+    private Button rouletteButton;
+
+    @FXML
+    private Button crapsButton;
+
+    @FXML
+    private Button bankButton;
+
+    @FXML
+    private Button storeButton;
+
+    @FXML
+    private Button scriptsButton;
+
+    @FXML
+    private Button betsLogButton;
+
+    @FXML
     private void playCoinToss(ActionEvent event) {
         new CoinToss();
     }
@@ -89,8 +125,48 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void playRPS() {
+    private void playRPS(ActionEvent event) {
         new RockPaperScissors();
+    }
+
+    @FXML
+    private void playScratchOffs(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void playPowerball(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void playRoulette(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void playCraps(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void openBank(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void openStore(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void openScripts(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void openBetsLog(ActionEvent event) {
+
     }
 
     @FXML
