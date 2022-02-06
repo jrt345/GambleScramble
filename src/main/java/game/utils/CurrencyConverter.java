@@ -21,8 +21,14 @@ public class CurrencyConverter {
         if (string.equals("CAD")){
             currency = Currency.CAD;
         }
+        if (string.equals("CHF")){
+            currency = Currency.CHF;
+        }
         if (string.equals("NZD")){
             currency = Currency.NZD;
+        }
+        if (string.equals("SGD")){
+            currency = Currency.SGD;
         }
 
         return currency;
@@ -47,8 +53,14 @@ public class CurrencyConverter {
         if (currentBalance.equals(Currency.CAD)){
             usdBalance = balance/Currency.CAD.getRate();
         }
+        if (currentBalance.equals(Currency.CHF)){
+            usdBalance = balance/Currency.CHF.getRate();
+        }
         if (currentBalance.equals(Currency.NZD)){
             usdBalance = balance/Currency.NZD.getRate();
+        }
+        if (currentBalance.equals(Currency.SGD)){
+            usdBalance = balance/Currency.SGD.getRate();
         }
 
         return usdBalance;
@@ -73,8 +85,14 @@ public class CurrencyConverter {
         if (selectedCurrency.equals(Currency.CAD)){
             newBalance = usdBalance*Currency.CAD.getRate();
         }
+        if (selectedCurrency.equals(Currency.CHF)){
+            newBalance = usdBalance*Currency.CHF.getRate();
+        }
         if (selectedCurrency.equals(Currency.NZD)){
             newBalance = usdBalance*Currency.NZD.getRate();
+        }
+        if (selectedCurrency.equals(Currency.SGD)){
+            newBalance = usdBalance*Currency.SGD.getRate();
         }
 
         return newBalance;

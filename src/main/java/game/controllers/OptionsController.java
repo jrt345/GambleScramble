@@ -200,7 +200,7 @@ public class OptionsController implements Initializable {
     private void updateCurrencyBoxes(boolean isInitial){
         if (!isInitial){
             currencyBoxUser.getItems().remove(0);
-            currencyBoxExchange.getItems().remove(0,5);
+            currencyBoxExchange.getItems().remove(0,7);
         }
 
         currencyBoxUser.getItems().add(Controller.getPlayer().getCurrency().toString());
@@ -211,7 +211,9 @@ public class OptionsController implements Initializable {
         currencyBoxExchange.getItems().add("GBP");
         currencyBoxExchange.getItems().add("AUD");
         currencyBoxExchange.getItems().add("CAD");
+        currencyBoxExchange.getItems().add("CHF");
         currencyBoxExchange.getItems().add("NZD");
+        currencyBoxExchange.getItems().add("SGD");
         currencyBoxExchange.getItems().remove(Controller.getPlayer()
                 .getCurrency().getIndex());
         currencyBoxExchange.setValue(currencyBoxExchange.getItems().get(0));
