@@ -1,8 +1,13 @@
 package game.utils;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Player implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1095516776402291379L;
+
     private int balance;
     private Theme theme;
     private Currency currency;
