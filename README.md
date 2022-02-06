@@ -41,9 +41,9 @@ There are five themes: Light theme (default), Dark theme, Hacker theme, Slate th
 | ------------- | ------------- |
 | <img src="screenshots/lighttheme.png"/> | <img src="screenshots/darktheme.png"/> |
 
-| Slate theme | Rose theme | Hacker theme |
+| Hacker theme | Slate theme | Rose theme |
 | ------------- | ------------- | ------------- |
-| <img src="screenshots/slatetheme.png"/> | <img src="screenshots/rosetheme.png"/> | <img src="screenshots/hackertheme.png"/> |
+| <img src="screenshots/hackertheme.png"/> | <img src="screenshots/slatetheme.png"/> | <img src="screenshots/rosetheme.png"/> |
 
 ***
 
