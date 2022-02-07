@@ -3,81 +3,46 @@ package game.utils;
 public class CurrencyConverter {
 
     //Returns currency enum based on string
-    public static Currency stringToCurrency(String string){
-        Currency currency = null;
-
-        if (string.equals("USD")){
-            currency = Currency.USD;
-        }
-        if (string.equals("EUR")){
-            currency = Currency.EUR;
-        }
-        if (string.equals("GBP")){
-            currency = Currency.GBP;
-        }
-        if (string.equals("AUD")){
-            currency = Currency.AUD;
-        }
-        if (string.equals("CAD")){
-            currency = Currency.CAD;
-        }
-        if (string.equals("NZD")){
-            currency = Currency.NZD;
-        }
-
-        return currency;
+    public static Currency stringToCurrency(String string) {
+        return switch (string) {
+            case "USD" -> Currency.USD;
+            case "EUR" -> Currency.EUR;
+            case "GBP" -> Currency.GBP;
+            case "AUD" -> Currency.AUD;
+            case "CAD" -> Currency.CAD;
+            case "CHF" -> Currency.CHF;
+            case "NZD" -> Currency.NZD;
+            case "SGD" -> Currency.SGD;
+            default -> null;
+        };
     }
 
     //Converts balance to USD and returns new balance
-    private static double convertToUSD(int balance, Currency currentBalance) {
-        double usdBalance = 0;
-
-        if (currentBalance.equals(Currency.USD)){
-            usdBalance = balance/Currency.USD.getRate();
-        }
-        if (currentBalance.equals(Currency.EUR)){
-            usdBalance = balance/Currency.EUR.getRate();
-        }
-        if (currentBalance.equals(Currency.GBP)){
-            usdBalance = balance/Currency.GBP.getRate();
-        }
-        if (currentBalance.equals(Currency.AUD)){
-            usdBalance = balance/Currency.AUD.getRate();
-        }
-        if (currentBalance.equals(Currency.CAD)){
-            usdBalance = balance/Currency.CAD.getRate();
-        }
-        if (currentBalance.equals(Currency.NZD)){
-            usdBalance = balance/Currency.NZD.getRate();
-        }
-
-        return usdBalance;
+    private static double convertToUSD(int balance, Currency currentCurrency) {
+        return switch (currentCurrency) {
+            case USD -> balance/Currency.USD.getRate();
+            case EUR -> balance/Currency.EUR.getRate();
+            case GBP -> balance/Currency.GBP.getRate();
+            case AUD -> balance/Currency.AUD.getRate();
+            case CAD -> balance/Currency.CAD.getRate();
+            case CHF -> balance/Currency.CHF.getRate();
+            case NZD -> balance/Currency.NZD.getRate();
+            case SGD -> balance/Currency.SGD.getRate();
+        };
     }
 
     //Converts balance from USD and returns new balance
-    private static double convertFromUSD(double usdBalance, Currency selectedCurrency){
-        double newBalance = 0;
-
-        if (selectedCurrency.equals(Currency.USD)){
-            newBalance = usdBalance*Currency.USD.getRate();
-        }
-        if (selectedCurrency.equals(Currency.EUR)){
-            newBalance = usdBalance*Currency.EUR.getRate();
-        }
-        if (selectedCurrency.equals(Currency.GBP)){
-            newBalance = usdBalance*Currency.GBP.getRate();
-        }
-        if (selectedCurrency.equals(Currency.AUD)){
-            newBalance = usdBalance*Currency.AUD.getRate();
-        }
-        if (selectedCurrency.equals(Currency.CAD)){
-            newBalance = usdBalance*Currency.CAD.getRate();
-        }
-        if (selectedCurrency.equals(Currency.NZD)){
-            newBalance = usdBalance*Currency.NZD.getRate();
-        }
-
-        return newBalance;
+    private static double convertFromUSD(double usdBalance, Currency selectedCurrency) {
+        return switch (selectedCurrency) {
+            case USD -> usdBalance*Currency.USD.getRate();
+            case EUR -> usdBalance*Currency.EUR.getRate();
+            case GBP -> usdBalance*Currency.GBP.getRate();
+            case AUD -> usdBalance*Currency.AUD.getRate();
+            case CAD -> usdBalance*Currency.CAD.getRate();
+            case CHF -> usdBalance*Currency.CHF.getRate();
+            case NZD -> usdBalance*Currency.NZD.getRate();
+            case SGD -> usdBalance*Currency.SGD.getRate();
+        };
     }
 
     public static int convertCurrency(int balance, Currency currentCurrency, Currency selectedCurrency) {
