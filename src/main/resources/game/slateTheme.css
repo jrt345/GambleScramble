@@ -63,6 +63,38 @@
     -fx-background-color: #203E6F;
 }
 
+#scratchOffsPane {
+    -fx-background-color: #203E6F;
+}
+
+#powerballPane {
+    -fx-background-color: #203E6F;
+}
+
+#roulettePane {
+    -fx-background-color: #203E6F;
+}
+
+#crapsPane {
+    -fx-background-color: #203E6F;
+}
+
+#bankPane {
+    -fx-background-color: #203E6F;
+}
+
+#storePane {
+    -fx-background-color: #203E6F;
+}
+
+#scriptsPane {
+    -fx-background-color: #203E6F;
+}
+
+#betsLogPane {
+    -fx-background-color: #203E6F;
+}
+
 #stopPane {
     -fx-background-color: #203E6F;
 }

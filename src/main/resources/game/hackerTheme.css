@@ -60,6 +60,38 @@
     -fx-background-color: #000000;
 }
 
+#scratchOffsPane {
+    -fx-background-color: #000000;
+}
+
+#powerballPane {
+    -fx-background-color: #000000;
+}
+
+#roulettePane {
+    -fx-background-color: #000000;
+}
+
+#crapsPane {
+    -fx-background-color: #000000;
+}
+
+#bankPane {
+    -fx-background-color: #000000;
+}
+
+#storePane {
+    -fx-background-color: #000000;
+}
+
+#scriptsPane {
+    -fx-background-color: #000000;
+}
+
+#betsLogPane {
+    -fx-background-color: #000000;
+}
+
 #stopPane {
     -fx-background-color: #000000;
 }
