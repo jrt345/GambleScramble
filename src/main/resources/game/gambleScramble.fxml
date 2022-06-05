@@ -27,7 +27,7 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="coinTossImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                        <ImageView fx:id="coinTossImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
                            <image>
                               <Image url="@images/gamblescramble/cointoss.png" />
                            </image></ImageView>
@@ -78,7 +78,7 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="rpsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                        <ImageView fx:id="rpsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
                            <image>
                               <Image url="@images/gamblescramble/rockpaperscissors.png" />
                            </image>
@@ -90,14 +90,17 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.rowIndex="1">
+                  <AnchorPane id="scratchOffsPane" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.rowIndex="1">
                      <children>
                         <Button id="button" fx:id="scratchOffsButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playScratchOffs" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="scratchOffsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0" />
+                        <ImageView fx:id="scratchOffsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/scratchoff.png" />
+                           </image></ImageView>
                         <Label id="label" alignment="TOP_CENTER" layoutX="45.0" layoutY="8.0" prefHeight="50.0" prefWidth="210.0" text="Scratch Offs" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
@@ -105,14 +108,17 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <AnchorPane id="powerballPane" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <Button id="button" fx:id="powerballButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playPowerball" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="powerballImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0" />
+                        <ImageView fx:id="powerballImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/powerball.png" />
+                           </image></ImageView>
                         <Label id="label" alignment="TOP_CENTER" layoutX="27.0" layoutY="7.0" prefHeight="50.0" prefWidth="250.0" text="Mini-Powerball" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
@@ -120,14 +126,17 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <AnchorPane id="roulettePane" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Button id="button" fx:id="rouletteButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playRoulette" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="rouletteImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0" />
+                        <ImageView fx:id="rouletteImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/roulette.png" />
+                           </image></ImageView>
                         <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="150.0" text="Roulette" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
@@ -135,14 +144,17 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <AnchorPane id="crapsPane" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="300.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
                         <Button id="button" fx:id="crapsButton" focusTraversable="false" layoutX="25.0" layoutY="236.0" mnemonicParsing="false" onAction="#playCraps" prefHeight="50.0" prefWidth="250.0" text="Play" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="crapsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0" />
+                        <ImageView fx:id="crapsImageView" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+                           <image>
+                              <Image url="@images/gamblescramble/craps.png" />
+                           </image></ImageView>
                         <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="100.0" text="Craps" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
@@ -261,7 +273,10 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="bankImageView" fitHeight="88.0" fitWidth="150.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
+                        <ImageView fx:id="bankImageView" fitHeight="84.0" fitWidth="84.0" layoutX="83.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@images/gamblescramble/bank.png" />
+                           </image></ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -271,7 +286,10 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="storeImageView" fitHeight="88.0" fitWidth="150.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
+                        <ImageView fx:id="storeImageView" fitHeight="84.0" fitWidth="84.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@images/gamblescramble/store.png" />
+                           </image></ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="160.0" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -281,7 +299,10 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="scriptsImageView" fitHeight="88.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
+                        <ImageView fx:id="scriptsImageView" fitHeight="84.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@images/gamblescramble/scripts.png" />
+                           </image></ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="310.0" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
@@ -291,7 +312,10 @@
                               <Font name="Trebuchet MS Bold" size="27.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="betsLogImageView" fitHeight="88.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
+                        <ImageView fx:id="betsLogImageView" fitHeight="84.0" fitWidth="84.0" layoutX="83.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@images/gamblescramble/betslog.png" />
+                           </image></ImageView>
                      </children>
                   </AnchorPane>
                </children>
