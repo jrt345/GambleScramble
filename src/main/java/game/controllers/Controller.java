@@ -67,6 +67,18 @@ public class Controller implements Initializable {
     @FXML
     private ImageView crapsImageView;
 
+    @FXML
+    private ImageView bankImageView;
+
+    @FXML
+    private ImageView storeImageView;
+
+    @FXML
+    private ImageView scriptsImageView;
+
+    @FXML
+    private ImageView betsLogImageView;
+
     private static ImageView[] imageViews;
 
     public static ImageView[] getImageViews() {
@@ -198,7 +210,10 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imageViews = new ImageView[]{coinTossImageView, diceRollImageView, handGuessImageView, rpsImageView};
+        imageViews = new ImageView[]{
+                coinTossImageView, diceRollImageView, handGuessImageView, rpsImageView,
+                scratchOffsImageView, powerballImageView, rouletteImageView, crapsImageView,
+                bankImageView, storeImageView, scriptsImageView, betsLogImageView};
 
         Button[] buttons = new Button[]{coinTossButton, diceRollButton, handGuessButton, rpsButton};
 

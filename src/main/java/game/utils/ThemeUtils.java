@@ -28,6 +28,14 @@ public class ThemeUtils {
         imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/diceroll.png"))));
         imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
         imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png"))));
+        imageViews[4].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/scratchoff.png"))));
+        imageViews[5].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/powerball.png"))));
+        imageViews[6].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/roulette.png"))));
+        imageViews[7].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/craps.png"))));
+        imageViews[8].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/bank.png"))));
+        imageViews[9].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/store.png"))));
+        imageViews[10].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/scripts.png"))));
+        imageViews[11].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/betslog.png"))));
 
         switch (Controller.getPlayer().getTheme()) {
             case DARK -> {
@@ -40,6 +48,14 @@ public class ThemeUtils {
                 imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png"))));
                 imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png"))));
                 imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png"))));
+                imageViews[4].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/scratchoff.png"))));
+                imageViews[5].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/powerball.png"))));
+                imageViews[6].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/roulette.png"))));
+                imageViews[7].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/craps.png"))));
+                imageViews[8].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/bank.png"))));
+                imageViews[9].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/store.png"))));
+                imageViews[10].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/scripts.png"))));
+                imageViews[11].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/betslog.png"))));
             }
             case SLATE -> {
                 scene.getStylesheets().add(slateTheme);
