@@ -15,7 +15,7 @@ public class RockPaperScissors {
     //Launches Rock Paper Scissors game
     public RockPaperScissors() {
         try {
-            GameUtils.loadGame(Game.ROCKPAPERSCISSORS, "Rock Paper Scissors");
+            GameUtils.loadGame(GameType.ROCKPAPERSCISSORS, "Rock Paper Scissors");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,7 +60,7 @@ public class RockPaperScissors {
         /*While the user and computer are tied, display an alert and
         * generate a new computerOption*/
         while (userOption.equals(computerOption)){
-            GameUtils.playGameSound(Game.ROCKPAPERSCISSORS);
+            GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
             if (Controller.getPlayer().getTheme() == Theme.HACKER){
                 GameUtils.gameOutcomeAlert("Rock Paper Scissors",
@@ -91,7 +91,7 @@ public class RockPaperScissors {
             image = GameUtils.imageSetter(options, computerOption, images);
         }
 
-        GameUtils.playGameSound(Game.ROCKPAPERSCISSORS);
+        GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
         if (outcome > 0) {
             GameUtils.gameOutcomeAlert("Rock Paper Scissors",

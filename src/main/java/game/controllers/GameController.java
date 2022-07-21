@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
 
-    private static Game game;
+    private static GameType game;
 
     @FXML
     private Label gameTitle;
@@ -54,7 +54,7 @@ public class GameController implements Initializable {
     @FXML
     private Button placeBetButton;
 
-    private void runGame(Game game, int bet) throws IOException {
+    private void runGame(GameType game, int bet) throws IOException {
         GameUtils.updateBalance(-bet);
 
         GameData.serialize();
@@ -106,7 +106,7 @@ public class GameController implements Initializable {
     }
 
     //Sets gameTemplate.fxml appearance to match the chosen game
-    public void setGame(Game game) {
+    public void setGame(GameType game) {
         GameController.game = game;
 
         Image coinToss = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/cointoss.png")),
@@ -124,7 +124,7 @@ public class GameController implements Initializable {
         Image rps = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png")),
                 60, 60, true, true);
 
-        if (GameController.game == Game.COINTOSS){
+        if (GameController.game == GameType.COINTOSS){
             gameTitle.setText("CoinToss");
             gameDetails.setText("Odds: 1:2, Payout: 2x");
             gameChoicesLabel.setText("Heads or Tails?");
@@ -137,7 +137,7 @@ public class GameController implements Initializable {
             gameChoices.setValue("Heads");
         }
 
-        if (GameController.game == Game.DICEROLL){
+        if (GameController.game == GameType.DICEROLL){
             gameTitle.setText("DiceRoll");
             gameDetails.setText("Odds: 1:6, Payout: 5x");
             gameChoicesLabel.setText("Choose a number between 1-6");
@@ -150,7 +150,7 @@ public class GameController implements Initializable {
             gameChoices.setValue("1");
         }
 
-        if (GameController.game == Game.HANDGUESS){
+        if (GameController.game == GameType.HANDGUESS){
             gameTitle.setText("HandGuess");
             gameDetails.setText("Odds: 1:11, Payout: 10x");
             gameChoicesLabel.setText("Choose a number between 0-10");
@@ -170,7 +170,7 @@ public class GameController implements Initializable {
             gameChoices.setValue("0");
         }
 
-        if (GameController.game == Game.ROCKPAPERSCISSORS){
+        if (GameController.game == GameType.ROCKPAPERSCISSORS){
             gameTitle.setText("Rock Paper Scissors");
             gameTitle.setFont(Font.font("Trebuchet MS", FontWeight.BOLD, 33));
             gameDetails.setText("Odds: 1:2, Payout: 2x");
@@ -191,19 +191,19 @@ public class GameController implements Initializable {
             Image handGuessH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png")));
             Image rpsH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png")));
 
-            if (GameController.game == Game.COINTOSS){
+            if (GameController.game == GameType.COINTOSS){
                 gameImage1.setImage(coinTossH);
                 gameImage2.setImage(coinTossH);
             }
-            if (GameController.game == Game.DICEROLL){
+            if (GameController.game == GameType.DICEROLL){
                 gameImage1.setImage(diceRollH);
                 gameImage2.setImage(diceRollH);
             }
-            if (GameController.game == Game.HANDGUESS){
+            if (GameController.game == GameType.HANDGUESS){
                 gameImage1.setImage(handGuessH);
                 gameImage2.setImage(handGuessH);
             }
-            if (GameController.game == Game.ROCKPAPERSCISSORS){
+            if (GameController.game == GameType.ROCKPAPERSCISSORS){
                 gameImage1.setImage(rpsH);
                 gameImage2.setImage(rpsH);
             }

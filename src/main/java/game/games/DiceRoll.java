@@ -15,7 +15,7 @@ public class DiceRoll {
     //Launches DiceRoll game
     public DiceRoll() {
         try {
-            GameUtils.loadGame(Game.DICEROLL, "DiceRoll");
+            GameUtils.loadGame(GameType.DICEROLL, "DiceRoll");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,10 +73,10 @@ public class DiceRoll {
 
         if (userOption.equals(computerOption)) {
             GameUtils.gameOutcomeAlert("DiceRoll",
-                    GameUtils.outcomeSetter(Game.DICEROLL, computerOption, true, outcome), image);
+                    GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, true, outcome), image);
         } else {
             GameUtils.gameOutcomeAlert("DiceRoll",
-                    GameUtils.outcomeSetter(Game.DICEROLL, computerOption, false, outcome), image);
+                    GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, false, outcome), image);
         }
     }
 }

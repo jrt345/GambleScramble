@@ -15,7 +15,7 @@ public class HandGuess {
     //Launches HandGuess game
     public HandGuess() {
         try {
-            GameUtils.loadGame(Game.HANDGUESS, "HandGuess");
+            GameUtils.loadGame(GameType.HANDGUESS, "HandGuess");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -122,10 +122,10 @@ public class HandGuess {
 
         if (userOption.equals(computerOption)) {
             GameUtils.gameOutcomeAlert("HandGuess",
-                    GameUtils.outcomeSetter(Game.HANDGUESS, computerOption, true, outcome), image);
+                    GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, true, outcome), image);
         } else {
             GameUtils.gameOutcomeAlert("HandGuess",
-                    GameUtils.outcomeSetter(Game.HANDGUESS, computerOption, false, outcome), image);
+                    GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, false, outcome), image);
         }
     }
 }

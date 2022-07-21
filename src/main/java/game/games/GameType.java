@@ -1,5 +1,5 @@
 package game.games;
 
-public enum Game {
+public enum GameType {
     COINTOSS, DICEROLL, HANDGUESS, ROCKPAPERSCISSORS
 }

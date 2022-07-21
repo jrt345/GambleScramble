@@ -3,7 +3,7 @@ package game.utils;
 import game.App;
 import game.controllers.Controller;
 import game.controllers.GameController;
-import game.games.Game;
+import game.games.GameType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -53,7 +53,7 @@ public class GameUtils {
     }
 
     //Load gameTemplate.fxml with different attributes based on the game
-    public static void loadGame(Game game, String title) throws IOException {
+    public static void loadGame(GameType game, String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gameTemplate.fxml"));
         Parent root = fxmlLoader.load();
 
@@ -97,7 +97,7 @@ public class GameUtils {
     }
 
     //Returns a description of the randomly generated outcome
-    private static String computerOptionIntroSetter(Game game, String computerOption) {
+    private static String computerOptionIntroSetter(GameType game, String computerOption) {
         String computerOptionIntro = null;
         switch (game) {
             case COINTOSS -> computerOptionIntro = "Just got " + computerOption + ". ";
@@ -137,7 +137,7 @@ public class GameUtils {
 
     private static final AudioClip bankruptSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/bankrupt.mp3")).toString());
 
-    public static void playGameSound(Game game) {
+    public static void playGameSound(GameType game) {
         switch (game) {
             case COINTOSS -> coinTossSound.play();
             case DICEROLL -> diceRollSound.play();
@@ -147,7 +147,7 @@ public class GameUtils {
     }
 
     //Combines computerOptionIntroSetter and statusSetter into one string
-    public static String outcomeSetter(Game game, String computerOption, boolean win, int outcome) {
+    public static String outcomeSetter(GameType game, String computerOption, boolean win, int outcome) {
         playGameSound(game);
         return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
     }

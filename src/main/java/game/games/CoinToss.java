@@ -15,7 +15,7 @@ public class CoinToss {
     //Launches CoinToss game
     public CoinToss() {
         try {
-            GameUtils.loadGame(Game.COINTOSS, "CoinToss");
+            GameUtils.loadGame(GameType.COINTOSS, "CoinToss");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,10 +57,10 @@ public class CoinToss {
 
         if (userOption.equals(computerOption)) {
             GameUtils.gameOutcomeAlert("CoinToss",
-                    GameUtils.outcomeSetter(Game.COINTOSS, computerOption, true, outcome), image);
+                    GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, true, outcome), image);
         } else {
             GameUtils.gameOutcomeAlert("CoinToss",
-                    GameUtils.outcomeSetter(Game.COINTOSS, computerOption, false, outcome), image);
+                    GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, false, outcome), image);
         }
     }
 }
