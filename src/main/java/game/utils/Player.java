@@ -77,4 +77,14 @@ public class Player implements Serializable {
         result = 31 * result + (checkForUpdates ? 1 : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "balance=" + balance +
+                ", theme=" + theme +
+                ", currency=" + currency +
+                ", checkForUpdates=" + checkForUpdates +
+                '}';
+    }
 }
