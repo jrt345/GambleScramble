@@ -28,22 +28,22 @@ public class GameController implements Initializable {
     private static GameType game;
 
     @FXML
-    private Label gameTitle;
+    private Label title;
 
     @FXML
-    private ImageView gameImage1; //Upper left imageView
+    private ImageView leftImage; //Upper left imageView
 
     @FXML
-    private ImageView gameImage2; //Upper right imageView
+    private ImageView rightImage; //Upper right imageView
 
     @FXML
-    private Label gameDetails; //Shows the odds and the payout of a game
+    private Label details; //Shows the odds and the payout of a game
 
     @FXML
-    private Label gameChoicesLabel; //Tells the player what they can bet on
+    private Label prompt; //Tells the player what they can bet on
 
     @FXML
-    private ChoiceBox<String> gameChoices;
+    private ChoiceBox<String> optionsChoiceBox;
 
     @FXML
     private TextField betInput;
@@ -61,10 +61,10 @@ public class GameController implements Initializable {
         GameUtils.refreshData();
 
         switch (game) {
-            case COINTOSS -> CoinToss.play(bet, gameChoices.getValue());
-            case DICEROLL -> DiceRoll.play(bet, gameChoices.getValue());
-            case HANDGUESS -> HandGuess.play(bet, gameChoices.getValue());
-            case ROCKPAPERSCISSORS -> RockPaperScissors.play(bet, gameChoices.getValue());
+            case COINTOSS -> CoinToss.play(bet, optionsChoiceBox.getValue());
+            case DICEROLL -> DiceRoll.play(bet, optionsChoiceBox.getValue());
+            case HANDGUESS -> HandGuess.play(bet, optionsChoiceBox.getValue());
+            case ROCKPAPERSCISSORS -> RockPaperScissors.play(bet, optionsChoiceBox.getValue());
         }
 
         GameData.serialize();
@@ -125,64 +125,64 @@ public class GameController implements Initializable {
                 60, 60, true, true);
 
         if (GameController.game == GameType.COINTOSS){
-            gameTitle.setText("CoinToss");
-            gameDetails.setText("Odds: 1:2, Payout: 2x");
-            gameChoicesLabel.setText("Heads or Tails?");
-            gameImage1.setImage(coinToss);
-            gameImage2.setImage(coinToss);
+            title.setText("CoinToss");
+            details.setText("Odds: 1:2, Payout: 2x");
+            prompt.setText("Heads or Tails?");
+            leftImage.setImage(coinToss);
+            rightImage.setImage(coinToss);
             betInputWarning.setText("");
 
-            gameChoices.getItems().add("Heads");
-            gameChoices.getItems().add("Tails");
-            gameChoices.setValue("Heads");
+            optionsChoiceBox.getItems().add("Heads");
+            optionsChoiceBox.getItems().add("Tails");
+            optionsChoiceBox.setValue("Heads");
         }
 
         if (GameController.game == GameType.DICEROLL){
-            gameTitle.setText("DiceRoll");
-            gameDetails.setText("Odds: 1:6, Payout: 5x");
-            gameChoicesLabel.setText("Choose a number between 1-6");
-            gameImage1.setImage(diceRoll);
-            gameImage2.setImage(diceRoll);
+            title.setText("DiceRoll");
+            details.setText("Odds: 1:6, Payout: 5x");
+            prompt.setText("Choose a number between 1-6");
+            leftImage.setImage(diceRoll);
+            rightImage.setImage(diceRoll);
             betInputWarning.setText("");
 
-            setNumericalGameChoices(gameChoices,1,6);
+            setNumericalGameChoices(optionsChoiceBox,1,6);
 
-            gameChoices.setValue("1");
+            optionsChoiceBox.setValue("1");
         }
 
         if (GameController.game == GameType.HANDGUESS){
-            gameTitle.setText("HandGuess");
-            gameDetails.setText("Odds: 1:11, Payout: 10x");
-            gameChoicesLabel.setText("Choose a number between 0-10");
+            title.setText("HandGuess");
+            details.setText("Odds: 1:11, Payout: 10x");
+            prompt.setText("Choose a number between 0-10");
 
             if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE){
-                gameImage1.setImage(handGuessV2);
-                gameImage2.setImage(handGuessV2);
+                leftImage.setImage(handGuessV2);
+                rightImage.setImage(handGuessV2);
             } else {
-                gameImage1.setImage(handGuess);
-                gameImage2.setImage(handGuess);
+                leftImage.setImage(handGuess);
+                rightImage.setImage(handGuess);
             }
 
             betInputWarning.setText("");
 
-            setNumericalGameChoices(gameChoices,0,10);
+            setNumericalGameChoices(optionsChoiceBox,0,10);
 
-            gameChoices.setValue("0");
+            optionsChoiceBox.setValue("0");
         }
 
         if (GameController.game == GameType.ROCKPAPERSCISSORS){
-            gameTitle.setText("Rock Paper Scissors");
-            gameTitle.setFont(Font.font("Trebuchet MS", FontWeight.BOLD, 33));
-            gameDetails.setText("Odds: 1:2, Payout: 2x");
-            gameChoicesLabel.setText("Rock, Paper, Scissors?!");
-            gameImage1.setImage(rps);
-            gameImage2.setImage(rps);
+            title.setText("Rock Paper Scissors");
+            title.setFont(Font.font("Trebuchet MS", FontWeight.BOLD, 33));
+            details.setText("Odds: 1:2, Payout: 2x");
+            prompt.setText("Rock, Paper, Scissors?!");
+            leftImage.setImage(rps);
+            rightImage.setImage(rps);
             betInputWarning.setText("");
 
-            gameChoices.getItems().add("Rock");
-            gameChoices.getItems().add("Paper");
-            gameChoices.getItems().add("Scissors");
-            gameChoices.setValue("Rock");
+            optionsChoiceBox.getItems().add("Rock");
+            optionsChoiceBox.getItems().add("Paper");
+            optionsChoiceBox.getItems().add("Scissors");
+            optionsChoiceBox.setValue("Rock");
         }
 
         if (Controller.getPlayer().getTheme() == Theme.HACKER) {
@@ -192,20 +192,20 @@ public class GameController implements Initializable {
             Image rpsH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png")));
 
             if (GameController.game == GameType.COINTOSS){
-                gameImage1.setImage(coinTossH);
-                gameImage2.setImage(coinTossH);
+                leftImage.setImage(coinTossH);
+                rightImage.setImage(coinTossH);
             }
             if (GameController.game == GameType.DICEROLL){
-                gameImage1.setImage(diceRollH);
-                gameImage2.setImage(diceRollH);
+                leftImage.setImage(diceRollH);
+                rightImage.setImage(diceRollH);
             }
             if (GameController.game == GameType.HANDGUESS){
-                gameImage1.setImage(handGuessH);
-                gameImage2.setImage(handGuessH);
+                leftImage.setImage(handGuessH);
+                rightImage.setImage(handGuessH);
             }
             if (GameController.game == GameType.ROCKPAPERSCISSORS){
-                gameImage1.setImage(rpsH);
-                gameImage2.setImage(rpsH);
+                leftImage.setImage(rpsH);
+                rightImage.setImage(rpsH);
             }
 
         }
@@ -213,7 +213,7 @@ public class GameController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        NodeUtils.setBetChoiceBox(gameChoices);
+        NodeUtils.setBetChoiceBox(optionsChoiceBox);
         NodeUtils.setBetTextField(betInput);
         NodeUtils.setPlaceBetButton(placeBetButton);
 
