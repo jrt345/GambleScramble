@@ -53,7 +53,7 @@ public class GameUtils {
     }
 
     //Load gameTemplate.fxml with different attributes based on the game
-    public static void loadGame(GameType game, String title) throws IOException {
+    public static void loadGame(GameType game) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gameTemplate.fxml"));
         Parent root = fxmlLoader.load();
 
@@ -61,7 +61,7 @@ public class GameUtils {
         controller.setGame(game);
         Stage stage = new Stage();
 
-        stage.setTitle(title);
+        stage.setTitle(game.getTitle());
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 450, 240);
         ThemeUtils.setSceneTheme(scene, Controller.getImageViews());

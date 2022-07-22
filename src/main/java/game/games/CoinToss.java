@@ -12,14 +12,6 @@ import java.util.Objects;
 
 public class CoinToss {
 
-    public static void run() {
-        try {
-            GameUtils.loadGame(GameType.COINTOSS, "CoinToss");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     //Displays alert showing the outcome of the bet
     public static void play(int bet, String userOption) throws IOException {
         String[] options = {"Heads", "Tails"};

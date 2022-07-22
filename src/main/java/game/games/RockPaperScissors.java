@@ -12,14 +12,6 @@ import java.util.Objects;
 
 public class RockPaperScissors {
 
-    public static void run() {
-        try {
-            GameUtils.loadGame(GameType.ROCKPAPERSCISSORS, "Rock Paper Scissors");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     //Custom getOutcome method to work with Rock Paper Scissors
     private static int getOutcome(String userOption, String computerOption, int bet) {
         if (userOption.equals("Rock") && computerOption.equals("Scissors")) {

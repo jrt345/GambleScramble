@@ -12,14 +12,6 @@ import java.util.Objects;
 
 public class DiceRoll {
 
-    public static void run() {
-        try {
-            GameUtils.loadGame(GameType.DICEROLL, "DiceRoll");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     //Displays alert showing the outcome of the bet
     public static void play(int bet, String userOption) throws IOException {
         String[] options = {"1", "2", "3", "4", "5", "6"};

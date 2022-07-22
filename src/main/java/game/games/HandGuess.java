@@ -12,14 +12,6 @@ import java.util.Objects;
 
 public class HandGuess {
 
-    public static void run() {
-        try {
-            GameUtils.loadGame(GameType.HANDGUESS, "HandGuess");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     //Displays alert showing the outcome of the bet
     public static void play(int bet, String userOption) throws IOException {
         String[] options = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
