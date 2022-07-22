@@ -12,8 +12,7 @@ import java.util.Objects;
 
 public class RockPaperScissors {
 
-    //Launches Rock Paper Scissors game
-    public RockPaperScissors() {
+    public static void run() {
         try {
             GameUtils.loadGame(GameType.ROCKPAPERSCISSORS, "Rock Paper Scissors");
         } catch (IOException e) {

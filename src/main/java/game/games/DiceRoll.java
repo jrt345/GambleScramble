@@ -12,8 +12,7 @@ import java.util.Objects;
 
 public class DiceRoll {
 
-    //Launches DiceRoll game
-    public DiceRoll() {
+    public static void run() {
         try {
             GameUtils.loadGame(GameType.DICEROLL, "DiceRoll");
         } catch (IOException e) {

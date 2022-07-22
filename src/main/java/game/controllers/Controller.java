@@ -123,22 +123,22 @@ public class Controller implements Initializable {
 
     @FXML
     private void playCoinToss(ActionEvent event) {
-        new CoinToss();
+        CoinToss.run();
     }
 
     @FXML
     private void playDiceRoll(ActionEvent event) {
-        new DiceRoll();
+        DiceRoll.run();
     }
 
     @FXML
     private void playHandGuess(ActionEvent event) {
-        new HandGuess();
+        HandGuess.run();
     }
 
     @FXML
     private void playRPS(ActionEvent event) {
-        new RockPaperScissors();
+        RockPaperScissors.run();
     }
 
     @FXML

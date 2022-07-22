@@ -12,8 +12,7 @@ import java.util.Objects;
 
 public class CoinToss {
 
-    //Launches CoinToss game
-    public CoinToss() {
+    public static void run() {
         try {
             GameUtils.loadGame(GameType.COINTOSS, "CoinToss");
         } catch (IOException e) {

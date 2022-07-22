@@ -12,8 +12,7 @@ import java.util.Objects;
 
 public class HandGuess {
 
-    //Launches HandGuess game
-    public HandGuess() {
+    public static void run() {
         try {
             GameUtils.loadGame(GameType.HANDGUESS, "HandGuess");
         } catch (IOException e) {
