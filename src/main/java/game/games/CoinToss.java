@@ -21,7 +21,7 @@ public class CoinToss {
     }
 
     //Displays alert showing the outcome of the bet
-    public CoinToss(int bet, String userOption) throws IOException {
+    public static void play(int bet, String userOption) throws IOException {
         String[] options = {"Heads", "Tails"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 1);
 

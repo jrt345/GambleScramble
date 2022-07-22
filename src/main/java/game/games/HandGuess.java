@@ -21,7 +21,7 @@ public class HandGuess {
     }
 
     //Displays alert showing the outcome of the bet
-    public HandGuess(int bet, String userOption) throws IOException {
+    public static void play(int bet, String userOption) throws IOException {
         String[] options = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 10);
 

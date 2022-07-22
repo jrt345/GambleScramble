@@ -21,7 +21,7 @@ public class RockPaperScissors {
     }
 
     //Custom getOutcome method to work with Rock Paper Scissors
-    private int getOutcome(String userOption, String computerOption, int bet) {
+    private static int getOutcome(String userOption, String computerOption, int bet) {
         if (userOption.equals("Rock") && computerOption.equals("Scissors")) {
             return bet*2;
         } else if (userOption.equals("Paper") && computerOption.equals("Rock")) {
@@ -34,7 +34,7 @@ public class RockPaperScissors {
     }
 
     //Displays alert showing the outcome of the bet
-    public RockPaperScissors(int bet, String userOption) throws IOException {
+    public static void play(int bet, String userOption) throws IOException {
         String[] options = {"Rock", "Paper", "Scissors"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 2);
 

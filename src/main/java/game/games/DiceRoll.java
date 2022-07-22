@@ -21,7 +21,7 @@ public class DiceRoll {
     }
 
     //Displays alert showing the outcome of the bet
-    public DiceRoll(int bet, String userOption) throws IOException {
+    public static void play(int bet, String userOption) throws IOException {
         String[] options = {"1", "2", "3", "4", "5", "6"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 5);
 

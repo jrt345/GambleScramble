@@ -61,10 +61,10 @@ public class GameController implements Initializable {
         GameUtils.refreshData();
 
         switch (game) {
-            case COINTOSS -> new CoinToss(bet, gameChoices.getValue());
-            case DICEROLL -> new DiceRoll(bet, gameChoices.getValue());
-            case HANDGUESS -> new HandGuess(bet, gameChoices.getValue());
-            case ROCKPAPERSCISSORS -> new RockPaperScissors(bet, gameChoices.getValue());
+            case COINTOSS -> CoinToss.play(bet, gameChoices.getValue());
+            case DICEROLL -> DiceRoll.play(bet, gameChoices.getValue());
+            case HANDGUESS -> HandGuess.play(bet, gameChoices.getValue());
+            case ROCKPAPERSCISSORS -> RockPaperScissors.play(bet, gameChoices.getValue());
         }
 
         GameData.serialize();
