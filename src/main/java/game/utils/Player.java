@@ -55,4 +55,26 @@ public class Player implements Serializable {
     public void setCheckForUpdates(boolean checkForUpdates) {
         this.checkForUpdates = checkForUpdates;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Player player = (Player) o;
+
+        if (balance != player.balance) return false;
+        if (checkForUpdates != player.checkForUpdates) return false;
+        if (theme != player.theme) return false;
+        return currency == player.currency;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = balance;
+        result = 31 * result + (theme != null ? theme.hashCode() : 0);
+        result = 31 * result + (currency != null ? currency.hashCode() : 0);
+        result = 31 * result + (checkForUpdates ? 1 : 0);
+        return result;
+    }
 }
