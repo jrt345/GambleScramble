@@ -1,18 +1,22 @@
 package game.games;
 
+import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
 import game.utils.ImageUtils;
 import game.utils.Theme;
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class RockPaperScissors extends SimpleGame {
 
     private static final int MULTIPLIER = 2;
     private static final String[] OPTIONS = {"Rock", "Paper", "Scissors"};
+    private static final AudioClip SOUND = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/rockpaperscissors.mp3")).toString());
 
     public RockPaperScissors() {
         setTitle("Rock Paper Scissors");
@@ -20,6 +24,7 @@ public class RockPaperScissors extends SimpleGame {
         setPrompt("Rock, Paper, Scissors?!");
         setMultiplier(MULTIPLIER);
         setOptions(OPTIONS);
+        setSound(SOUND);
 
         if (Controller.getPlayer().getTheme() == Theme.HACKER) {
             setImage(ImageUtils.RockPaperScissors.HackerTheme.LOGO);
@@ -77,8 +82,6 @@ public class RockPaperScissors extends SimpleGame {
         };
 
         while (getUserOption().equals(getComputerOption())){
-            GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
-
             if (Controller.getPlayer().getTheme() == Theme.HACKER){
                 showOutcome(getComputerOptionResult(), getComputerOptionImage(imagesH));
             } else {
@@ -104,7 +107,6 @@ public class RockPaperScissors extends SimpleGame {
             image = getComputerOptionImage(images);
         }
 
-        GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
         if (getOutcome() > 0) {
             showOutcome(getResultMessage(true), image);
         } else {

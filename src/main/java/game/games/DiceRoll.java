@@ -1,18 +1,22 @@
 package game.games;
 
+import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
 import game.utils.ImageUtils;
 import game.utils.Theme;
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class DiceRoll extends SimpleGame {
 
     private static final int MULTIPLIER = 5;
     private static final String[] OPTIONS = {"1","2","3","4","5","6"};
+    private static final AudioClip SOUND = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/diceroll.mp3")).toString());
 
     public DiceRoll() {
         setTitle("DiceRoll");
@@ -20,6 +24,7 @@ public class DiceRoll extends SimpleGame {
         setPrompt("Choose a number between 1-6");
         setMultiplier(MULTIPLIER);
         setOptions(OPTIONS);
+        setSound(SOUND);
 
         if (Controller.getPlayer().getTheme() == Theme.HACKER) {
             setImage(ImageUtils.DiceRollImages.HackerTheme.LOGO);
@@ -63,7 +68,6 @@ public class DiceRoll extends SimpleGame {
             image = getComputerOptionImage(images);
         }
 
-        GameUtils.playGameSound(GameType.DICEROLL);
         if (getUserOption().equals(getComputerOption())) {
             showOutcome(getResultMessage(true), image);
         } else {

@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,6 +22,7 @@ import java.util.Random;
 public abstract class SimpleGame implements Game {
 
     private int multiplier = 1;
+    private AudioClip sound = null;
 
     private String title = "GameTitle";
     private String details = "Odds: 1:11, Payout: 10x";
@@ -33,7 +35,9 @@ public abstract class SimpleGame implements Game {
     private String computerOption;
     private int outcome = 0;
 
+
     protected abstract void play() throws IOException;
+    abstract String getComputerOptionResult();
 
     @Override
     public void run() throws IOException {
@@ -101,6 +105,7 @@ public abstract class SimpleGame implements Game {
         alert.setGraphic(new ImageView(image));
         ThemeUtils.setAlertTheme(alert);
 
+        sound.play();
         alert.showAndWait();
     }
 
@@ -108,10 +113,9 @@ public abstract class SimpleGame implements Game {
         return getComputerOptionResult().concat(getOutcomeStatus(winner));
     }
 
-    abstract String getComputerOptionResult();
-
     private String getOutcomeStatus(boolean winner) {
         String status;
+
         if (!winner){
             status = "You lose! You lost: -"
                     + Controller.getPlayer().getCurrency().getSymbol()
@@ -121,6 +125,7 @@ public abstract class SimpleGame implements Game {
                     + Controller.getPlayer().getCurrency().getSymbol()
                     + outcome;
         }
+
         return status;
     }
 
@@ -130,6 +135,14 @@ public abstract class SimpleGame implements Game {
 
     protected void setMultiplier(int multiplier) {
         this.multiplier = multiplier;
+    }
+
+    public AudioClip getSound() {
+        return sound;
+    }
+
+    public void setSound(AudioClip sound) {
+        this.sound = sound;
     }
 
     protected String getTitle() {

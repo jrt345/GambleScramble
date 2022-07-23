@@ -1,18 +1,22 @@
 package game.games;
 
+import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
 import game.utils.ImageUtils;
 import game.utils.Theme;
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HandGuess extends SimpleGame {
 
     private static final int MULTIPLIER = 10;
     private static final String[] OPTIONS = {"0","1","2","3","4","5","6","7","8","9","10"};
+    private static final AudioClip SOUND = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/handguess.mp3")).toString());
 
     public HandGuess() {
         setTitle("HandGuess");
@@ -20,6 +24,7 @@ public class HandGuess extends SimpleGame {
         setPrompt("Choose a number between 0-10");
         setMultiplier(MULTIPLIER);
         setOptions(OPTIONS);
+        setSound(SOUND);
 
         if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE){
             setImage(ImageUtils.HandGuessImages.DarkTheme.LOGO);
@@ -97,7 +102,6 @@ public class HandGuess extends SimpleGame {
             image = getComputerOptionImage(images);
         }
 
-        GameUtils.playGameSound(GameType.HANDGUESS);
         if (getUserOption().equals(getComputerOption())) {
             showOutcome(getResultMessage(true), image);
         } else {

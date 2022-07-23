@@ -2,7 +2,6 @@ package game.utils;
 
 import game.App;
 import game.controllers.Controller;
-import game.games.GameType;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.media.AudioClip;
@@ -11,6 +10,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class GameUtils {
+
+    private static final AudioClip bankruptSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/bankrupt.mp3")).toString());
 
     public static void secureSerialize() throws IOException, ClassNotFoundException {
         Controller.setPlayer(GameData.deserialize());
@@ -34,22 +35,6 @@ public class GameUtils {
         }
 
         refreshNavBarLabel();
-    }
-
-    private static final AudioClip coinTossSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/cointoss.mp3")).toString());
-    private static final AudioClip diceRollSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/diceroll.mp3")).toString());
-    private static final AudioClip handGuessSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/handguess.mp3")).toString());
-    private static final AudioClip rpsSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/rockpaperscissors.mp3")).toString());
-
-    private static final AudioClip bankruptSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/bankrupt.mp3")).toString());
-
-    public static void playGameSound(GameType game) {
-        switch (game) {
-            case COINTOSS -> coinTossSound.play();
-            case DICEROLL -> diceRollSound.play();
-            case HANDGUESS -> handGuessSound.play();
-            case ROCKPAPERSCISSORS -> rpsSound.play();
-        }
     }
 
     public static boolean isPlayerBankrupt() {
