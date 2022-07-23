@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1450.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.Controller">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1450.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.Controller">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -31,7 +31,7 @@
                            <image>
                               <Image url="@images/gamblescramble/cointoss.png" />
                            </image></ImageView>
-                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="CoinToss" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="CoinToss" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -48,7 +48,7 @@
                            <image>
                               <Image url="@images/gamblescramble/diceroll.png" />
                            </image></ImageView>
-                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="DiceRoll" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="147.0" text="DiceRoll" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -65,7 +65,7 @@
                            <image>
                               <Image url="@images/gamblescramble/handguess.png" />
                            </image></ImageView>
-                        <Label id="label" alignment="TOP_CENTER" layoutX="59.0" prefHeight="50.0" prefWidth="183.0" text="HandGuess" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="59.0" prefHeight="50.0" prefWidth="183.0" text="HandGuess" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -101,7 +101,7 @@
                            <image>
                               <Image url="@images/gamblescramble/scratchoff.png" />
                            </image></ImageView>
-                        <Label id="label" alignment="TOP_CENTER" layoutX="45.0" layoutY="8.0" prefHeight="50.0" prefWidth="210.0" text="Scratch Offs" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="45.0" layoutY="8.0" prefHeight="50.0" prefWidth="210.0" text="Scratch Offs" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -119,7 +119,7 @@
                            <image>
                               <Image url="@images/gamblescramble/powerball.png" />
                            </image></ImageView>
-                        <Label id="label" alignment="TOP_CENTER" layoutX="27.0" layoutY="7.0" prefHeight="50.0" prefWidth="250.0" text="Mini-Powerball" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="27.0" layoutY="7.0" prefHeight="50.0" prefWidth="250.0" text="Mini-Powerball" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -137,7 +137,7 @@
                            <image>
                               <Image url="@images/gamblescramble/roulette.png" />
                            </image></ImageView>
-                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="150.0" text="Roulette" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="150.0" text="Roulette" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
@@ -155,7 +155,7 @@
                            <image>
                               <Image url="@images/gamblescramble/craps.png" />
                            </image></ImageView>
-                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="100.0" text="Craps" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+                        <Label id="label" alignment="TOP_CENTER" layoutX="77.0" prefHeight="50.0" prefWidth="100.0" text="Craps" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Trebuchet MS Bold" size="35.0" />
                            </font>
