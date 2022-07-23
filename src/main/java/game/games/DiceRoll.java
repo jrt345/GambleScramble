@@ -1,14 +1,13 @@
 package game.games;
 
-import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.ImageUtils;
 import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class DiceRoll {
 
@@ -26,34 +25,23 @@ public class DiceRoll {
         GameData.serialize();
 
         Image[] images = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice1.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice2.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice3.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice4.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice5.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/dice6.png")),
-                        50, 50, true, true)
+                ImageUtils.DiceRollImages.DICE_1,
+                ImageUtils.DiceRollImages.DICE_2,
+                ImageUtils.DiceRollImages.DICE_3,
+                ImageUtils.DiceRollImages.DICE_4,
+                ImageUtils.DiceRollImages.DICE_5,
+                ImageUtils.DiceRollImages.DICE_6
         };
 
         Image[] imagesH = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice1.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice2.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice3.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice4.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice5.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/diceroll/hackertheme/dice6.png")),
-                        50, 50, true, true)
+                ImageUtils.DiceRollImages.HackerTheme.DICE_1,
+                ImageUtils.DiceRollImages.HackerTheme.DICE_2,
+                ImageUtils.DiceRollImages.HackerTheme.DICE_3,
+                ImageUtils.DiceRollImages.HackerTheme.DICE_4,
+                ImageUtils.DiceRollImages.HackerTheme.DICE_5,
+                ImageUtils.DiceRollImages.HackerTheme.DICE_6
         };
+
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){

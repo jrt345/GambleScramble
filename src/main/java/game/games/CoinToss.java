@@ -1,14 +1,13 @@
 package game.games;
 
-import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.ImageUtils;
 import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class CoinToss {
 
@@ -25,19 +24,9 @@ public class CoinToss {
 
         GameData.serialize();
 
-        Image[] images = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/heads.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/tails.png")),
-                        50, 50, true, true)
-        };
+        Image[] images = {ImageUtils.CoinTossImages.HEADS, ImageUtils.CoinTossImages.TAILS};
 
-        Image[] imagesH = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/hackertheme/heads.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/cointoss/hackertheme/tails.png")),
-                        50, 50, true, true)
-        };
+        Image[] imagesH = {ImageUtils.CoinTossImages.HackerTheme.HEADS, ImageUtils.CoinTossImages.HackerTheme.TAILS};
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){

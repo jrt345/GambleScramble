@@ -1,14 +1,13 @@
 package game.games;
 
-import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.ImageUtils;
 import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class HandGuess {
 
@@ -26,78 +25,45 @@ public class HandGuess {
         GameData.serialize();
 
         Image[] images = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand0.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand1.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand2.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand3.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand4.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand5.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand6.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand7.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand8.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand9.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hand10.png")),
-                        50, 50, true, true)
+                ImageUtils.HandGuessImages.HAND_0,
+                ImageUtils.HandGuessImages.HAND_1,
+                ImageUtils.HandGuessImages.HAND_2,
+                ImageUtils.HandGuessImages.HAND_3,
+                ImageUtils.HandGuessImages.HAND_4,
+                ImageUtils.HandGuessImages.HAND_5,
+                ImageUtils.HandGuessImages.HAND_6,
+                ImageUtils.HandGuessImages.HAND_7,
+                ImageUtils.HandGuessImages.HAND_8,
+                ImageUtils.HandGuessImages.HAND_9,
+                ImageUtils.HandGuessImages.HAND_10
         };
 
         Image[] imagesD = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand0.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand1.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand2.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand3.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand4.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand5.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand6.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand7.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand8.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand9.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/darktheme/hand10.png")),
-                        50, 50, true, true)
+                ImageUtils.HandGuessImages.DarkTheme.HAND_0,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_1,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_2,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_3,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_4,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_5,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_6,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_7,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_8,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_9,
+                ImageUtils.HandGuessImages.DarkTheme.HAND_10
         };
 
         Image[] imagesH = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand0.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand1.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand2.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand3.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand4.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand5.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand6.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand7.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand8.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand9.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/handguess/hackertheme/hand10.png")),
-                        50, 50, true, true)
+                ImageUtils.HandGuessImages.HackerTheme.HAND_0,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_1,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_2,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_3,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_4,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_5,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_6,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_7,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_8,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_9,
+                ImageUtils.HandGuessImages.HackerTheme.HAND_10
         };
 
 
