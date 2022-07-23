@@ -2,7 +2,7 @@ package game.utils;
 
 import game.App;
 import game.controllers.Controller;
-import game.controllers.GameController;
+import game.games.GameController;
 import game.games.GameType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

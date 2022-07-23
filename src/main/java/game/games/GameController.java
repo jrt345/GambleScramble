@@ -1,6 +1,6 @@
-package game.controllers;
+package game.games;
 
-import game.games.*;
+import game.controllers.Controller;
 import game.utils.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
