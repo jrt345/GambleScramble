@@ -2,18 +2,12 @@ package game.utils;
 
 import game.App;
 import game.controllers.Controller;
-import game.games.GameController;
 import game.games.GameType;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -21,8 +15,6 @@ import java.util.Random;
 
 public class GameUtils {
 
-    /*Set the player object in Controller to data from player.dat, and then serialize
-    * the data to properly and accurately serialize user data*/
     public static void secureSerialize() throws IOException, ClassNotFoundException {
         Controller.setPlayer(GameData.deserialize());
         GameData.serialize();
@@ -52,31 +44,10 @@ public class GameUtils {
         return random.nextInt(max + 1 - min) + min;
     }
 
-    //Load gameTemplate.fxml with different attributes based on the game
-    public static void loadGame(GameType game) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gameTemplate.fxml"));
-        Parent root = fxmlLoader.load();
-
-        GameController controller = fxmlLoader.getController();
-        controller.setGame(game);
-        Stage stage = new Stage();
-
-        stage.setTitle(game.getTitle());
-        stage.initModality(Modality.APPLICATION_MODAL);
-        Scene scene = new Scene(root, 450, 240);
-        ThemeUtils.setSceneTheme(scene, Controller.getImageViews());
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.getIcons().add(ImageUtils.LOGO);
-        stage.show();
-    }
-
-    //Generate a random choice for the games based on the game's options
     public static String generateComputerChoice(String[] options, int min, int max) {
         return options[getRandomNumber(min, max)];
     }
 
-    //Returns the profit or loss a player receives after placing their bet
     public static int getOutcome(String userOption, String computerOption, int bet, int multiplier) {
         if (userOption.equals(computerOption)) {
             return ((bet*multiplier));
@@ -85,7 +56,6 @@ public class GameUtils {
         }
     }
 
-    //Returns an image to match the randomly generated outcome
     public static Image imageSetter(String[] options, String computerOption, Image[] images) {
         Image image = null;
         for (int i = 0;i < options.length;i++){
@@ -96,7 +66,6 @@ public class GameUtils {
         return image;
     }
 
-    //Returns a description of the randomly generated outcome
     private static String computerOptionIntroSetter(GameType game, String computerOption) {
         String computerOptionIntro = null;
         switch (game) {
@@ -115,7 +84,6 @@ public class GameUtils {
         return computerOptionIntro;
     }
 
-    //Returns a string describing if the player won or lost and how much
     private static String statusSetter(boolean win, int outcome) {
         String status;
         if (!win){
@@ -146,7 +114,6 @@ public class GameUtils {
         }
     }
 
-    //Combines computerOptionIntroSetter and statusSetter into one string
     public static String outcomeSetter(GameType game, String computerOption, boolean win, int outcome) {
         playGameSound(game);
         return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
@@ -179,8 +146,6 @@ public class GameUtils {
         refreshNavBarLabel();
     }
 
-    /*Checks if the user is bankrupt an if to show an alert and what buttons
-    * to disable if the user is bankrupt*/
     public static void bankruptcyCheck(boolean enableAlert, boolean disableOptions, boolean disableGame) {
         refreshData();
         if (isPlayerBankrupt()){

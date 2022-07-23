@@ -24,12 +24,16 @@ public abstract class SimpleGame implements Game {
     private int bet = 0;
     private String userOption;
 
-    protected abstract void play();
+    protected abstract void play() throws IOException;
 
     @Override
     public void run() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("gameTemplate.fxml"));
         Parent root = fxmlLoader.load();
+
+        GameController controller = fxmlLoader.getController();
+        controller.setSimpleGame(this);
+        controller.loadGame();
 
         Stage stage = new Stage();
 

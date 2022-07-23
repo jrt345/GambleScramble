@@ -9,9 +9,38 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
-public class HandGuess {
+public class HandGuess extends SimpleGame{
 
-    //Displays alert showing the outcome of the bet
+    private static final String[] options = {"0","1","2","3","4","5","6","7","8","9","10"};
+
+    public HandGuess() {
+        setTitle("HandGuess");
+        setDetails("Odds: 1:11, Payout: 10x");
+        setPrompt("Choose a number between 0-10");
+        setOptions(options);
+
+        if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE){
+            setImage(ImageUtils.HandGuessImages.DarkTheme.LOGO);
+        } else if (Controller.getPlayer().getTheme() == Theme.HACKER){
+            setImage(ImageUtils.HandGuessImages.HackerTheme.LOGO);
+        } else {
+            setImage(ImageUtils.HandGuessImages.LOGO);
+        }
+    }
+
+    @Override
+    protected void play() throws IOException {
+        GameUtils.updateBalance(-getBet());
+
+        GameData.serialize();
+        GameUtils.refreshData();
+
+        play(getBet(), getUserOption());
+
+        GameData.serialize();
+        GameUtils.refreshData();
+    }
+
     public static void play(int bet, String userOption) throws IOException {
         String[] options = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 10);

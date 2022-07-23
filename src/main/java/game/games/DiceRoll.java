@@ -9,9 +9,36 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
-public class DiceRoll {
+public class DiceRoll extends SimpleGame{
 
-    //Displays alert showing the outcome of the bet
+    private static final String[] options = {"1","2","3","4","5","6"};
+
+    public DiceRoll() {
+        setTitle("DiceRoll");
+        setDetails("Odds: 1:6, Payout: 5x");
+        setPrompt("Choose a number between 1-6");
+        setOptions(options);
+
+        if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+            setImage(ImageUtils.DiceRollImages.HackerTheme.LOGO);
+        } else {
+            setImage(ImageUtils.DiceRollImages.LOGO);
+        }
+    }
+
+    @Override
+    protected void play() throws IOException {
+        GameUtils.updateBalance(-getBet());
+
+        GameData.serialize();
+        GameUtils.refreshData();
+
+        play(getBet(), getUserOption());
+
+        GameData.serialize();
+        GameUtils.refreshData();
+    }
+
     public static void play(int bet, String userOption) throws IOException {
         String[] options = {"1", "2", "3", "4", "5", "6"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 5);

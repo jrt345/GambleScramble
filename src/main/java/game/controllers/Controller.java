@@ -1,7 +1,10 @@
 package game.controllers;
 
 import game.App;
-import game.games.GameType;
+import game.games.CoinToss;
+import game.games.DiceRoll;
+import game.games.HandGuess;
+import game.games.RockPaperScissors;
 import game.utils.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -115,22 +118,22 @@ public class Controller implements Initializable {
 
     @FXML
     private void playCoinToss(ActionEvent event) throws IOException {
-        GameUtils.loadGame(GameType.COINTOSS);
+        new CoinToss().run();
     }
 
     @FXML
     private void playDiceRoll(ActionEvent event) throws IOException {
-        GameUtils.loadGame(GameType.DICEROLL);
+        new DiceRoll().run();
     }
 
     @FXML
     private void playHandGuess(ActionEvent event) throws IOException {
-        GameUtils.loadGame(GameType.HANDGUESS);
+        new HandGuess().run();
     }
 
     @FXML
     private void playRPS(ActionEvent event) throws IOException {
-        GameUtils.loadGame(GameType.ROCKPAPERSCISSORS);
+        new RockPaperScissors().run();
     }
 
     @FXML

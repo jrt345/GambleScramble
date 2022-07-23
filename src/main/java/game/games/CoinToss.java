@@ -9,9 +9,36 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
-public class CoinToss {
+public class CoinToss extends SimpleGame {
 
-    //Displays alert showing the outcome of the bet
+    private static final String[] options = {"Heads", "Tails"};
+
+    public CoinToss() {
+        setTitle("CoinToss");
+        setDetails("Odds: 1:2, Payout: 2x");
+        setPrompt("Heads or Tails?");
+        setOptions(options);
+
+        if (Controller.getPlayer().getTheme() == Theme.HACKER) {
+            setImage(ImageUtils.CoinTossImages.HackerTheme.LOGO);
+        } else {
+            setImage(ImageUtils.CoinTossImages.LOGO);
+        }
+    }
+
+    @Override
+    protected void play() throws IOException {
+        GameUtils.updateBalance(-getBet());
+
+        GameData.serialize();
+        GameUtils.refreshData();
+
+        play(getBet(), getUserOption());
+
+        GameData.serialize();
+        GameUtils.refreshData();
+    }
+
     public static void play(int bet, String userOption) throws IOException {
         String[] options = {"Heads", "Tails"};
         String computerOption = GameUtils.generateComputerChoice(options, 0, 1);
