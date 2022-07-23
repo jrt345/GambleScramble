@@ -28,8 +28,6 @@ public class GameController implements Initializable {
         this.simpleGame = simpleGame;
     }
 
-    private static GameType game;
-
     @FXML
     private Label title;
 
