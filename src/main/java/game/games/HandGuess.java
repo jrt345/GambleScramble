@@ -39,10 +39,10 @@ public class HandGuess extends SimpleGame {
 
         setComputerOption(getRandomOption());
 
-        int outcome = getOutcome(getComputerOption());
+        setOutcome(calculateOutcome());
 
-        if (outcome > 0){
-            GameUtils.updateBalance(outcome);
+        if (getOutcome() > 0){
+            GameUtils.updateBalance(getOutcome());
         }
 
         GameData.serialize();
@@ -101,9 +101,9 @@ public class HandGuess extends SimpleGame {
         }
 
         if (getUserOption().equals(getComputerOption())) {
-            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), true, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), true, getOutcome()), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), false, getOutcome()), image);
         }
 
         GameData.serialize();

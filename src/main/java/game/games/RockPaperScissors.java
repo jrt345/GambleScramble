@@ -29,12 +29,12 @@ public class RockPaperScissors extends SimpleGame {
     }
 
     @Override
-    int getOutcome(String option) {
-        if (getUserOption().equals("Rock") && option.equals("Scissors")) {
+    int calculateOutcome() {
+        if (getUserOption().equals("Rock") && getComputerOption().equals("Scissors")) {
             return getBet()*MULTIPLIER;
-        } else if (getUserOption().equals("Paper") && option.equals("Rock")) {
+        } else if (getUserOption().equals("Paper") && getComputerOption().equals("Rock")) {
             return getBet()*MULTIPLIER;
-        } else if (getUserOption().equals("Scissors") && option.equals("Paper")) {
+        } else if (getUserOption().equals("Scissors") && getComputerOption().equals("Paper")) {
             return getBet()*MULTIPLIER;
         } else {
             return getBet()*-1;
@@ -77,10 +77,10 @@ public class RockPaperScissors extends SimpleGame {
             setComputerOption(getRandomOption());
         }
 
-        int outcome = getOutcome(getComputerOption());
+        setOutcome(calculateOutcome());
 
-        if (outcome > 0){
-            GameUtils.updateBalance(outcome);
+        if (getOutcome() > 0){
+            GameUtils.updateBalance(getOutcome());
         }
 
         GameData.serialize();
@@ -94,14 +94,14 @@ public class RockPaperScissors extends SimpleGame {
 
         GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
-        if (outcome > 0) {
+        if (getOutcome() > 0) {
             showOutcome(getComputerOption() + ". You win! You won: +"
                             + Controller.getPlayer().getCurrency().getSymbol()
-                            + outcome, image);
+                            + getOutcome(), image);
         } else {
             showOutcome(getComputerOption() + ". You lose! You lost: -"
                             + Controller.getPlayer().getCurrency().getSymbol()
-                            + outcome*-1, image);
+                            + getOutcome()*-1, image);
         }
 
         GameData.serialize();

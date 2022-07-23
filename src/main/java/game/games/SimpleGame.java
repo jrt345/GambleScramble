@@ -29,6 +29,7 @@ public abstract class SimpleGame implements Game {
     private int bet = 0;
     private String userOption;
     private String computerOption;
+    private int outcome = 0;
 
     protected abstract void play() throws IOException;
 
@@ -57,8 +58,8 @@ public abstract class SimpleGame implements Game {
         return options[new Random().nextInt(options.length)];
     }
 
-    int getOutcome(String option) {
-        if (userOption.equals(option)) {
+    int calculateOutcome() {
+        if (userOption.equals(computerOption)) {
             return ((bet*multiplier));
         } else {
             return bet*-1;
@@ -146,5 +147,13 @@ public abstract class SimpleGame implements Game {
 
     public void setComputerOption(String computerOption) {
         this.computerOption = computerOption;
+    }
+
+    public int getOutcome() {
+        return outcome;
+    }
+
+    public void setOutcome(int outcome) {
+        this.outcome = outcome;
     }
 }

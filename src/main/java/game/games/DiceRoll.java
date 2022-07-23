@@ -37,10 +37,10 @@ public class DiceRoll extends SimpleGame {
 
         setComputerOption(getRandomOption());
 
-        int outcome = getOutcome(getComputerOption());
+        setOutcome(calculateOutcome());
 
-        if (outcome > 0){
-            GameUtils.updateBalance(outcome);
+        if (getOutcome() > 0){
+            GameUtils.updateBalance(getOutcome());
         }
 
         GameData.serialize();
@@ -72,9 +72,9 @@ public class DiceRoll extends SimpleGame {
         }
 
         if (getUserOption().equals(getComputerOption())) {
-            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, getComputerOption(), true, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, getComputerOption(), true, getOutcome()), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, getComputerOption(), false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, getComputerOption(), false, getOutcome()), image);
         }
 
         GameData.serialize();

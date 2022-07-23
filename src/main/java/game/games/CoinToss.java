@@ -37,10 +37,10 @@ public class CoinToss extends SimpleGame {
 
         setComputerOption(getRandomOption());
 
-        int outcome = getOutcome(getComputerOption());
+        setOutcome(calculateOutcome());
 
-        if (outcome > 0) {
-            GameUtils.updateBalance(outcome);
+        if (getOutcome() > 0) {
+            GameUtils.updateBalance(getOutcome());
         }
 
         GameData.serialize();
@@ -57,9 +57,9 @@ public class CoinToss extends SimpleGame {
         }
 
         if (getUserOption().equals(getComputerOption())) {
-            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), true, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), true, getOutcome()), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), false, getOutcome()), image);
         }
 
         GameData.serialize();
