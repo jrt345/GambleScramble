@@ -11,7 +11,6 @@ import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Random;
 
 public class GameUtils {
 
@@ -37,23 +36,6 @@ public class GameUtils {
         }
 
         refreshNavBarLabel();
-    }
-
-    public static int getRandomNumber(int min, int max) {
-        Random random = new Random();
-        return random.nextInt(max + 1 - min) + min;
-    }
-
-    public static String generateComputerChoice(String[] options, int min, int max) {
-        return options[getRandomNumber(min, max)];
-    }
-
-    public static int getOutcome(String userOption, String computerOption, int bet, int multiplier) {
-        if (userOption.equals(computerOption)) {
-            return ((bet*multiplier));
-        } else {
-            return bet*-1;
-        }
     }
 
     public static Image imageSetter(String[] options, String computerOption, Image[] images) {

@@ -9,15 +9,17 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
-public class DiceRoll extends SimpleGame{
+public class DiceRoll extends SimpleGame {
 
-    private static final String[] options = {"1","2","3","4","5","6"};
+    private static final int MULTIPLIER = 5;
+    private static final String[] OPTIONS = {"1","2","3","4","5","6"};
 
     public DiceRoll() {
         setTitle("DiceRoll");
         setDetails("Odds: 1:6, Payout: 5x");
         setPrompt("Choose a number between 1-6");
-        setOptions(options);
+        setMultiplier(MULTIPLIER);
+        setOptions(OPTIONS);
 
         if (Controller.getPlayer().getTheme() == Theme.HACKER) {
             setImage(ImageUtils.DiceRollImages.HackerTheme.LOGO);
@@ -33,17 +35,9 @@ public class DiceRoll extends SimpleGame{
         GameData.serialize();
         GameUtils.refreshData();
 
-        play(getBet(), getUserOption());
+        String computerOption = getRandomOption();
 
-        GameData.serialize();
-        GameUtils.refreshData();
-    }
-
-    public static void play(int bet, String userOption) throws IOException {
-        String[] options = {"1", "2", "3", "4", "5", "6"};
-        String computerOption = GameUtils.generateComputerChoice(options, 0, 5);
-
-        int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 5);
+        int outcome = getOutcome(computerOption);
 
         if (outcome > 0){
             GameUtils.updateBalance(outcome);
@@ -72,17 +66,20 @@ public class DiceRoll extends SimpleGame{
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(options, computerOption, imagesH);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesH);
         } else {
-            image = GameUtils.imageSetter(options, computerOption, images);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, images);
         }
 
-        if (userOption.equals(computerOption)) {
+        if (getUserOption().equals(computerOption)) {
             GameUtils.gameOutcomeAlert("DiceRoll",
                     GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, true, outcome), image);
         } else {
             GameUtils.gameOutcomeAlert("DiceRoll",
                     GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, false, outcome), image);
         }
+
+        GameData.serialize();
+        GameUtils.refreshData();
     }
 }

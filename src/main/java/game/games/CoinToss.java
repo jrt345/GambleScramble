@@ -11,13 +11,15 @@ import java.io.IOException;
 
 public class CoinToss extends SimpleGame {
 
-    private static final String[] options = {"Heads", "Tails"};
+    private static final int MULTIPLIER = 2;
+    private static final String[] OPTIONS = {"Heads", "Tails"};
 
     public CoinToss() {
         setTitle("CoinToss");
         setDetails("Odds: 1:2, Payout: 2x");
         setPrompt("Heads or Tails?");
-        setOptions(options);
+        setMultiplier(MULTIPLIER);
+        setOptions(OPTIONS);
 
         if (Controller.getPlayer().getTheme() == Theme.HACKER) {
             setImage(ImageUtils.CoinTossImages.HackerTheme.LOGO);
@@ -33,19 +35,11 @@ public class CoinToss extends SimpleGame {
         GameData.serialize();
         GameUtils.refreshData();
 
-        play(getBet(), getUserOption());
+        String computerOption = getRandomOption();
 
-        GameData.serialize();
-        GameUtils.refreshData();
-    }
+        int outcome = getOutcome(computerOption);
 
-    public static void play(int bet, String userOption) throws IOException {
-        String[] options = {"Heads", "Tails"};
-        String computerOption = GameUtils.generateComputerChoice(options, 0, 1);
-
-        int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 2);
-
-        if (outcome > 0){
+        if (outcome > 0) {
             GameUtils.updateBalance(outcome);
         }
 
@@ -57,17 +51,20 @@ public class CoinToss extends SimpleGame {
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-             image = GameUtils.imageSetter(options, computerOption, imagesH);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesH);
         } else {
-             image = GameUtils.imageSetter(options, computerOption, images);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, images);
         }
 
-        if (userOption.equals(computerOption)) {
+        if (getUserOption().equals(computerOption)) {
             GameUtils.gameOutcomeAlert("CoinToss",
                     GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, true, outcome), image);
         } else {
             GameUtils.gameOutcomeAlert("CoinToss",
                     GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, false, outcome), image);
         }
+
+        GameData.serialize();
+        GameUtils.refreshData();
     }
 }

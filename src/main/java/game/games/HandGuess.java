@@ -9,15 +9,17 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
-public class HandGuess extends SimpleGame{
+public class HandGuess extends SimpleGame {
 
-    private static final String[] options = {"0","1","2","3","4","5","6","7","8","9","10"};
+    private static final int MULTIPLIER = 10;
+    private static final String[] OPTIONS = {"0","1","2","3","4","5","6","7","8","9","10"};
 
     public HandGuess() {
         setTitle("HandGuess");
         setDetails("Odds: 1:11, Payout: 10x");
         setPrompt("Choose a number between 0-10");
-        setOptions(options);
+        setMultiplier(MULTIPLIER);
+        setOptions(OPTIONS);
 
         if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE){
             setImage(ImageUtils.HandGuessImages.DarkTheme.LOGO);
@@ -35,17 +37,9 @@ public class HandGuess extends SimpleGame{
         GameData.serialize();
         GameUtils.refreshData();
 
-        play(getBet(), getUserOption());
+        String computerOption = getRandomOption();
 
-        GameData.serialize();
-        GameUtils.refreshData();
-    }
-
-    public static void play(int bet, String userOption) throws IOException {
-        String[] options = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        String computerOption = GameUtils.generateComputerChoice(options, 0, 10);
-
-        int outcome = GameUtils.getOutcome(userOption, computerOption, bet, 10);
+        int outcome = getOutcome(computerOption);
 
         if (outcome > 0){
             GameUtils.updateBalance(outcome);
@@ -98,20 +92,23 @@ public class HandGuess extends SimpleGame{
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(options, computerOption, imagesH);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesH);
         } else if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE) {
-            image = GameUtils.imageSetter(options, computerOption, imagesD);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesD);
 
         } else {
-            image = GameUtils.imageSetter(options, computerOption, images);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, images);
         }
 
-        if (userOption.equals(computerOption)) {
+        if (getUserOption().equals(computerOption)) {
             GameUtils.gameOutcomeAlert("HandGuess",
                     GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, true, outcome), image);
         } else {
             GameUtils.gameOutcomeAlert("HandGuess",
                     GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, false, outcome), image);
         }
+
+        GameData.serialize();
+        GameUtils.refreshData();
     }
 }

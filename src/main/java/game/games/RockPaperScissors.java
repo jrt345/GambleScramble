@@ -11,18 +11,33 @@ import java.io.IOException;
 
 public class RockPaperScissors extends SimpleGame {
 
-    private static final String[] options = {"Rock", "Paper", "Scissors"};
+    private static final int MULTIPLIER = 2;
+    private static final String[] OPTIONS = {"Rock", "Paper", "Scissors"};
 
     public RockPaperScissors() {
         setTitle("Rock Paper Scissors");
         setDetails("Odds: 1:2, Payout: 2x");
         setPrompt("Rock, Paper, Scissors?!");
-        setOptions(options);
+        setMultiplier(MULTIPLIER);
+        setOptions(OPTIONS);
 
         if (Controller.getPlayer().getTheme() == Theme.HACKER) {
             setImage(ImageUtils.RockPaperScissors.HackerTheme.LOGO);
         } else {
             setImage(ImageUtils.RockPaperScissors.LOGO);
+        }
+    }
+
+    @Override
+    int getOutcome(String option) {
+        if (getUserOption().equals("Rock") && option.equals("Scissors")) {
+            return getBet()*MULTIPLIER;
+        } else if (getUserOption().equals("Paper") && option.equals("Rock")) {
+            return getBet()*MULTIPLIER;
+        } else if (getUserOption().equals("Scissors") && option.equals("Paper")) {
+            return getBet()*MULTIPLIER;
+        } else {
+            return getBet()*-1;
         }
     }
 
@@ -33,27 +48,7 @@ public class RockPaperScissors extends SimpleGame {
         GameData.serialize();
         GameUtils.refreshData();
 
-        play(getBet(), getUserOption());
-
-        GameData.serialize();
-        GameUtils.refreshData();
-    }
-
-    private static int getOutcome(String userOption, String computerOption, int bet) {
-        if (userOption.equals("Rock") && computerOption.equals("Scissors")) {
-            return bet*2;
-        } else if (userOption.equals("Paper") && computerOption.equals("Rock")) {
-            return bet*2;
-        } else if (userOption.equals("Scissors") && computerOption.equals("Paper")) {
-            return bet*2;
-        } else {
-            return bet*-1;
-        }
-    }
-
-    public static void play(int bet, String userOption) throws IOException {
-        String[] options = {"Rock", "Paper", "Scissors"};
-        String computerOption = GameUtils.generateComputerChoice(options, 0, 2);
+        String computerOption = getRandomOption();
 
         Image[] images = {
                 ImageUtils.RockPaperScissors.ROCK,
@@ -67,24 +62,24 @@ public class RockPaperScissors extends SimpleGame {
                 ImageUtils.RockPaperScissors.HackerTheme.SCISSORS
         };
 
-        while (userOption.equals(computerOption)){
+        while (getUserOption().equals(computerOption)){
             GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
             if (Controller.getPlayer().getTheme() == Theme.HACKER){
                 GameUtils.gameOutcomeAlert("Rock Paper Scissors",
                         computerOption + ". It's a Tie! We'll go again!",
-                        GameUtils.imageSetter(options, computerOption, imagesH));
+                        GameUtils.imageSetter(OPTIONS, computerOption, imagesH));
             } else {
                 GameUtils.gameOutcomeAlert("Rock Paper Scissors",
                         computerOption + ". It's a Tie! We'll go again!",
-                        GameUtils.imageSetter(options, computerOption, images));
+                        GameUtils.imageSetter(OPTIONS, computerOption, images));
             }
 
 
-            computerOption = GameUtils.generateComputerChoice(options, 0, 2);
+            computerOption = getRandomOption();
         }
 
-        int outcome = getOutcome(userOption, computerOption, bet);
+        int outcome = getOutcome(computerOption);
 
         if (outcome > 0){
             GameUtils.updateBalance(outcome);
@@ -94,9 +89,9 @@ public class RockPaperScissors extends SimpleGame {
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(options, computerOption, imagesH);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesH);
         } else {
-            image = GameUtils.imageSetter(options, computerOption, images);
+            image = GameUtils.imageSetter(OPTIONS, computerOption, images);
         }
 
         GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
@@ -112,5 +107,8 @@ public class RockPaperScissors extends SimpleGame {
                             + Controller.getPlayer().getCurrency().getSymbol()
                             + outcome*-1, image);
         }
+
+        GameData.serialize();
+        GameUtils.refreshData();
     }
 }

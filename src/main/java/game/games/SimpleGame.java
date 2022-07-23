@@ -12,8 +12,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Random;
 
 public abstract class SimpleGame implements Game {
+
+    private int multiplier = 1;
 
     private String title = "GameTitle";
     private String details = "Odds: 1:11, Payout: 10x";
@@ -45,6 +48,26 @@ public abstract class SimpleGame implements Game {
         stage.setResizable(false);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
         stage.show();
+    }
+
+    String getRandomOption() {
+        return options[new Random().nextInt(options.length)];
+    }
+
+    int getOutcome(String option) {
+        if (userOption.equals(option)) {
+            return ((bet*multiplier));
+        } else {
+            return bet*-1;
+        }
+    }
+
+    public int getMultiplier() {
+        return multiplier;
+    }
+
+    public void setMultiplier(int multiplier) {
+        this.multiplier = multiplier;
     }
 
     public String getTitle() {
