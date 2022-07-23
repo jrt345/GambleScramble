@@ -104,83 +104,83 @@ public abstract class SimpleGame implements Game {
         }
     }
 
-    public int getMultiplier() {
+    protected int getMultiplier() {
         return multiplier;
     }
 
-    public void setMultiplier(int multiplier) {
+    protected void setMultiplier(int multiplier) {
         this.multiplier = multiplier;
     }
 
-    public String getTitle() {
+    protected String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    protected void setTitle(String title) {
         this.title = title;
     }
 
-    public String getDetails() {
+    protected String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
+    protected void setDetails(String details) {
         this.details = details;
     }
 
-    public String getPrompt() {
+    protected String getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(String prompt) {
+    protected void setPrompt(String prompt) {
         this.prompt = prompt;
     }
 
-    public String[] getOptions() {
+    protected String[] getOptions() {
         return options;
     }
 
-    public void setOptions(String[] options) {
+    protected void setOptions(String[] options) {
         this.options = options;
     }
 
-    public Image getImage() {
+    protected Image getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    protected void setImage(Image image) {
         this.image = image;
     }
 
-    public int getBet() {
+    protected int getBet() {
         return bet;
     }
 
-    public void setBet(int bet) {
+    protected void setBet(int bet) {
         this.bet = bet;
     }
 
-    public String getUserOption() {
+    protected String getUserOption() {
         return userOption;
     }
 
-    public void setUserOption(String userOption) {
+    protected void setUserOption(String userOption) {
         this.userOption = userOption;
     }
 
-    public String getComputerOption() {
+    protected String getComputerOption() {
         return computerOption;
     }
 
-    public void setComputerOption(String computerOption) {
+    protected void setComputerOption(String computerOption) {
         this.computerOption = computerOption;
     }
 
-    public int getOutcome() {
+    protected int getOutcome() {
         return outcome;
     }
 
-    public void setOutcome(int outcome) {
+    protected void setOutcome(int outcome) {
         this.outcome = outcome;
     }
 }
