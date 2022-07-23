@@ -72,11 +72,9 @@ public class DiceRoll extends SimpleGame {
         }
 
         if (getUserOption().equals(computerOption)) {
-            GameUtils.gameOutcomeAlert("DiceRoll",
-                    GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, true, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, true, outcome), image);
         } else {
-            GameUtils.gameOutcomeAlert("DiceRoll",
-                    GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, computerOption, false, outcome), image);
         }
 
         GameData.serialize();

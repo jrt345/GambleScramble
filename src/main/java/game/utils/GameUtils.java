@@ -6,7 +6,6 @@ import game.games.GameType;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
@@ -99,17 +98,6 @@ public class GameUtils {
     public static String outcomeSetter(GameType game, String computerOption, boolean win, int outcome) {
         playGameSound(game);
         return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
-    }
-
-    public static void gameOutcomeAlert(String game, String result, Image image) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, result);
-        alert.setTitle("Results");
-        alert.setHeaderText(game);
-
-        alert.setGraphic(new ImageView(image));
-        ThemeUtils.setAlertTheme(alert);
-
-        alert.showAndWait();
     }
 
     public static boolean isPlayerBankrupt() {

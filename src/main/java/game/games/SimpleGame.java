@@ -6,7 +6,9 @@ import game.utils.ThemeUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -60,6 +62,17 @@ public abstract class SimpleGame implements Game {
         } else {
             return bet*-1;
         }
+    }
+
+    void showOutcome(String result, Image image) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, result);
+        alert.setTitle("Results");
+        alert.setHeaderText(getTitle());
+
+        alert.setGraphic(new ImageView(image));
+        ThemeUtils.setAlertTheme(alert);
+
+        alert.showAndWait();
     }
 
     public int getMultiplier() {

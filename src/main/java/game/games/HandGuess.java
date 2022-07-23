@@ -101,11 +101,9 @@ public class HandGuess extends SimpleGame {
         }
 
         if (getUserOption().equals(computerOption)) {
-            GameUtils.gameOutcomeAlert("HandGuess",
-                    GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, true, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, true, outcome), image);
         } else {
-            GameUtils.gameOutcomeAlert("HandGuess",
-                    GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, false, outcome), image);
         }
 
         GameData.serialize();

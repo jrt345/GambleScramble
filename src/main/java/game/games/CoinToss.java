@@ -57,11 +57,9 @@ public class CoinToss extends SimpleGame {
         }
 
         if (getUserOption().equals(computerOption)) {
-            GameUtils.gameOutcomeAlert("CoinToss",
-                    GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, true, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, true, outcome), image);
         } else {
-            GameUtils.gameOutcomeAlert("CoinToss",
-                    GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, false, outcome), image);
         }
 
         GameData.serialize();

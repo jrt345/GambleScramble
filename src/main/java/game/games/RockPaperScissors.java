@@ -66,12 +66,10 @@ public class RockPaperScissors extends SimpleGame {
             GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
             if (Controller.getPlayer().getTheme() == Theme.HACKER){
-                GameUtils.gameOutcomeAlert("Rock Paper Scissors",
-                        computerOption + ". It's a Tie! We'll go again!",
+                showOutcome(computerOption + ". It's a Tie! We'll go again!",
                         GameUtils.imageSetter(OPTIONS, computerOption, imagesH));
             } else {
-                GameUtils.gameOutcomeAlert("Rock Paper Scissors",
-                        computerOption + ". It's a Tie! We'll go again!",
+                showOutcome(computerOption + ". It's a Tie! We'll go again!",
                         GameUtils.imageSetter(OPTIONS, computerOption, images));
             }
 
@@ -97,13 +95,11 @@ public class RockPaperScissors extends SimpleGame {
         GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
         if (outcome > 0) {
-            GameUtils.gameOutcomeAlert("Rock Paper Scissors",
-                    computerOption + ". You win! You won: +"
+            showOutcome(computerOption + ". You win! You won: +"
                             + Controller.getPlayer().getCurrency().getSymbol()
                             + outcome, image);
         } else {
-            GameUtils.gameOutcomeAlert("Rock Paper Scissors",
-                    computerOption + ". You lose! You lost: -"
+            showOutcome(computerOption + ". You lose! You lost: -"
                             + Controller.getPlayer().getCurrency().getSymbol()
                             + outcome*-1, image);
         }
