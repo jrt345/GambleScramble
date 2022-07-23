@@ -42,13 +42,18 @@ public class RockPaperScissors extends SimpleGame {
     }
 
     @Override
-    protected void play() throws IOException {
+    void updateBalance() throws IOException {
         GameUtils.updateBalance(-getBet());
 
         GameData.serialize();
         GameUtils.refreshData();
 
         setComputerOption(getRandomOption());
+    }
+
+    @Override
+    protected void play() throws IOException {
+        updateBalance();
 
         Image[] images = {
                 ImageUtils.RockPaperScissors.ROCK,

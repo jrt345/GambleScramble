@@ -30,20 +30,7 @@ public class CoinToss extends SimpleGame {
 
     @Override
     protected void play() throws IOException {
-        GameUtils.updateBalance(-getBet());
-
-        GameData.serialize();
-        GameUtils.refreshData();
-
-        setComputerOption(getRandomOption());
-
-        setOutcome(calculateOutcome());
-
-        if (getOutcome() > 0) {
-            GameUtils.updateBalance(getOutcome());
-        }
-
-        GameData.serialize();
+        updateBalance();
 
         Image[] images = {ImageUtils.CoinTossImages.HEADS, ImageUtils.CoinTossImages.TAILS};
 

@@ -2,6 +2,8 @@ package game.games;
 
 import game.App;
 import game.controllers.Controller;
+import game.utils.GameData;
+import game.utils.GameUtils;
 import game.utils.ThemeUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -75,6 +77,21 @@ public abstract class SimpleGame implements Game {
         ThemeUtils.setAlertTheme(alert);
 
         alert.showAndWait();
+    }
+
+    void updateBalance() throws IOException {
+        GameUtils.updateBalance(-bet);
+
+        GameData.serialize();
+        GameUtils.refreshData();
+
+        computerOption = getRandomOption();
+
+        outcome = calculateOutcome();
+
+        if (getOutcome() > 0) {
+            GameUtils.updateBalance(outcome);
+        }
     }
 
     public int getMultiplier() {
