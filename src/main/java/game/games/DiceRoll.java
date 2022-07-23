@@ -53,9 +53,9 @@ public class DiceRoll extends SimpleGame {
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesH);
+            image = getComputerOptionImage(imagesH);
         } else {
-            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), images);
+            image = getComputerOptionImage(images);
         }
 
         if (getUserOption().equals(getComputerOption())) {

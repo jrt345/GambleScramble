@@ -5,7 +5,6 @@ import game.controllers.Controller;
 import game.games.GameType;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
@@ -35,16 +34,6 @@ public class GameUtils {
         }
 
         refreshNavBarLabel();
-    }
-
-    public static Image imageSetter(String[] options, String computerOption, Image[] images) {
-        Image image = null;
-        for (int i = 0;i < options.length;i++){
-            if (computerOption.equals(options[i])){
-                image = images[i];
-            }
-        }
-        return image;
     }
 
     private static String computerOptionIntroSetter(GameType game, String computerOption) {

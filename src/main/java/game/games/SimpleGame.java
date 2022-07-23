@@ -68,6 +68,16 @@ public abstract class SimpleGame implements Game {
         }
     }
 
+    Image getComputerOptionImage(Image[] images) {
+        Image image = null;
+        for (int i = 0;i < options.length;i++){
+            if (computerOption.equals(options[i])){
+                image = images[i];
+            }
+        }
+        return image;
+    }
+
     void showOutcome(String result, Image image) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, result);
         alert.setTitle("Results");

@@ -72,10 +72,10 @@ public class RockPaperScissors extends SimpleGame {
 
             if (Controller.getPlayer().getTheme() == Theme.HACKER){
                 showOutcome(getComputerOption() + ". It's a Tie! We'll go again!",
-                        GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesH));
+                        getComputerOptionImage(imagesH));
             } else {
                 showOutcome(getComputerOption() + ". It's a Tie! We'll go again!",
-                        GameUtils.imageSetter(OPTIONS, getComputerOption(), images));
+                        getComputerOptionImage(images));
             }
 
 
@@ -92,9 +92,9 @@ public class RockPaperScissors extends SimpleGame {
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesH);
+            image = getComputerOptionImage(imagesH);
         } else {
-            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), images);
+            image = getComputerOptionImage(images);
         }
 
         GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
