@@ -52,6 +52,15 @@ public class RockPaperScissors extends SimpleGame {
     }
 
     @Override
+    String getComputerOptionResult() {
+        if (getUserOption().equals(getComputerOption())) {
+            return getComputerOption() + ". It's a Tie! We'll go again!";
+        } else {
+            return getComputerOption().concat(". ");
+        }
+    }
+
+    @Override
     protected void play() throws IOException {
         updateBalance();
 
@@ -71,11 +80,9 @@ public class RockPaperScissors extends SimpleGame {
             GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
             if (Controller.getPlayer().getTheme() == Theme.HACKER){
-                showOutcome(getComputerOption() + ". It's a Tie! We'll go again!",
-                        getComputerOptionImage(imagesH));
+                showOutcome(getComputerOptionResult(), getComputerOptionImage(imagesH));
             } else {
-                showOutcome(getComputerOption() + ". It's a Tie! We'll go again!",
-                        getComputerOptionImage(images));
+                showOutcome(getComputerOptionResult(), getComputerOptionImage(images));
             }
 
 
@@ -98,15 +105,10 @@ public class RockPaperScissors extends SimpleGame {
         }
 
         GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
-
         if (getOutcome() > 0) {
-            showOutcome(getComputerOption() + ". You win! You won: +"
-                            + Controller.getPlayer().getCurrency().getSymbol()
-                            + getOutcome(), image);
+            showOutcome(getResultMessage(true), image);
         } else {
-            showOutcome(getComputerOption() + ". You lose! You lost: -"
-                            + Controller.getPlayer().getCurrency().getSymbol()
-                            + getOutcome()*-1, image);
+            showOutcome(getResultMessage(false), image);
         }
 
         GameData.serialize();

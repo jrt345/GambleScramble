@@ -78,17 +78,6 @@ public abstract class SimpleGame implements Game {
         return image;
     }
 
-    void showOutcome(String result, Image image) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, result);
-        alert.setTitle("Results");
-        alert.setHeaderText(getTitle());
-
-        alert.setGraphic(new ImageView(image));
-        ThemeUtils.setAlertTheme(alert);
-
-        alert.showAndWait();
-    }
-
     void updateBalance() throws IOException {
         GameUtils.updateBalance(-bet);
 
@@ -102,6 +91,37 @@ public abstract class SimpleGame implements Game {
         if (getOutcome() > 0) {
             GameUtils.updateBalance(outcome);
         }
+    }
+
+    void showOutcome(String result, Image image) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, result);
+        alert.setTitle("Results");
+        alert.setHeaderText(getTitle());
+
+        alert.setGraphic(new ImageView(image));
+        ThemeUtils.setAlertTheme(alert);
+
+        alert.showAndWait();
+    }
+
+    String getResultMessage(boolean winner){
+        return getComputerOptionResult().concat(getOutcomeStatus(winner));
+    }
+
+    abstract String getComputerOptionResult();
+
+    private String getOutcomeStatus(boolean winner) {
+        String status;
+        if (!winner){
+            status = "You lose! You lost: -"
+                    + Controller.getPlayer().getCurrency().getSymbol()
+                    + outcome*-1;
+        } else {
+            status = "You win! You won: +"
+                    + Controller.getPlayer().getCurrency().getSymbol()
+                    + outcome;
+        }
+        return status;
     }
 
     protected int getMultiplier() {

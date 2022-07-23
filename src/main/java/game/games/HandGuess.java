@@ -31,6 +31,17 @@ public class HandGuess extends SimpleGame {
     }
 
     @Override
+    String getComputerOptionResult() {
+        if (getComputerOption().equals("0")) {
+            return "I have no fingers up. ";
+        } else if (getComputerOption().equals("1")) {
+            return "I have " + getComputerOption() + " finger up. ";
+        } else {
+            return "I have " + getComputerOption() + " fingers up. ";
+        }
+    }
+
+    @Override
     protected void play() throws IOException {
         updateBalance();
 
@@ -86,10 +97,11 @@ public class HandGuess extends SimpleGame {
             image = getComputerOptionImage(images);
         }
 
+        GameUtils.playGameSound(GameType.HANDGUESS);
         if (getUserOption().equals(getComputerOption())) {
-            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), true, getOutcome()), image);
+            showOutcome(getResultMessage(true), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), false, getOutcome()), image);
+            showOutcome(getResultMessage(false), image);
         }
 
         GameData.serialize();

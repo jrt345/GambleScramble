@@ -29,6 +29,11 @@ public class CoinToss extends SimpleGame {
     }
 
     @Override
+    String getComputerOptionResult() {
+        return "Just got " + getComputerOption() + ". ";
+    }
+
+    @Override
     protected void play() throws IOException {
         updateBalance();
 
@@ -43,10 +48,11 @@ public class CoinToss extends SimpleGame {
             image = getComputerOptionImage(images);
         }
 
+        GameUtils.playGameSound(GameType.COINTOSS);
         if (getUserOption().equals(getComputerOption())) {
-            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), true, getOutcome()), image);
+            showOutcome(getResultMessage(true), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), false, getOutcome()), image);
+            showOutcome(getResultMessage(false), image);
         }
 
         GameData.serialize();

@@ -29,6 +29,11 @@ public class DiceRoll extends SimpleGame {
     }
 
     @Override
+    String getComputerOptionResult() {
+        return "Just rolled a " + getComputerOption() + ". ";
+    }
+
+    @Override
     protected void play() throws IOException {
         updateBalance();
 
@@ -58,10 +63,11 @@ public class DiceRoll extends SimpleGame {
             image = getComputerOptionImage(images);
         }
 
+        GameUtils.playGameSound(GameType.DICEROLL);
         if (getUserOption().equals(getComputerOption())) {
-            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, getComputerOption(), true, getOutcome()), image);
+            showOutcome(getResultMessage(true), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.DICEROLL, getComputerOption(), false, getOutcome()), image);
+            showOutcome(getResultMessage(false), image);
         }
 
         GameData.serialize();

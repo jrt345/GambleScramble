@@ -36,38 +36,6 @@ public class GameUtils {
         refreshNavBarLabel();
     }
 
-    private static String computerOptionIntroSetter(GameType game, String computerOption) {
-        String computerOptionIntro = null;
-        switch (game) {
-            case COINTOSS -> computerOptionIntro = "Just got " + computerOption + ". ";
-            case DICEROLL -> computerOptionIntro = "Just rolled a " + computerOption + ". ";
-            case HANDGUESS -> {
-                if (computerOption.equals("0")) {
-                    computerOptionIntro = "I have no fingers up. ";
-                } else if (computerOption.equals("1")) {
-                    computerOptionIntro = "I have " + computerOption + " finger up. ";
-                } else {
-                    computerOptionIntro = "I have " + computerOption + " fingers up. ";
-                }
-            }
-        }
-        return computerOptionIntro;
-    }
-
-    private static String statusSetter(boolean win, int outcome) {
-        String status;
-        if (!win){
-            status = "You lose! You lost: -"
-                    + Controller.getPlayer().getCurrency().getSymbol()
-                    + outcome*-1;
-        } else {
-            status = "You win! You won: +"
-                    + Controller.getPlayer().getCurrency().getSymbol()
-                    + outcome;
-        }
-        return status;
-    }
-
     private static final AudioClip coinTossSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/cointoss.mp3")).toString());
     private static final AudioClip diceRollSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/diceroll.mp3")).toString());
     private static final AudioClip handGuessSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/handguess.mp3")).toString());
@@ -82,11 +50,6 @@ public class GameUtils {
             case HANDGUESS -> handGuessSound.play();
             case ROCKPAPERSCISSORS -> rpsSound.play();
         }
-    }
-
-    public static String outcomeSetter(GameType game, String computerOption, boolean win, int outcome) {
-        playGameSound(game);
-        return computerOptionIntroSetter(game, computerOption).concat(statusSetter(win, outcome));
     }
 
     public static boolean isPlayerBankrupt() {
