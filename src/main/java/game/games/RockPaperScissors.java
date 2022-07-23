@@ -1,14 +1,13 @@
 package game.games;
 
-import game.App;
 import game.controllers.Controller;
 import game.utils.GameData;
 import game.utils.GameUtils;
+import game.utils.ImageUtils;
 import game.utils.Theme;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class RockPaperScissors {
 
@@ -31,21 +30,15 @@ public class RockPaperScissors {
         String computerOption = GameUtils.generateComputerChoice(options, 0, 2);
 
         Image[] images = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/rpsR.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/rpsP.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/rpsS.png")),
-                        50, 50, true, true)
+                ImageUtils.RockPaperScissors.ROCK,
+                ImageUtils.RockPaperScissors.PAPER,
+                ImageUtils.RockPaperScissors.SCISSORS
         };
 
         Image[] imagesH = {
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/hackertheme/rpsR.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/hackertheme/rpsP.png")),
-                        50, 50, true, true),
-                new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/rockpaperscissors/hackertheme/rpsS.png")),
-                        50, 50, true, true)
+                ImageUtils.RockPaperScissors.HackerTheme.ROCK,
+                ImageUtils.RockPaperScissors.HackerTheme.PAPER,
+                ImageUtils.RockPaperScissors.HackerTheme.SCISSORS
         };
 
         /*While the user and computer are tied, display an alert and

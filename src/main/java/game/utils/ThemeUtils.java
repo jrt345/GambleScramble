@@ -7,10 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.util.Objects;
 
 public class ThemeUtils {
 
@@ -24,42 +21,42 @@ public class ThemeUtils {
      * on the all game logos which change to match the current theme*/
     public static void setSceneTheme(Scene scene, ImageView[] imageViews) {
         scene.getStylesheets().clear();
-        imageViews[0].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/cointoss.png"))));
-        imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/diceroll.png"))));
-        imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png"))));
-        imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png"))));
-        imageViews[4].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/scratchoff.png"))));
-        imageViews[5].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/powerball.png"))));
-        imageViews[6].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/roulette.png"))));
-        imageViews[7].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/craps.png"))));
-        imageViews[8].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/bank.png"))));
-        imageViews[9].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/store.png"))));
-        imageViews[10].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/scripts.png"))));
-        imageViews[11].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/betslog.png"))));
+        imageViews[0].setImage(ImageUtils.COIN_TOSS);
+        imageViews[1].setImage(ImageUtils.DICE_ROLL);
+        imageViews[2].setImage(ImageUtils.HAND_GUESS);
+        imageViews[3].setImage(ImageUtils.ROCK_PAPER_SCISSORS);
+        imageViews[4].setImage(ImageUtils.SCRATCH_OFF);
+        imageViews[5].setImage(ImageUtils.POWERBALL);
+        imageViews[6].setImage(ImageUtils.ROULETTE);
+        imageViews[7].setImage(ImageUtils.CRAPS);
+        imageViews[8].setImage(ImageUtils.BANK);
+        imageViews[9].setImage(ImageUtils.STORE);
+        imageViews[10].setImage(ImageUtils.SCRIPTS);
+        imageViews[11].setImage(ImageUtils.BETS_LOG);
 
         switch (Controller.getPlayer().getTheme()) {
             case DARK -> {
                 scene.getStylesheets().add(darkTheme);
-                imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
+                imageViews[2].setImage(ImageUtils.HAND_GUESS_V2);
             }
             case HACKER -> {
                 scene.getStylesheets().add(hackerTheme);
-                imageViews[0].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/cointoss.png"))));
-                imageViews[1].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png"))));
-                imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png"))));
-                imageViews[3].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png"))));
-                imageViews[4].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/scratchoff.png"))));
-                imageViews[5].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/powerball.png"))));
-                imageViews[6].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/roulette.png"))));
-                imageViews[7].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/craps.png"))));
-                imageViews[8].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/bank.png"))));
-                imageViews[9].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/store.png"))));
-                imageViews[10].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/scripts.png"))));
-                imageViews[11].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/betslog.png"))));
+                imageViews[0].setImage(ImageUtils.HackerTheme.COIN_TOSS);
+                imageViews[1].setImage(ImageUtils.HackerTheme.DICE_ROLL);
+                imageViews[2].setImage(ImageUtils.HackerTheme.HAND_GUESS);
+                imageViews[3].setImage(ImageUtils.HackerTheme.ROCK_PAPER_SCISSORS);
+                imageViews[4].setImage(ImageUtils.HackerTheme.SCRATCH_OFF);
+                imageViews[5].setImage(ImageUtils.HackerTheme.POWERBALL);
+                imageViews[6].setImage(ImageUtils.HackerTheme.ROULETTE);
+                imageViews[7].setImage(ImageUtils.HackerTheme.CRAPS);
+                imageViews[8].setImage(ImageUtils.HackerTheme.BANK);
+                imageViews[9].setImage(ImageUtils.HackerTheme.STORE);
+                imageViews[10].setImage(ImageUtils.HackerTheme.SCRIPTS);
+                imageViews[11].setImage(ImageUtils.HackerTheme.BETS_LOG);
             }
             case SLATE -> {
                 scene.getStylesheets().add(slateTheme);
-                imageViews[2].setImage(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png"))));
+                imageViews[2].setImage(ImageUtils.HAND_GUESS_V2);
             }
             case ROSE -> scene.getStylesheets().add(roseTheme);
             default -> scene.getStylesheets().add(lightTheme);

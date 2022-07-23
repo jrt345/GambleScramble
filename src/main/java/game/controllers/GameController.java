@@ -1,11 +1,7 @@
 package game.controllers;
 
-import game.App;
 import game.games.*;
-import game.utils.GameData;
-import game.utils.GameUtils;
-import game.utils.NodeUtils;
-import game.utils.Theme;
+import game.utils.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,14 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
@@ -109,27 +103,12 @@ public class GameController implements Initializable {
     public void setGame(GameType game) {
         GameController.game = game;
 
-        Image coinToss = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/cointoss.png")),
-                60, 60, true, true);
-
-        Image diceRoll = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/diceroll.png")),
-                60, 60, true, true);
-
-        Image handGuess = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess.png")),
-                60, 60, true, true);
-
-        Image handGuessV2 = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/handguess-v2.png")),
-                60, 60, true, true);
-
-        Image rps = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/rockpaperscissors.png")),
-                60, 60, true, true);
-
         if (GameController.game == GameType.COINTOSS){
             title.setText("CoinToss");
             details.setText("Odds: 1:2, Payout: 2x");
             prompt.setText("Heads or Tails?");
-            leftImage.setImage(coinToss);
-            rightImage.setImage(coinToss);
+            leftImage.setImage(ImageUtils.CoinTossImages.LOGO);
+            rightImage.setImage(ImageUtils.CoinTossImages.LOGO);
             betInputWarning.setText("");
 
             optionsChoiceBox.getItems().add("Heads");
@@ -141,8 +120,8 @@ public class GameController implements Initializable {
             title.setText("DiceRoll");
             details.setText("Odds: 1:6, Payout: 5x");
             prompt.setText("Choose a number between 1-6");
-            leftImage.setImage(diceRoll);
-            rightImage.setImage(diceRoll);
+            leftImage.setImage(ImageUtils.DiceRollImages.LOGO);
+            rightImage.setImage(ImageUtils.DiceRollImages.LOGO);
             betInputWarning.setText("");
 
             setNumericalGameChoices(optionsChoiceBox,1,6);
@@ -156,11 +135,11 @@ public class GameController implements Initializable {
             prompt.setText("Choose a number between 0-10");
 
             if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE){
-                leftImage.setImage(handGuessV2);
-                rightImage.setImage(handGuessV2);
+                leftImage.setImage(ImageUtils.HandGuessImages.DarkTheme.LOGO);
+                rightImage.setImage(ImageUtils.HandGuessImages.DarkTheme.LOGO);
             } else {
-                leftImage.setImage(handGuess);
-                rightImage.setImage(handGuess);
+                leftImage.setImage(ImageUtils.HandGuessImages.LOGO);
+                rightImage.setImage(ImageUtils.HandGuessImages.LOGO);
             }
 
             betInputWarning.setText("");
@@ -175,8 +154,8 @@ public class GameController implements Initializable {
             title.setFont(Font.font("Trebuchet MS", FontWeight.BOLD, 33));
             details.setText("Odds: 1:2, Payout: 2x");
             prompt.setText("Rock, Paper, Scissors?!");
-            leftImage.setImage(rps);
-            rightImage.setImage(rps);
+            leftImage.setImage(ImageUtils.RockPaperScissors.LOGO);
+            rightImage.setImage(ImageUtils.RockPaperScissors.LOGO);
             betInputWarning.setText("");
 
             optionsChoiceBox.getItems().add("Rock");
@@ -186,26 +165,22 @@ public class GameController implements Initializable {
         }
 
         if (Controller.getPlayer().getTheme() == Theme.HACKER) {
-            Image coinTossH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/cointoss.png")));
-            Image diceRollH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/diceroll.png")));
-            Image handGuessH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/handguess.png")));
-            Image rpsH = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/rockpaperscissors.png")));
 
             if (GameController.game == GameType.COINTOSS){
-                leftImage.setImage(coinTossH);
-                rightImage.setImage(coinTossH);
+                leftImage.setImage(ImageUtils.CoinTossImages.HackerTheme.LOGO);
+                rightImage.setImage(ImageUtils.CoinTossImages.HackerTheme.LOGO);
             }
             if (GameController.game == GameType.DICEROLL){
-                leftImage.setImage(diceRollH);
-                rightImage.setImage(diceRollH);
+                leftImage.setImage(ImageUtils.DiceRollImages.HackerTheme.LOGO);
+                rightImage.setImage(ImageUtils.DiceRollImages.HackerTheme.LOGO);
             }
             if (GameController.game == GameType.HANDGUESS){
-                leftImage.setImage(handGuessH);
-                rightImage.setImage(handGuessH);
+                leftImage.setImage(ImageUtils.HandGuessImages.HackerTheme.LOGO);
+                rightImage.setImage(ImageUtils.HandGuessImages.HackerTheme.LOGO);
             }
             if (GameController.game == GameType.ROCKPAPERSCISSORS){
-                leftImage.setImage(rpsH);
-                rightImage.setImage(rpsH);
+                leftImage.setImage(ImageUtils.RockPaperScissors.HackerTheme.LOGO);
+                rightImage.setImage(ImageUtils.RockPaperScissors.HackerTheme.LOGO);
             }
 
         }

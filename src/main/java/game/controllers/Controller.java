@@ -2,10 +2,7 @@ package game.controllers;
 
 import game.App;
 import game.games.GameType;
-import game.utils.GameUtils;
-import game.utils.NodeUtils;
-import game.utils.Player;
-import game.utils.ThemeUtils;
+import game.utils.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,14 +12,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -190,7 +185,7 @@ public class Controller implements Initializable {
         ThemeUtils.setSceneTheme(scene,  getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
+        stage.getIcons().add(ImageUtils.LOGO);
         stage.show();
     }
 

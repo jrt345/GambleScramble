@@ -54,9 +54,9 @@ public class OptionsController implements Initializable {
     @FXML
     private Button updateButton;
 
-    private static final Image blackExchangeArrows = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows.png")));
-    private static final Image whiteExchangeArrows = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/exchangeArrows-v2.png")));
-    private static final Image hackerThemeExchangeArrows = new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/hackertheme/exchangeArrows.png")));
+    private static final Image blackExchangeArrows = ImageUtils.BLACK_EXCHANGE_ARROWS;
+    private static final Image whiteExchangeArrows = ImageUtils.WHITE_EXCHANGE_ARROWS;
+    private static final Image hackerThemeExchangeArrows = ImageUtils.HackerTheme.EXCHANGE_ARROWS;
 
     private static final AudioClip exchangeSound = new AudioClip(Objects.requireNonNull(App.class.getResource("sound/exchange.mp3")).toString());
 
@@ -135,7 +135,7 @@ public class OptionsController implements Initializable {
         ThemeUtils.setSceneTheme(scene, Controller.getImageViews());
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("images/gamblescramble/gamblescramble.png"))));
+        stage.getIcons().add(ImageUtils.LOGO);
         stage.show();
     }
 
