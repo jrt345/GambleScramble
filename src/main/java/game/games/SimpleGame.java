@@ -28,6 +28,7 @@ public abstract class SimpleGame implements Game {
 
     private int bet = 0;
     private String userOption;
+    private String computerOption;
 
     protected abstract void play() throws IOException;
 
@@ -137,5 +138,13 @@ public abstract class SimpleGame implements Game {
 
     public void setUserOption(String userOption) {
         this.userOption = userOption;
+    }
+
+    public String getComputerOption() {
+        return computerOption;
+    }
+
+    public void setComputerOption(String computerOption) {
+        this.computerOption = computerOption;
     }
 }

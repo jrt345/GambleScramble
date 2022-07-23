@@ -48,7 +48,7 @@ public class RockPaperScissors extends SimpleGame {
         GameData.serialize();
         GameUtils.refreshData();
 
-        String computerOption = getRandomOption();
+        setComputerOption(getRandomOption());
 
         Image[] images = {
                 ImageUtils.RockPaperScissors.ROCK,
@@ -62,22 +62,22 @@ public class RockPaperScissors extends SimpleGame {
                 ImageUtils.RockPaperScissors.HackerTheme.SCISSORS
         };
 
-        while (getUserOption().equals(computerOption)){
+        while (getUserOption().equals(getComputerOption())){
             GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
             if (Controller.getPlayer().getTheme() == Theme.HACKER){
-                showOutcome(computerOption + ". It's a Tie! We'll go again!",
-                        GameUtils.imageSetter(OPTIONS, computerOption, imagesH));
+                showOutcome(getComputerOption() + ". It's a Tie! We'll go again!",
+                        GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesH));
             } else {
-                showOutcome(computerOption + ". It's a Tie! We'll go again!",
-                        GameUtils.imageSetter(OPTIONS, computerOption, images));
+                showOutcome(getComputerOption() + ". It's a Tie! We'll go again!",
+                        GameUtils.imageSetter(OPTIONS, getComputerOption(), images));
             }
 
 
-            computerOption = getRandomOption();
+            setComputerOption(getRandomOption());
         }
 
-        int outcome = getOutcome(computerOption);
+        int outcome = getOutcome(getComputerOption());
 
         if (outcome > 0){
             GameUtils.updateBalance(outcome);
@@ -87,19 +87,19 @@ public class RockPaperScissors extends SimpleGame {
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesH);
+            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesH);
         } else {
-            image = GameUtils.imageSetter(OPTIONS, computerOption, images);
+            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), images);
         }
 
         GameUtils.playGameSound(GameType.ROCKPAPERSCISSORS);
 
         if (outcome > 0) {
-            showOutcome(computerOption + ". You win! You won: +"
+            showOutcome(getComputerOption() + ". You win! You won: +"
                             + Controller.getPlayer().getCurrency().getSymbol()
                             + outcome, image);
         } else {
-            showOutcome(computerOption + ". You lose! You lost: -"
+            showOutcome(getComputerOption() + ". You lose! You lost: -"
                             + Controller.getPlayer().getCurrency().getSymbol()
                             + outcome*-1, image);
         }

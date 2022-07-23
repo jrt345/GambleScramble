@@ -37,9 +37,9 @@ public class HandGuess extends SimpleGame {
         GameData.serialize();
         GameUtils.refreshData();
 
-        String computerOption = getRandomOption();
+        setComputerOption(getRandomOption());
 
-        int outcome = getOutcome(computerOption);
+        int outcome = getOutcome(getComputerOption());
 
         if (outcome > 0){
             GameUtils.updateBalance(outcome);
@@ -92,18 +92,18 @@ public class HandGuess extends SimpleGame {
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesH);
+            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesH);
         } else if (Controller.getPlayer().getTheme() == Theme.DARK || Controller.getPlayer().getTheme() == Theme.SLATE) {
-            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesD);
+            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesD);
 
         } else {
-            image = GameUtils.imageSetter(OPTIONS, computerOption, images);
+            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), images);
         }
 
-        if (getUserOption().equals(computerOption)) {
-            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, true, outcome), image);
+        if (getUserOption().equals(getComputerOption())) {
+            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), true, outcome), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, computerOption, false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.HANDGUESS, getComputerOption(), false, outcome), image);
         }
 
         GameData.serialize();

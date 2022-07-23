@@ -35,9 +35,9 @@ public class CoinToss extends SimpleGame {
         GameData.serialize();
         GameUtils.refreshData();
 
-        String computerOption = getRandomOption();
+        setComputerOption(getRandomOption());
 
-        int outcome = getOutcome(computerOption);
+        int outcome = getOutcome(getComputerOption());
 
         if (outcome > 0) {
             GameUtils.updateBalance(outcome);
@@ -51,15 +51,15 @@ public class CoinToss extends SimpleGame {
 
         Image image;
         if (Controller.getPlayer().getTheme() == Theme.HACKER){
-            image = GameUtils.imageSetter(OPTIONS, computerOption, imagesH);
+            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), imagesH);
         } else {
-            image = GameUtils.imageSetter(OPTIONS, computerOption, images);
+            image = GameUtils.imageSetter(OPTIONS, getComputerOption(), images);
         }
 
-        if (getUserOption().equals(computerOption)) {
-            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, true, outcome), image);
+        if (getUserOption().equals(getComputerOption())) {
+            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), true, outcome), image);
         } else {
-            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, computerOption, false, outcome), image);
+            showOutcome(GameUtils.outcomeSetter(GameType.COINTOSS, getComputerOption(), false, outcome), image);
         }
 
         GameData.serialize();
