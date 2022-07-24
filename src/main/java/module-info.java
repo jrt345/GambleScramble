@@ -11,4 +11,6 @@ module game {
     exports game.games;
     opens game.controllers to javafx.fxml;
     exports game.controllers;
+    exports game.games.scratchoff;
+    opens game.games.scratchoff to javafx.fxml;
 }
