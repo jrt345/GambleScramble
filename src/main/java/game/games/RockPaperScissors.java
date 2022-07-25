@@ -12,7 +12,7 @@ import javafx.scene.media.AudioClip;
 import java.io.IOException;
 import java.util.Objects;
 
-public class RockPaperScissors extends SimpleGame {
+public final class RockPaperScissors extends SimpleGame {
 
     private static final int MULTIPLIER = 2;
     private static final String[] OPTIONS = {"Rock", "Paper", "Scissors"};

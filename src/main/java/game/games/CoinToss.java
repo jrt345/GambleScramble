@@ -12,7 +12,7 @@ import javafx.scene.media.AudioClip;
 import java.io.IOException;
 import java.util.Objects;
 
-public class CoinToss extends SimpleGame {
+public final class CoinToss extends SimpleGame {
 
     private static final int MULTIPLIER = 2;
     private static final String[] OPTIONS = {"Heads", "Tails"};

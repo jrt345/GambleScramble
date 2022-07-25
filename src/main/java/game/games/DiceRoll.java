@@ -12,7 +12,7 @@ import javafx.scene.media.AudioClip;
 import java.io.IOException;
 import java.util.Objects;
 
-public class DiceRoll extends SimpleGame {
+public final class DiceRoll extends SimpleGame {
 
     private static final int MULTIPLIER = 5;
     private static final String[] OPTIONS = {"1","2","3","4","5","6"};

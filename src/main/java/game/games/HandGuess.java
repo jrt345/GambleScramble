@@ -12,7 +12,7 @@ import javafx.scene.media.AudioClip;
 import java.io.IOException;
 import java.util.Objects;
 
-public class HandGuess extends SimpleGame {
+public final class HandGuess extends SimpleGame {
 
     private static final int MULTIPLIER = 10;
     private static final String[] OPTIONS = {"0","1","2","3","4","5","6","7","8","9","10"};
